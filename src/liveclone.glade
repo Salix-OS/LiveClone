@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkWindow" id="liveclone_main">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">LiveClone</property>
+    <property name="window_position">center</property>
+    <property name="icon_name">liveclone</property>
+    <property name="gravity">center</property>
+    <signal name="destroy" handler="gtk_main_quit"/>
+    <child>
+      <object class="GtkVBox" id="vbox_main">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkHBox" id="hbox_intro">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkButton" id="about_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_about_button_clicked"/>
+                <child>
+                  <object class="GtkImage" id="image_liveclone">
+                    <property name="visible">True</property>
+                    <property name="xpad">15</property>
+                    <property name="ypad">15</property>
+                    <property name="pixbuf">liveclone.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="intro_label">
+                <property name="visible">True</property>
+                <property name="xpad">3</property>
+                <property name="ypad">3</property>
+                <property name="label" translatable="yes">&lt;b&gt;LiveClone will generate a LiveCD or LiveUSB, based on SalixLive or your modified running environment, with or without persistent changes.&lt;/b&gt; </property>
+                <property name="use_markup">True</property>
+                <property name="wrap">True</property>
+                <property name="width_chars">38</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook" id="notebook1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkVBox" id="vbox1">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkHBox" id="hbox1">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkLabel" id="label4">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">Please enter the name of your LiveCD.</property>
+                        <property name="ypad">20</property>
+                        <property name="label" translatable="yes">Name of the new LiveCD:</property>
+                        <property name="justify">right</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">5</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="cdrom_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Please enter the name of your LiveCD.</property>
+                        <property name="text" translatable="yes">MyLiveCD</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHBox" id="hbox2">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkLabel" id="label5">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">This is the work directory where your LiveCD iso will be created &amp; where you will be able to retrieve it.
+
+The free space available should be more than twice the size of your future LiveCD.
+
+It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!</property>
+                        <property name="label" translatable="yes">Work directory:</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">5</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFileChooserButton" id="cdworkdir">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">This is the work directory where your LiveCD iso will be created &amp; where you will be able to retrieve it.
+
+The free space available should be more than twice the size of your future LiveCD.
+
+It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!</property>
+                        <property name="action">select-folder</property>
+                        <property name="title" translatable="yes">Select a directory</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHSeparator" id="hseparator1">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHButtonBox" id="hbuttonbox1">
+                    <property name="visible">True</property>
+                    <property name="homogeneous">True</property>
+                    <property name="layout_style">end</property>
+                    <child>
+                      <object class="GtkButton" id="cdrom_apply_button">
+                        <property name="label" translatable="yes">gtk-execute</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="tooltip_text" translatable="yes">Click on this button  once all your settings have been defined.
+
+You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.
+
+At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD.</property>
+                        <property name="use_stock">True</property>
+                        <signal name="clicked" handler="on_cdrom_apply_button_clicked"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="button2">
+                        <property name="label" translatable="yes">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="tooltip_text" translatable="yes">Exit LiveClone.</property>
+                        <property name="use_stock">True</property>
+                        <signal name="clicked" handler="on_main_window_destroy"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="tab_expand">True</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="label2">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Click on this tab if you want to create a LiveCD.</property>
+                <property name="label" translatable="yes">CD-ROM</property>
+              </object>
+              <packing>
+                <property name="tab_expand">True</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkVBox" id="vbox2">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkHBox" id="hbox3">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkLabel" id="label6">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">Please enter the name of your LiveUSB.</property>
+                        <property name="label" translatable="yes">Name of the Live USB key:</property>
+                        <property name="justify">right</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">5</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="usb_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Please enter the name of your LiveUSB.</property>
+                        <property name="text" translatable="yes">MyLiveUSB</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHBox" id="hbox4">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkCheckButton" id="unmodified_check">
+                        <property name="label" translatable="yes">Use unmodified LiveCD</property>
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Check this option if you want to clone your running unmodified LiveCD to a LiveUSB. (This option is only available if LiveClone is executed from a LiveCD.)</property>
+                        <property name="draw_indicator">True</property>
+                        <signal name="toggled" handler="on_unmodified_check_toggled"/>
+                      </object>
+                      <packing>
+                        <property name="padding">3</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="running_environment_check">
+                        <property name="label" translatable="yes">Use running environment</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Check this option if you want to clone your running personnalized environment to a LiveUSB. </property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                        <signal name="toggled" handler="on_running_environment_check_toggled"/>
+                      </object>
+                      <packing>
+                        <property name="pack_type">end</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHBox" id="hbox6">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkCheckButton" id="check_persistence">
+                        <property name="label" translatable="yes">Use persistence</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Check this option if you want your LiveUSB to be able to record all changes &amp; datas from Live cessions (Just like a regular installed system).</property>
+                        <property name="draw_indicator">True</property>
+                        <signal name="toggled" handler="on_check_persistence_toggled"/>
+                      </object>
+                      <packing>
+                        <property name="padding">3</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="size_label">
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="tooltip_text" translatable="yes">Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)</property>
+                        <property name="label" translatable="yes">Size of the persistent file (in Mb):</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="padding">3</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="persist_size">
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)</property>
+                        <property name="invisible_char">&#x25CF;</property>
+                        <property name="width_chars">4</property>
+                        <property name="text" translatable="yes">128</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHBox" id="hbox5">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkLabel" id="label7">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">This is the path to your USB key. Please note that all datas present on it will be erased before LiveClone is installed on it. </property>
+                        <property name="label" translatable="yes">Path to USB key:</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">5</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFileChooserButton" id="usbworkdir">
+                        <property name="visible">True</property>
+                        <property name="tooltip_text" translatable="yes">This is the path to your USB key. Please note that all datas present on it will be erased before LiveClone is installed on it. </property>
+                        <property name="action">select-folder</property>
+                        <property name="title" translatable="yes">Select a directory</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHSeparator" id="hseparator2">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkHButtonBox" id="hbuttonbox2">
+                    <property name="visible">True</property>
+                    <property name="homogeneous">True</property>
+                    <property name="layout_style">end</property>
+                    <child>
+                      <object class="GtkButton" id="usb_apply_button">
+                        <property name="label" translatable="yes">gtk-execute</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="tooltip_text" translatable="yes">Click on this button  once all your settings have been defined.
+
+You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.
+
+At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveUSB.</property>
+                        <property name="use_stock">True</property>
+                        <signal name="clicked" handler="on_usb_apply_button_clicked"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="button4">
+                        <property name="label" translatable="yes">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="tooltip_text" translatable="yes">Exit LiveClone.</property>
+                        <property name="use_stock">True</property>
+                        <signal name="clicked" handler="on_main_window_destroy"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_expand">True</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="label3">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Click on this tab if you want to create a LiveUSB.</property>
+                <property name="label" translatable="yes">USB Key</property>
+                <property name="justify">fill</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_expand">True</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="about_dialog">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">About LiveClone</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon">liveclone.png</property>
+    <property name="icon_name">liveclone</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="has_separator">False</property>
+    <property name="program_name">LiveClone</property>
+    <property name="version">0.5</property>
+    <property name="copyright" translatable="yes">This utility will clone a LiveCD or your running 
+environment to a LiveCD or a USB key.
+
+Copyright &#xA9; 2007-2010 Pierrick Le Brun</property>
+    <property name="license" translatable="yes">This program is free software; you can redistribute it 
+and/or modify it under the terms of the GNU General
+Public License as published by the Free Software 
+Foundation; either version 2 of the License, or (at your 
+option) any later version.
+
+This program is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General 
+Public License for more details.
+
+You should have received a copy of the GNU General 
+Public License along with this program; if not, write to 
+the Free Software Foundation, Inc., 51 Franklin Street, 
+Fifth Floor, Boston, MA 02110-1301, USA.</property>
+    <property name="authors">Pierrick Le Brun &lt;akuna at free.fr&gt;</property>
+    <property name="logo">liveclone.png</property>
+    <property name="logo_icon_name">liveclone</property>
+    <property name="wrap_license">True</property>
+    <signal name="response" handler="on_about_dialog_close"/>
+    <signal name="delete_event" handler="on_about_dialog_close"/>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox2">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area2">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkDialog" id="progress_dialog">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">LiveClone</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center-always</property>
+    <property name="icon_name">liveclone</property>
+    <property name="type_hint">normal</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="deletable">False</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="xpad">10</property>
+            <property name="label" translatable="yes">
+&lt;b&gt;Creating a LiveClone&lt;/b&gt;
+
+Please be patient while your LiveClone is generated... 
+This could be quite long depending on the size of your 
+project or the power of your computer and it may even
+result in an apparent lack of activity for awhile.  
+</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkProgressBar" id="progressbar1">
+            <property name="visible">True</property>
+            <property name="fraction">0.10000000000000001</property>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area3">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
