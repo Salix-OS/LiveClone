@@ -71,9 +71,11 @@ class LiveClone:
         self.progress_dialog = builder.get_object("progress_dialog")
         self.progress_bar = builder.get_object("progressbar1")
         self.cdworkdir_chooser = builder.get_object("cdworkdir")
+        self.cdworkdir_chooser.set_current_folder('/mnt')
         self.cdrom_apply_button = builder.get_object("cdrom_apply_button")
         self.livecd_label = builder.get_object("cdrom_label")
         self.usbworkdir_chooser = builder.get_object("usbworkdir")
+        self.usbworkdir_chooser.set_current_folder('/media')
         self.usb_apply_button = builder.get_object("usb_apply_button")
         self.liveusb_label = builder.get_object("usb_label")
         self.unmodified_check = builder.get_object("unmodified_check")
@@ -81,9 +83,16 @@ class LiveClone:
         self.use_persistence = builder.get_object("check_persistence")
         self.persistence_size_label = builder.get_object("size_label")
         self.persistence_size = builder.get_object("persist_size")
+        self.context_help_label = builder.get_object("context_help_label")
 
         # Connect signals
         builder.connect_signals(self)
+
+        # Initialize the contextual help box
+        global context_intro
+        context_intro = _("LiveClone will generate a LiveCD or LiveUSB, based on \
+SalixLive or your running environment, with or without persistent changes.")
+        self.context_help_label.set_markup(context_intro)
 
         def initialize_checkboxes():
             """
@@ -93,7 +102,6 @@ class LiveClone:
                 self.unmodified_check.set_sensitive(True)
             else :
                 pass
-
 
         initialize_checkboxes()
 
@@ -108,7 +116,7 @@ class LiveClone:
                 # there's more work, return True
                 yield True
 
-                # First we prepare the working directory & we populate the LiveCD skeleton
+                # First we prepare the working directory & we populate the LiveCD/USB skeleton
                 os.makedirs(live_workdir + "/salixlive/base")
                 os.makedirs(live_workdir + "/salixlive/modules")
                 os.makedirs(live_workdir + "/salixlive/optional")
@@ -121,18 +129,18 @@ class LiveClone:
                 # there's more work, return True
                 yield True
 
-                # Let's check if we are in a Live environment or not
+                # We check if we are in a Live environment or not
                 if os.path.exists("/mnt/live/memory/changes") is True :
                     # we are in a LiveCD environment
                     os.chmod("/etc/rc.d/rc.live", 0744)
                     shutil.copytree("/boot", live_workdir + "/boot", symlinks=False)
                 else :
-                    # we are not in a LiveCD environment
-                    # first we need to fetch the needed modified files to use for the live device we are creating
+                    # We are not in a LiveCD environment
+                    # First we need to fetch the needed modified files to use for the live device we are creating
                     shutil.copytree("/usr/share/salixlive/moded/etc", live_workdir + "/salixlive/rootcopy/etc", symlinks=False)
-                    # then rc.live will have to be blacklisted from the service list
+                    # Then rc.live will have to be blacklisted from the service list
                     pass
-                    # finally we need to add the live boot files (kernel + initrd)
+                    # Finally we need to add the live boot files (kernel + initrd)
                     pass
 
                 self.progress_bar.set_text("LiveClone in progress...")
@@ -142,7 +150,7 @@ class LiveClone:
                 # Better clear /var/packages
                 subprocess.call("rm -rf /var/packages/*", shell=True)
 
-                # In case the user wants to use SalixLive unmodified:
+                # The user may want to use SalixLive unmodified:
                 if self.unmodified_check.get_active() == 1 :
                         # Creating the persistent file
                         if self.use_persistence.get_active() == 1 :
@@ -158,12 +166,12 @@ class LiveClone:
                         yield True
                         subprocess.call("cp /mnt/live/mnt/*/salixlive/base/* " + live_workdir + "/salixlive/base/", shell=True)
 
+                # Else we build LiveClone main module out of the running environment
                 else :
                         self.progress_bar.set_text(_("Creating Module..."))
                         self.progress_bar.set_fraction(0.8)
                         # there's more work, return True
 
-                        # Else we build LiveClone main module out of the running environment
                         os.makedirs(live_workdir + "/salixlive/rootcopy/media")
                         subprocess.call("mksquashfs /bin /etc /home /lib /root /sbin /usr /var " + live_workdir + "/salixlive/base/01-clone.lzm -keep-as-directory -b 256K -lzmadic 256K", shell=True)
                         os.chmod(live_workdir + "/salixlive/base/01-clone.lzm", 0444)
@@ -202,6 +210,86 @@ class LiveClone:
 ### Callback signals waiting in a constant loop: ###
 
 ### WINDOWS MAIN SIGNALS ###
+
+    # Contextual help:
+    def on_about_button_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("About LiveClone."))
+    def on_about_button_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_cd_tab_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Click on this tab if you want to create a LiveCD."))
+    def on_cd_tab_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_usb_tab_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Click on this tab if you want to create a LiveUSB."))
+    def on_usb_tab_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_cdrom_label_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Please enter the name of your LiveCD."))
+    def on_cdrom_label_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_usb_label_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Please enter the name of your LiveUSB."))
+    def on_usb_label_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_choose_cdworkdir_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("This is the work directory where your LiveCD \
+iso will be created & where you will be able to retrieve it.\n\
+The free space available should be more than twice the size of your future LiveCD.\n\
+It should be located on a separate partition, an external hardrive or a USB key \
+but never -ever- in your home directory!"))
+    def on_choose_cdworkdir_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_choose_usbdir_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("This is the path to your USB key. \
+Please note that all data present on it will be erased before LiveClone is installed on it. "))
+    def on_choose_usbdir_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_unmodified_check_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Check this option if you want to clone \
+your running unmodified LiveCD to a LiveUSB. (This option is only available if \
+LiveClone is executed from a LiveCD.)"))
+    def on_unmodified_check_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_check_persistence_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Check this option if you want your LiveUSB to be \
+able to record all changes & data from Live cessions (Just like a regular installed system)."))
+    def on_check_persistence_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_running_environment_check_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Check this option if you want to clone your \
+running personnalized environment to a LiveUSB. "))
+    def on_running_environment_check_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_size_label_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Set the size of your persistence file (It should \
+be small enough to fit in your USB key will being large enough to fit as much data as possible)"))
+    def on_size_label_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_apply_button_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Click on this button  once all your \
+settings have been defined.\nYou will then need some patience as LiveClone creation \
+can be quite long depending on the power of your computer.\nAt the end of the process, \
+an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."))
+    def on_apply_button_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
+    def on_quit_button_enter_notify_event(self, widget, data=None):
+        self.context_help_label.set_text(_("Exit LiveClone."))
+    def on_quit_button_leave_notify_event(self, widget, data=None):
+        global context_intro
+        self.context_help_label.set_text(context_intro)
 
     # What to do when the exit X on the main window upper right is clicked
     def gtk_main_quit(self, widget, data=None):
