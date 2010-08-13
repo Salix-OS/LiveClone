@@ -5,7 +5,7 @@ cd $(dirname $0)
 mkdir -p pkg
 export DESTDIR=$PWD/pkg
 ./install.sh
-VER=$(grep 'version =' src/liveclone.py | head -n 1 | sed "s/.*'\(.*\)' - .*/\1/")
+VER=$(grep 'version =' src/liveclone.py | head -n 1 | sed "s/.*'\(.*\)'/\1/")
 cd pkg
 cat <<EOF > install/slack-desc
 liveclone: LiveClone - A simple GUI to clone Live systems.

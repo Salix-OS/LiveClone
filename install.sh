@@ -9,7 +9,9 @@ install -d -m 755 $DESTDIR/usr/share/icons/hicolor/24x24/apps
 install -d -m 755 $DESTDIR/usr/share/icons/hicolor/64x64/apps
 install -d -m 755 $DESTDIR/usr/share/icons/hicolor/128x128/apps
 install -d -m 755 $DESTDIR/usr/share/icons/hicolor/scalable/apps
-install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel
+install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/boot/syslinux
+install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/boot/isolinux
+install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/salixlive
 install -d -m 755 $DESTDIR/usr/share/liveclone/moded/etc/rc.d
 
 install -m 755 src/liveclone.py $DESTDIR/usr/sbin/liveclone.py
@@ -17,6 +19,8 @@ install -m 644 src/liveclone.glade \
 $DESTDIR/usr/share/liveclone
 install -m 644 src/liveclone.desktop \
 $DESTDIR/usr/share/applications/
+install -m 644 src/liveclone.png \
+$DESTDIR/usr/share/liveclone/
 install -m 644 icons/liveclone-24.png \
 $DESTDIR/usr/share/icons/hicolor/24x24/apps/liveclone.png
 install -m 644 icons/liveclone-64.png \
@@ -25,8 +29,19 @@ install -m 644 icons/liveclone-128.png \
 $DESTDIR/usr/share/icons/hicolor/128x128/apps/liveclone.png
 install -m 644 icons/liveclone.svg \
 $DESTDIR/usr/share/icons/hicolor/scalable/apps/
-install -m 644 src/liveclone.png \
-$DESTDIR/usr/share/liveclone/
+install -m 644 liveskel/boot/syslinux/syslinux.cfg \
+$DESTDIR/usr/share/liveclone/liveskel/boot/syslinux/
+install -m 644 liveskel/boot/isolinux/isolinux.cfg \
+$DESTDIR/usr/share/liveclone/liveskel/boot/isolinux/
+install -m 644 liveskel/boot/isolinux/isolinux.bin \
+$DESTDIR/usr/share/liveclone/liveskel/boot/isolinux/
+install -m 644 liveskel/boot/vesamenu.c32 \
+$DESTDIR/usr/share/liveclone/liveskel/boot/
+install -m 644 liveskel/salixlive/livecd.sgn \
+$DESTDIR/usr/share/liveclone/liveskel/salixlive/
+install -m 644 liveskel/salixlive/make_iso.sh \
+$DESTDIR/usr/share/liveclone/liveskel/salixlive/
+
 
 for i in `ls po/*.mo|sed "s|po/\(.*\).mo|\1|"`; do
 	install -d -m 755 $DESTDIR/usr/share/locale/${i}/LC_MESSAGES

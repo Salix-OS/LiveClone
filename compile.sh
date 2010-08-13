@@ -7,3 +7,8 @@ for i in `ls po/*.po`;do
 	msgfmt $i -o `echo $i |sed "s/.po//"`.mo
 done
 intltool-merge po/ -d -u src/liveclone.desktop.in src/liveclone.desktop
+check4po=`ls po`
+none=""
+if [ $check4po = $none ]; then
+	sed -i "s/Name=liveclone.desktop.in//" src/liveclone.desktop
+fi

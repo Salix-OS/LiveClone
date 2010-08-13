@@ -6,7 +6,7 @@
     <property name="visible">True</property>
     <property name="title" translatable="yes">LiveClone</property>
     <property name="window_position">center</property>
-    <property name="icon_name">liveclone</property>
+    <property name="icon">liveclone.png</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="gtk_main_quit"/>
     <child>
@@ -39,14 +39,17 @@
             </child>
             <child>
               <object class="GtkEventBox" id="context_eventbox">
+                <property name="width_request">400</property>
+                <property name="height_request">100</property>
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkLabel" id="context_help_label">
-                    <property name="width_request">360</property>
-                    <property name="height_request">80</property>
+                    <property name="width_request">380</property>
+                    <property name="height_request">90</property>
                     <property name="visible">True</property>
+                    <property name="xalign">0</property>
                     <property name="xpad">1</property>
-                    <property name="ypad">2</property>
+                    <property name="ypad">1</property>
                     <property name="use_markup">True</property>
                     <property name="wrap">True</property>
                     <property name="width_chars">38</property>
@@ -64,6 +67,7 @@
         </child>
         <child>
           <object class="GtkNotebook" id="notebook1">
+            <property name="height_request">300</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="homogeneous">True</property>
@@ -71,95 +75,153 @@
               <object class="GtkVBox" id="vbox1">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkHBox" id="hbox1">
+                  <object class="GtkVBox" id="vbox3">
                     <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkEventBox" id="name_cd_eventbox">
+                      <object class="GtkHBox" id="hbox7">
                         <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_cdrom_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_cdrom_label_enter_notify_event"/>
                         <child>
-                          <object class="GtkLabel" id="label4">
+                          <object class="GtkEventBox" id="name_cd_eventbox">
                             <property name="visible">True</property>
-                            <property name="ypad">20</property>
-                            <property name="label" translatable="yes">Name of the new LiveCD: </property>
-                            <property name="justify">right</property>
+                            <signal name="leave_notify_event" handler="on_cdrom_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_cdrom_label_enter_notify_event"/>
+                            <child>
+                              <object class="GtkLabel" id="label9">
+                                <property name="visible">True</property>
+                                <property name="ypad">20</property>
+                                <property name="label" translatable="yes">Name of the new LiveCD: </property>
+                                <property name="justify">right</property>
+                              </object>
+                            </child>
                           </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="cdrom_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="text" translatable="yes">MyLiveCD</property>
+                            <signal name="leave_notify_event" handler="on_cdrom_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_cdrom_label_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
                         </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="padding">10</property>
                         <property name="position">0</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="cdrom_label">
+                      <object class="GtkHBox" id="hbox2">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="text" translatable="yes">MyLiveCD</property>
-                        <signal name="leave_notify_event" handler="on_cdrom_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_cdrom_label_enter_notify_event"/>
+                        <child>
+                          <object class="GtkEventBox" id="choose_cdworkdir_eventbox">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_choose_cdworkdir_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_choose_cdworkdir_enter_notify_event"/>
+                            <child>
+                              <object class="GtkLabel" id="label5">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Work directory: </property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="choose_cdworkdir_eventbox2">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_choose_cdworkdir_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_choose_cdworkdir_enter_notify_event"/>
+                            <child>
+                              <object class="GtkFileChooserButton" id="cdworkdir">
+                                <property name="visible">True</property>
+                                <property name="action">select-folder</property>
+                                <property name="title" translatable="yes">Select a directory</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHBox" id="hbox9">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkLabel" id="label2">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Boot manager: </property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="isolinux_radiobutton">
+                            <property name="label" translatable="yes">Isolinux</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="draw_indicator">True</property>
+                            <property name="group">cd_grub_radiobutton</property>
+                            <signal name="leave_notify_event" handler="on_isolinux_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_isolinux_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="cd_grub_radiobutton">
+                            <property name="label" translatable="yes">Grub</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="active">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="leave_notify_event" handler="on_cd_grub_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_cd_grub_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="padding">20</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">25</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                   </object>
                   <packing>
                     <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHBox" id="hbox2">
-                    <property name="visible">True</property>
-                    <child>
-                      <object class="GtkEventBox" id="choose_cdworkdir_eventbox">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_choose_cdworkdir_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_choose_cdworkdir_enter_notify_event"/>
-                        <child>
-                          <object class="GtkLabel" id="label5">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Work directory: </property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEventBox" id="choose_cdworkdir_eventbox2">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_choose_cdworkdir_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_choose_cdworkdir_enter_notify_event"/>
-                        <child>
-                          <object class="GtkFileChooserButton" id="cdworkdir">
-                            <property name="visible">True</property>
-                            <property name="action">select-folder</property>
-                            <property name="title" translatable="yes">Select a directory</property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHSeparator" id="hseparator1">
-                    <property name="visible">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -203,7 +265,9 @@
                     </child>
                   </object>
                   <packing>
-                    <property name="position">3</property>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>
@@ -221,7 +285,7 @@
                 <child>
                   <object class="GtkLabel" id="cd_label">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">CD-ROM</property>
+                    <property name="label" translatable="yes">Iso Image</property>
                     <property name="selectable">True</property>
                   </object>
                 </child>
@@ -234,36 +298,260 @@
               <object class="GtkVBox" id="vbox2">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkHBox" id="hbox3">
+                  <object class="GtkVBox" id="vbox4">
                     <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="homogeneous">True</property>
                     <child>
-                      <object class="GtkEventBox" id="eventbox1">
+                      <object class="GtkHBox" id="hbox3">
                         <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_usb_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_usb_label_enter_notify_event"/>
                         <child>
-                          <object class="GtkLabel" id="label6">
+                          <object class="GtkEventBox" id="eventbox1">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Name of the Live USB key: </property>
-                            <property name="justify">right</property>
+                            <signal name="leave_notify_event" handler="on_usb_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_usb_label_enter_notify_event"/>
+                            <child>
+                              <object class="GtkLabel" id="label6">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Name of the Live USB key: </property>
+                                <property name="justify">right</property>
+                              </object>
+                            </child>
                           </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="usb_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="text" translatable="yes">MyLiveUSB</property>
+                            <signal name="leave_notify_event" handler="on_usb_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_usb_label_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
                         </child>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
                         <property name="position">0</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="usb_label">
+                      <object class="GtkHBox" id="hbox5">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="text" translatable="yes">MyLiveUSB</property>
-                        <signal name="leave_notify_event" handler="on_usb_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_usb_label_enter_notify_event"/>
+                        <child>
+                          <object class="GtkEventBox" id="eventbox2">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_choose_usbdir_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_choose_usbdir_enter_notify_event"/>
+                            <child>
+                              <object class="GtkLabel" id="label7">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Path to USB device: </property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="eventbox3">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_choose_usbdir_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_choose_usbdir_enter_notify_event"/>
+                            <child>
+                              <object class="GtkFileChooserButton" id="usbworkdir">
+                                <property name="visible">True</property>
+                                <property name="action">select-folder</property>
+                                <property name="title" translatable="yes">Select a directory</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHBox" id="hbox8">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkLabel" id="label3">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Boot manager: </property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="syslinux_radiobutton">
+                            <property name="label" translatable="yes">Syslinux</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="active">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="leave_notify_event" handler="on_syslinux_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_syslinux_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="grub_radiobutton">
+                            <property name="label" translatable="yes">Grub</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="draw_indicator">True</property>
+                            <property name="group">syslinux_radiobutton</property>
+                            <signal name="leave_notify_event" handler="on_grub_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_grub_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="padding">20</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHBox" id="hbox4">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkLabel" id="label8">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Based on: </property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="unmodified_radiobutton">
+                            <property name="label" translatable="yes">unmodified LiveCD</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="draw_indicator">True</property>
+                            <property name="group">running_environment_radiobutton</property>
+                            <signal name="leave_notify_event" handler="on_unmodified_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_unmodified_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="running_environment_radiobutton">
+                            <property name="label" translatable="yes">running environment</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="active">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="leave_notify_event" handler="on_running_environment_radiobutton_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_running_environment_radiobutton_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="padding">20</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkHBox" id="hbox6">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkEventBox" id="eventbox5">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_check_persistence_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_check_persistence_enter_notify_event"/>
+                            <child>
+                              <object class="GtkCheckButton" id="check_persistence">
+                                <property name="label" translatable="yes">Use persistence</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                                <signal name="toggled" handler="on_check_persistence_toggled"/>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="eventbox7">
+                            <property name="visible">True</property>
+                            <signal name="leave_notify_event" handler="on_size_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_size_label_enter_notify_event"/>
+                            <child>
+                              <object class="GtkLabel" id="size_label">
+                                <property name="visible">True</property>
+                                <property name="sensitive">False</property>
+                                <property name="label" translatable="yes">Size of the persistent file (in Mb): </property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="persist_size">
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="width_chars">4</property>
+                            <property name="text" translatable="yes">128</property>
+                            <signal name="leave_notify_event" handler="on_size_label_leave_notify_event"/>
+                            <signal name="enter_notify_event" handler="on_size_label_enter_notify_event"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>
@@ -272,175 +560,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkHBox" id="hbox4">
-                    <property name="visible">True</property>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox4">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_unmodified_check_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_unmodified_check_enter_notify_event"/>
-                        <child>
-                          <object class="GtkCheckButton" id="unmodified_check">
-                            <property name="label" translatable="yes">Use unmodified LiveCD</property>
-                            <property name="visible">True</property>
-                            <property name="sensitive">False</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="draw_indicator">True</property>
-                            <signal name="toggled" handler="on_unmodified_check_toggled"/>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox6">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_running_environment_check_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_running_environment_check_enter_notify_event"/>
-                        <child>
-                          <object class="GtkCheckButton" id="running_environment_check">
-                            <property name="label" translatable="yes">Use running environment</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="xalign">1</property>
-                            <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <signal name="toggled" handler="on_running_environment_check_toggled"/>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHBox" id="hbox6">
-                    <property name="visible">True</property>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox5">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_check_persistence_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_check_persistence_enter_notify_event"/>
-                        <child>
-                          <object class="GtkCheckButton" id="check_persistence">
-                            <property name="label" translatable="yes">Use persistence</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="draw_indicator">True</property>
-                            <signal name="toggled" handler="on_check_persistence_toggled"/>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox7">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_size_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_size_label_enter_notify_event"/>
-                        <child>
-                          <object class="GtkLabel" id="size_label">
-                            <property name="visible">True</property>
-                            <property name="sensitive">False</property>
-                            <property name="label" translatable="yes">Size of the persistent file (in Mb): </property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEntry" id="persist_size">
-                        <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">True</property>
-                        <property name="invisible_char">&#x25CF;</property>
-                        <property name="width_chars">4</property>
-                        <property name="text" translatable="yes">128</property>
-                        <signal name="leave_notify_event" handler="on_size_label_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_size_label_enter_notify_event"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHBox" id="hbox5">
-                    <property name="visible">True</property>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox2">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_choose_usbdir_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_choose_usbdir_enter_notify_event"/>
-                        <child>
-                          <object class="GtkLabel" id="label7">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Path to USB key: </property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEventBox" id="eventbox3">
-                        <property name="visible">True</property>
-                        <signal name="leave_notify_event" handler="on_choose_usbdir_leave_notify_event"/>
-                        <signal name="enter_notify_event" handler="on_choose_usbdir_enter_notify_event"/>
-                        <child>
-                          <object class="GtkFileChooserButton" id="usbworkdir">
-                            <property name="visible">True</property>
-                            <property name="action">select-folder</property>
-                            <property name="title" translatable="yes">Select a directory</property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHSeparator" id="hseparator2">
-                    <property name="visible">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkHButtonBox" id="hbuttonbox2">
                     <property name="visible">True</property>
-                    <property name="homogeneous">True</property>
                     <property name="layout_style">end</property>
                     <child>
                       <object class="GtkButton" id="usb_apply_button">
@@ -478,7 +599,9 @@
                     </child>
                   </object>
                   <packing>
-                    <property name="position">5</property>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>
@@ -580,7 +703,7 @@ Fifth Floor, Boston, MA 02110-1301, USA.</property>
     <property name="title" translatable="yes">LiveClone</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
-    <property name="icon_name">liveclone</property>
+    <property name="icon">liveclone.png</property>
     <property name="type_hint">normal</property>
     <property name="skip_taskbar_hint">True</property>
     <property name="deletable">False</property>
