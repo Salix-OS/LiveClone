@@ -110,7 +110,8 @@ SalixLive or on your running environment, with or without persistent changes.")
                 pass
 
         initialize_checkboxes()
-
+        self.persistence_size.set_value(256)
+        self.persistence_size.set_sensitive(False)
 ### Callback signals waiting in a constant loop: ###
 
 ### WINDOWS MAIN SIGNALS ###
@@ -321,7 +322,7 @@ an information dialog will let you know if LiveClone succeeded or failed to crea
                 usb_device = commands.getoutput(usb_device_cli)
                 subprocess.call("umount " + live_workdir, shell=True)
                 # Format the partition
-                subprocess.call("mkdosfs -F 16 -n " + liveclone_name + " " + usb_device, shell=True)
+                subprocess.call("mkdosfs -F 32 -n " + liveclone_name + " " + usb_device, shell=True)
                 if usb_device[-2:].isdigit() is True : # Highly unprobable but we never know...
                     usb_dev_root = usb_device[:-2]
                     usb_dev_part = usb_device[-2:]
