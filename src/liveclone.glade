@@ -419,7 +419,6 @@
                           <object class="GtkRadioButton" id="grub_radiobutton">
                             <property name="label" translatable="yes">Grub</property>
                             <property name="visible">True</property>
-                            <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="draw_indicator">True</property>
@@ -653,7 +652,7 @@
     <property name="skip_taskbar_hint">True</property>
     <property name="has_separator">False</property>
     <property name="program_name">LiveClone</property>
-    <property name="version">0.5</property>
+    <property name="version">0.6</property>
     <property name="copyright" translatable="yes">This utility will clone a LiveCD or your running 
 environment to a LiveCD or a USB key.
 
@@ -674,9 +673,9 @@ You should have received a copy of the GNU General
 Public License along with this program; if not, write to 
 the Free Software Foundation, Inc., 51 Franklin Street, 
 Fifth Floor, Boston, MA 02110-1301, USA.</property>
-    <property name="authors">Pierrick Le Brun &lt;akuna at free.fr&gt;</property>
+    <property name="authors">Pierrick Le Brun &lt;akuna~at~free~dot~fr&gt;</property>
+    <property name="translator_credits" translatable="yes">Salix OS Transifex Team</property>
     <property name="logo">liveclone.png</property>
-    <property name="logo_icon_name">liveclone</property>
     <property name="wrap_license">True</property>
     <signal name="response" handler="on_about_dialog_close"/>
     <signal name="delete_event" handler="on_about_dialog_close"/>

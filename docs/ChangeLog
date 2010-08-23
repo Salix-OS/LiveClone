@@ -1,3 +1,10 @@
-version 0.1
+version 0.6
+ * Fixed Grub2
+ * Translation in French
+
+version 0.5
  * First release of LiveClone for SalixLive 13.1
- * Translations in French.
+ * Adapted ZenLive version 0.4.5 to Salix environment.
+ * Modified logo
+ * Migrated from libglade to gtkbuilder
+ * Improved contextual Help
