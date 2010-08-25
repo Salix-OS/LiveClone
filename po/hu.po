@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: LiveClone\n"
@@ -17,9 +17,7 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: src/liveclone.glade:7
-#: src/liveclone.glade:702
-#: src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -35,13 +33,11 @@ msgstr "MyLiveCD"
 msgid "Work directory: "
 msgstr "Munkakönyvtár:"
 
-#: src/liveclone.glade:154
-#: src/liveclone.glade:373
+#: src/liveclone.glade:154 src/liveclone.glade:373
 msgid "Select a directory"
 msgstr "Váalasszon könyvtárat"
 
-#: src/liveclone.glade:176
-#: src/liveclone.glade:395
+#: src/liveclone.glade:176 src/liveclone.glade:395
 msgid "Boot manager: "
 msgstr "Betöltéskezelő:"
 
@@ -49,18 +45,15 @@ msgstr "Betöltéskezelő:"
 msgid "Isolinux"
 msgstr "Isolinux"
 
-#: src/liveclone.glade:201
-#: src/liveclone.glade:420
+#: src/liveclone.glade:201 src/liveclone.glade:420
 msgid "Grub"
 msgstr "Grub"
 
-#: src/liveclone.glade:234
-#: src/liveclone.glade:567
+#: src/liveclone.glade:234 src/liveclone.glade:567
 msgid "gtk-execute"
 msgstr "gtk-execute"
 
-#: src/liveclone.glade:251
-#: src/liveclone.glade:583
+#: src/liveclone.glade:251 src/liveclone.glade:583
 msgid "gtk-quit"
 msgstr "gtk-quit"
 
@@ -98,11 +91,11 @@ msgstr "futtató környezet"
 
 #: src/liveclone.glade:503
 msgid "Use persistence"
-msgstr ""
+msgstr "\"Tartós beállítások\" használata"
 
 #: src/liveclone.glade:525
 msgid "Size of the persistent file (in Mb): "
-msgstr ""
+msgstr "\"Tartós beállítások\" fájl mérete (Mb-ban):"
 
 #: src/liveclone.glade:622
 msgid "USB Key"
@@ -119,6 +112,10 @@ msgid ""
 "\n"
 "Copyright © 2007-2010 Pierrick Le Brun"
 msgstr ""
+"A segédprogram másolatot csinál a LiveCD-ről vagy\n"
+"a saját futtatókörnyezetéről LiveCD-re vagy USB kulcsra.\n"
+"\n"
+"Copyright © 2007-2010 Pierrick Le Brun"
 
 #: src/liveclone.glade:660
 msgid ""
@@ -199,16 +196,15 @@ msgstr ""
 
 #: src/liveclone.py:176
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
-msgstr ""
+msgstr "Válassza ezt az opciót ha a <b>Syslinux</b> betöltés-kezelőt szeretné használni."
 
-#: src/liveclone.py:182
-#: src/liveclone.py:194
+#: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
-msgstr ""
+msgstr "Válassza ezt az opciót ha a <b>GRUB</b> betöltés-kezelőt szeretné használni."
 
 #: src/liveclone.py:188
 msgid "Choose this option if you want to use <b>Isolinux</b> as your boot manager."
-msgstr ""
+msgstr "Válassza ezt az opciót ha az <b>Isolinux</b> betöltés-kezelőt szeretné használni."
 
 #: src/liveclone.py:200
 msgid "Check this option if you want your LiveUSB to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
@@ -247,7 +243,7 @@ msgstr ""
 
 #: src/liveclone.py:290
 msgid "Would you like to personnalize Isolinux boot menu?"
-msgstr ""
+msgstr "Szeretné testreszabni az Isolinux betöltő menüjét?"
 
 #: src/liveclone.py:332
 msgid ""
@@ -276,8 +272,7 @@ msgid ""
 "Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
 
-#: src/liveclone.py:414
-#: src/liveclone.py:442
+#: src/liveclone.py:414 src/liveclone.py:442
 msgid "LiveClone in progress..."
 msgstr "LiveClone folyamatban..."
 
@@ -346,4 +341,3 @@ msgstr "LiveCD vagy LiveUSB készítése a SalixLive alapján vagy saját futtat
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "LiveClone segédprogram"
-
