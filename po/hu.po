@@ -188,7 +188,7 @@ msgstr ""
 
 #: src/liveclone.py:163
 msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
-msgstr ""
+msgstr "Ez az USB kulcs útvonala. Figyelem, minden adat ami az eszközön van törlődni fog a LiveClone telepítésekor."
 
 #: src/liveclone.py:169
 msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key. (This option is only available if LiveClone is executed from a LiveCD.)"
@@ -251,10 +251,13 @@ msgid ""
 " \n"
 "Are you sure you want to continue?"
 msgstr ""
+"Minden adat véglegesen törlődni fog az USB kulcsról!\n"
+"\n"
+"Valóban folytatni szeretné?"
 
 #: src/liveclone.py:361
 msgid "Would you like to personnalize Syslinux boot menu?"
-msgstr ""
+msgstr "Szeretné személyre szabni a Syslinux betöltő menüjét?"
 
 #: src/liveclone.py:387
 msgid ""
@@ -282,7 +285,7 @@ msgstr ""
 
 #: src/liveclone.py:452
 msgid "Creating persistent file..."
-msgstr ""
+msgstr "\"Tartós beállítások\" fájl létrehozása..."
 
 #: src/liveclone.py:461
 msgid "Copying SalixLive Modules..."
