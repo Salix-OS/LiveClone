@@ -21,24 +21,23 @@ msgstr "LiveClone"
 
 #: src/liveclone.glade:93
 msgid "Name of the new LiveCD: "
-msgstr ""
+msgstr "Назва нового LiveCD:"
 
 #: src/liveclone.glade:109
-#, fuzzy
 msgid "MyLiveCD"
 msgstr "MyLiveCD"
 
 #: src/liveclone.glade:136
 msgid "Work directory: "
-msgstr ""
+msgstr "Робоча тека:"
 
 #: src/liveclone.glade:154 src/liveclone.glade:373
 msgid "Select a directory"
-msgstr ""
+msgstr "Виберіть теку"
 
 #: src/liveclone.glade:176 src/liveclone.glade:395
 msgid "Boot manager: "
-msgstr ""
+msgstr "Менеджер завантаження:"
 
 #: src/liveclone.glade:185
 msgid "Isolinux"
@@ -58,11 +57,11 @@ msgstr "gtk-quit"
 
 #: src/liveclone.glade:288
 msgid "Iso Image"
-msgstr ""
+msgstr "Образ iso"
 
 #: src/liveclone.glade:316
 msgid "Name of the Live USB key: "
-msgstr ""
+msgstr "Назва Live USB флеш-диску:"
 
 #: src/liveclone.glade:331
 msgid "MyLiveUSB"
@@ -70,7 +69,7 @@ msgstr "MyLiveUSB"
 
 #: src/liveclone.glade:355
 msgid "Path to USB device: "
-msgstr ""
+msgstr "Шлях до пристрою USB:"
 
 #: src/liveclone.glade:404
 msgid "Syslinux"
@@ -78,15 +77,15 @@ msgstr "Syslinux"
 
 #: src/liveclone.glade:446
 msgid "Based on: "
-msgstr ""
+msgstr "Базується на:"
 
 #: src/liveclone.glade:455
 msgid "unmodified LiveCD"
-msgstr ""
+msgstr "незмінений LiveCD"
 
 #: src/liveclone.glade:473
 msgid "running environment"
-msgstr ""
+msgstr "запущене середовище"
 
 #: src/liveclone.glade:503
 msgid "Use persistence"
@@ -98,11 +97,11 @@ msgstr ""
 
 #: src/liveclone.glade:622
 msgid "USB Key"
-msgstr ""
+msgstr "Live USB флеш-диск"
 
 #: src/liveclone.glade:645
 msgid "About LiveClone"
-msgstr ""
+msgstr "Про LiveClone"
 
 #: src/liveclone.glade:656
 msgid ""
@@ -168,11 +167,11 @@ msgstr ""
 
 #: src/liveclone.py:144
 msgid "Please enter the name of your LiveCD/DVD."
-msgstr ""
+msgstr "Введіть назву Вашого LiveCD/DVD."
 
 #: src/liveclone.py:149
 msgid "Please enter the name of your LiveUSB."
-msgstr ""
+msgstr "Введіть назву Вашого LiveUSB."
 
 #: src/liveclone.py:154
 msgid ""
@@ -269,7 +268,7 @@ msgstr ""
 
 #: src/liveclone.py:414 src/liveclone.py:442
 msgid "LiveClone in progress..."
-msgstr ""
+msgstr "LiveClone працює..."
 
 #: src/liveclone.py:424
 msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
@@ -289,15 +288,15 @@ msgstr ""
 
 #: src/liveclone.py:478
 msgid "Module created..."
-msgstr ""
+msgstr "Модуль створений..."
 
 #: src/liveclone.py:484
 msgid "Building the iso file..."
-msgstr ""
+msgstr "Створюю файл iso..."
 
 #: src/liveclone.py:495
 msgid "Iso file succesfully created..."
-msgstr ""
+msgstr "Файл iso створений..."
 
 #: src/liveclone.py:502
 msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
@@ -305,11 +304,11 @@ msgstr ""
 
 #: src/liveclone.py:508
 msgid "Setting the boot manager..."
-msgstr ""
+msgstr "Установлюю менеджер завантажень..."
 
 #: src/liveclone.py:530
 msgid "LiveUSB device succesfully created..."
-msgstr ""
+msgstr "Пристрій LiveUSB успішно створений..."
 
 #: src/liveclone.py:538
 msgid ""
@@ -323,6 +322,9 @@ msgid ""
 "\n"
 "Root privileges are required to run this program. "
 msgstr ""
+"<b>Вибачте!</b> \n"
+"\n"
+"Вимагаються привілею супер-користувача для запуску цієї програми. "
 
 #: src/liveclone.desktop.in.h:1
 msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
