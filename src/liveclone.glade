@@ -701,10 +701,10 @@ Fifth Floor, Boston, MA 02110-1301, USA.</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">LiveClone</property>
     <property name="resizable">False</property>
+    <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="icon">liveclone.png</property>
     <property name="type_hint">normal</property>
-    <property name="skip_taskbar_hint">True</property>
     <property name="deletable">False</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">

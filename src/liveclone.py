@@ -23,7 +23,7 @@
 #                                                                             #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-# version = '0.6'
+# version = '0.7.13.1.1'
 
 import os
 import shutil
@@ -413,6 +413,7 @@ choose or create a subdirectory either from another partition or from an externa
         self.progress_dialog.show()
         self.progress_bar.set_text(_("LiveClone in progress..."))
         self.progress_bar.set_fraction(0.05)
+        time.sleep(3)
         # there's more work, return True
         yield True
 
@@ -444,8 +445,8 @@ directory or this partition, please choose another location for your work direct
         # there's more work, return True
         yield True
 
-        # Better clear /var/packages
-        subprocess.call("rm -rf /var/packages/*", shell=True)
+        # Better clear packages
+        subprocess.call("rm -rf /var/slapt-get/*", shell=True)
 
         # The user may want to create a persistent file on his USB key
         if self.use_persistence.get_active() == True :

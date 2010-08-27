@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: LiveClone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-23 20:59+0200\n"
+"POT-Creation-Date: 2010-08-27 17:02+0200\n"
 "PO-Revision-Date: 2010-08-24 21:18+0100\n"
 "Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
 "Language-Team: Nedudu Team <nedudu@nedudu.hu>\n"
@@ -153,7 +153,9 @@ msgid ""
 msgstr ""
 
 #: src/liveclone.py:101
-msgid "LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on SalixLive or on your running environment, with or without persistent changes."
+msgid ""
+"LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on "
+"SalixLive or on your running environment, with or without persistent changes."
 msgstr ""
 
 #: src/liveclone.py:123
@@ -162,13 +164,20 @@ msgstr "LiveClone névjegye."
 
 #: src/liveclone.py:128
 msgid ""
-"Click on this tab if you want to create a LiveCD/DVD iso image based on your running environment.\n"
-"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveCD/DVD.\n"
-"What you *<i>see</i>* in your running session is what you will get in your LiveCD/DVD."
+"Click on this tab if you want to create a LiveCD/DVD iso image based on your "
+"running environment.\n"
+"You should therefore ensure that you have already added and/or removed any "
+"programs and/or any users, as well as performed any other system or "
+"aesthetic modifications which you want to be included in your customized "
+"LiveCD/DVD.\n"
+"What you *<i>see</i>* in your running session is what you will get in your "
+"LiveCD/DVD."
 msgstr ""
 
 #: src/liveclone.py:138
-msgid "Click on this tab if you want to create a LiveUSB based on SalixLive or on your running environment."
+msgid ""
+"Click on this tab if you want to create a LiveUSB based on SalixLive or on "
+"your running environment."
 msgstr ""
 
 #: src/liveclone.py:144
@@ -181,51 +190,79 @@ msgstr "Kérem adja meg a LiveUSB nevét."
 
 #: src/liveclone.py:154
 msgid ""
-"This is the work directory where your LiveCD/DVD iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
-"The free space available should be more than twice the size of your future LiveCD/DVD.\n"
-"It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
+"This is the work directory where your LiveCD/DVD iso image will be created & "
+"where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
+"The free space available should be more than twice the size of your future "
+"LiveCD/DVD.\n"
+"It should be located on a separate partition, an external hardrive or a USB "
+"key but never -ever- in your home directory!"
 msgstr ""
 
 #: src/liveclone.py:163
-msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
-msgstr "Ez az USB kulcs útvonala. Figyelem, minden adat ami az eszközön van törlődni fog a LiveClone telepítésekor."
+msgid ""
+"This is the path to your USB key. Please note that all data present on it "
+"will be erased before LiveClone is installed on it. "
+msgstr ""
+"Ez az USB kulcs útvonala. Figyelem, minden adat ami az eszközön van törlődni "
+"fog a LiveClone telepítésekor."
 
 #: src/liveclone.py:169
-msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key. (This option is only available if LiveClone is executed from a LiveCD.)"
+msgid ""
+"Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
+"ROM to a LiveUSB key. (This option is only available if LiveClone is "
+"executed from a LiveCD.)"
 msgstr ""
 
 #: src/liveclone.py:176
-msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
-msgstr "Válassza ezt az opciót ha a <b>Syslinux</b> betöltés-kezelőt szeretné használni."
+msgid ""
+"Choose this option if you want to use <b>Syslinux</b> as your boot manager."
+msgstr ""
+"Válassza ezt az opciót ha a <b>Syslinux</b> betöltés-kezelőt szeretné "
+"használni."
 
 #: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
-msgstr "Válassza ezt az opciót ha a <b>GRUB</b> betöltés-kezelőt szeretné használni."
+msgstr ""
+"Válassza ezt az opciót ha a <b>GRUB</b> betöltés-kezelőt szeretné használni."
 
 #: src/liveclone.py:188
-msgid "Choose this option if you want to use <b>Isolinux</b> as your boot manager."
-msgstr "Válassza ezt az opciót ha az <b>Isolinux</b> betöltés-kezelőt szeretné használni."
+msgid ""
+"Choose this option if you want to use <b>Isolinux</b> as your boot manager."
+msgstr ""
+"Válassza ezt az opciót ha az <b>Isolinux</b> betöltés-kezelőt szeretné "
+"használni."
 
 #: src/liveclone.py:200
-msgid "Check this option if you want your LiveUSB to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
+msgid ""
+"Check this option if you want your LiveUSB to be able to record all changes "
+"& data from live sessions (same behaviour as an installed standard system)."
 msgstr ""
 
 #: src/liveclone.py:206
 msgid ""
-"Check this option if you want to clone your running personnalized environment to a LiveUSB. \n"
-"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveUSB key.\n"
-"What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
+"Check this option if you want to clone your running personnalized "
+"environment to a LiveUSB. \n"
+"You should therefore ensure that you have already added and/or removed any "
+"programs and/or any users, as well as performed any other system or "
+"aesthetic modifications which you want to be included in your customized "
+"LiveUSB key.\n"
+"What you *<i>see</i>* in your running session is what you will get in your "
+"LiveUSB."
 msgstr ""
 
 #: src/liveclone.py:216
-msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
+msgid ""
+"Set the size of your persistence file (It should be small enough to fit in "
+"your USB key will being large enough to fit as much data as possible)"
 msgstr ""
 
 #: src/liveclone.py:222
 msgid ""
 "Click on this button  once all your settings have been defined.\n"
-"You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.\n"
-"At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."
+"You will then need some patience as LiveClone creation can be quite long "
+"depending on the power of your computer.\n"
+"At the end of the process, an information dialog will let you know if "
+"LiveClone succeeded or failed to create your LiveCD."
 msgstr ""
 
 #: src/liveclone.py:230
@@ -236,9 +273,11 @@ msgstr "Kilépés a LiveClone programból."
 msgid ""
 "Sorry, you must choose another work directory!\n"
 "\n"
-"Since your Home directory will be included in your LiveClone, your work directory should obviously not be located inside of it.\n"
+"Since your Home directory will be included in your LiveClone, your work "
+"directory should obviously not be located inside of it.\n"
 " \n"
-"The ideal is to choose or create a subdirectory either from another partition or from an external hard drive."
+"The ideal is to choose or create a subdirectory either from another "
+"partition or from an external hard drive."
 msgstr ""
 
 #: src/liveclone.py:290
@@ -270,64 +309,76 @@ msgstr ""
 
 #: src/liveclone.py:399
 msgid ""
-"Sorry! At the moment, LiveClone can only be executed from SalixLive environment. \n"
+"Sorry! At the moment, LiveClone can only be executed from SalixLive "
+"environment. \n"
 "\n"
-"Support to run from a regular installed environment will be added in a future version of LiveClone."
+"Support to run from a regular installed environment will be added in a "
+"future version of LiveClone."
 msgstr ""
 
-#: src/liveclone.py:414 src/liveclone.py:442
+#: src/liveclone.py:414 src/liveclone.py:443
 msgid "LiveClone in progress..."
 msgstr "LiveClone folyamatban..."
 
-#: src/liveclone.py:424
-msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
+#: src/liveclone.py:425
+msgid ""
+"Sorry! Liveclone is not able to manage this directory or this partition, "
+"please choose another location for your work directory."
 msgstr ""
 
-#: src/liveclone.py:452
+#: src/liveclone.py:453
 msgid "Creating persistent file..."
 msgstr "\"Tartós beállítások\" fájl létrehozása..."
 
-#: src/liveclone.py:461
+#: src/liveclone.py:462
 msgid "Copying SalixLive Modules..."
 msgstr "SalixLive modulok másolása..."
 
-#: src/liveclone.py:470
+#: src/liveclone.py:471
 msgid "Creating Custom Module..."
 msgstr "Egyéb modulok készítése..."
 
-#: src/liveclone.py:478
+#: src/liveclone.py:479
 msgid "Module created..."
 msgstr "Modul készítése..."
 
-#: src/liveclone.py:484
+#: src/liveclone.py:485
 msgid "Building the iso file..."
 msgstr "ISO fálj összeállítása..."
 
-#: src/liveclone.py:495
+#: src/liveclone.py:496
 msgid "Iso file succesfully created..."
 msgstr "ISO fájl sikeresen elkészült..."
 
-#: src/liveclone.py:502
-msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
-msgstr "A LiveCD képfájl sikeresen létre lett hozva a megadott munkakönyvtárban. Ha kilép a LiveClone programból és használja a Brasero vagy bármely más íróprogramot az .iso fájl CD-re írásához."
+#: src/liveclone.py:503
+msgid ""
+"Your LiveCD image has been successfully created in the work directory you "
+"specified. You can now exit LiveClone and use Brasero or a similar program "
+"to burn the .iso file unto a CD-ROM."
+msgstr ""
+"A LiveCD képfájl sikeresen létre lett hozva a megadott munkakönyvtárban. Ha "
+"kilép a LiveClone programból és használja a Brasero vagy bármely más "
+"íróprogramot az .iso fájl CD-re írásához."
 
-#: src/liveclone.py:508
+#: src/liveclone.py:509
 msgid "Setting the boot manager..."
 msgstr "Betöltéskezelő beállításai..."
 
-#: src/liveclone.py:530
+#: src/liveclone.py:531
 msgid "LiveUSB device succesfully created..."
 msgstr "LiveUSB eszköz sikeresen elkészült..."
 
-#: src/liveclone.py:538
+#: src/liveclone.py:539
 msgid ""
 "Your LiveUSB key has been successfully created. \n"
-"You can now exit LiveClone program and unplug your LiveUSB, it is unmounted and ready for use "
+"You can now exit LiveClone program and unplug your LiveUSB, it is unmounted "
+"and ready for use "
 msgstr ""
 "A LiveUSB kulcs sikeresen létre lett hozva.\n"
-"Ha kilép a LiveClone programból és leválasztja a LiveUSB eszközt akkor már használatra is kész"
+"Ha kilép a LiveClone programból és leválasztja a LiveUSB eszközt akkor már "
+"használatra is kész"
 
-#: src/liveclone.py:603
+#: src/liveclone.py:604
 msgid ""
 "<b>Sorry!</b> \n"
 "\n"
@@ -338,8 +389,12 @@ msgstr ""
 "Rendszergazdai jogosultság szükséges a program futtatásához."
 
 #: src/liveclone.desktop.in.h:1
-msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
-msgstr "LiveCD vagy LiveUSB készítése a SalixLive alapján vagy saját futtató környezettel."
+msgid ""
+"Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running "
+"environment."
+msgstr ""
+"LiveCD vagy LiveUSB készítése a SalixLive alapján vagy saját futtató "
+"környezettel."
 
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"

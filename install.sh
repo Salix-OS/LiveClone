@@ -2,6 +2,7 @@
 
 cd $(dirname $0)
 
+install -d -m 755 $DESTDIR/usr/doc/liveclone-$VER
 install -d -m 755 $DESTDIR/install
 install -d -m 755 $DESTDIR/usr/sbin
 install -d -m 755 $DESTDIR/usr/share/applications
@@ -12,7 +13,8 @@ install -d -m 755 $DESTDIR/usr/share/icons/hicolor/scalable/apps
 install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/boot/syslinux
 install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/boot/isolinux
 install -d -m 755 $DESTDIR/usr/share/liveclone/liveskel/salixlive
-install -d -m 755 $DESTDIR/usr/share/liveclone/moded/etc/rc.d
+install -d -m 755 $DESTDIR/usr/share/liveclone/stockskel/boot
+install -d -m 755 $DESTDIR/usr/share/liveclone/stockskel/etc/rc.d
 
 install -m 755 src/liveclone.py $DESTDIR/usr/sbin/liveclone.py
 install -m 644 src/liveclone.glade \
@@ -41,7 +43,20 @@ install -m 644 liveskel/salixlive/livecd.sgn \
 $DESTDIR/usr/share/liveclone/liveskel/salixlive/
 install -m 644 liveskel/salixlive/make_iso.sh \
 $DESTDIR/usr/share/liveclone/liveskel/salixlive/
-
+install -m 644 stockskel/boot/README.initrd \
+$DESTDIR/usr/share/liveclone/stockskel/boot/
+install -m 644 stockskel/boot/salix.bmp \
+$DESTDIR/usr/share/liveclone/stockskel/boot/
+install -m 755 stockskel/etc/rc.d/rc.6 \
+$DESTDIR/usr/share/liveclone/stockskel/etc/rc.d/
+install -m 755 stockskel/etc/rc.d/rc.M \
+$DESTDIR/usr/share/liveclone/stockskel/etc/rc.d/
+install -m 755 stockskel/etc/rc.d/rc.S \
+$DESTDIR/usr/share/liveclone/stockskel/etc/rc.d/
+install -m 755 stockskel/etc/rc.d/rc.alsa \
+$DESTDIR/usr/share/liveclone/stockskel/etc/rc.d/
+install -m 755 stockskel/etc/rc.d/rc.services \
+$DESTDIR/usr/share/liveclone/stockskel/etc/rc.d/
 
 for i in `ls po/*.mo|sed "s|po/\(.*\).mo|\1|"`; do
 	install -d -m 755 $DESTDIR/usr/share/locale/${i}/LC_MESSAGES
@@ -49,3 +64,7 @@ for i in `ls po/*.mo|sed "s|po/\(.*\).mo|\1|"`; do
 	$DESTDIR/usr/share/locale/${i}/LC_MESSAGES/liveclone.mo
 done
 
+for i in `ls docs`; do
+	install -m 644 docs/${i} \
+	$DESTDIR/usr/doc/liveclone-$VER/
+done

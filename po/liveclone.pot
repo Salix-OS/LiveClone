@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-23 20:59+0200\n"
+"POT-Creation-Date: 2010-08-27 17:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -301,63 +301,63 @@ msgid ""
 "future version of LiveClone."
 msgstr ""
 
-#: src/liveclone.py:414 src/liveclone.py:442
+#: src/liveclone.py:414 src/liveclone.py:443
 msgid "LiveClone in progress..."
 msgstr ""
 
-#: src/liveclone.py:424
+#: src/liveclone.py:425
 msgid ""
 "Sorry! Liveclone is not able to manage this directory or this partition, "
 "please choose another location for your work directory."
 msgstr ""
 
-#: src/liveclone.py:452
+#: src/liveclone.py:453
 msgid "Creating persistent file..."
 msgstr ""
 
-#: src/liveclone.py:461
+#: src/liveclone.py:462
 msgid "Copying SalixLive Modules..."
 msgstr ""
 
-#: src/liveclone.py:470
+#: src/liveclone.py:471
 msgid "Creating Custom Module..."
 msgstr ""
 
-#: src/liveclone.py:478
+#: src/liveclone.py:479
 msgid "Module created..."
 msgstr ""
 
-#: src/liveclone.py:484
+#: src/liveclone.py:485
 msgid "Building the iso file..."
 msgstr ""
 
-#: src/liveclone.py:495
+#: src/liveclone.py:496
 msgid "Iso file succesfully created..."
 msgstr ""
 
-#: src/liveclone.py:502
+#: src/liveclone.py:503
 msgid ""
 "Your LiveCD image has been successfully created in the work directory you "
 "specified. You can now exit LiveClone and use Brasero or a similar program "
 "to burn the .iso file unto a CD-ROM."
 msgstr ""
 
-#: src/liveclone.py:508
+#: src/liveclone.py:509
 msgid "Setting the boot manager..."
 msgstr ""
 
-#: src/liveclone.py:530
+#: src/liveclone.py:531
 msgid "LiveUSB device succesfully created..."
 msgstr ""
 
-#: src/liveclone.py:538
+#: src/liveclone.py:539
 msgid ""
 "Your LiveUSB key has been successfully created. \n"
 "You can now exit LiveClone program and unplug your LiveUSB, it is unmounted "
 "and ready for use "
 msgstr ""
 
-#: src/liveclone.py:603
+#: src/liveclone.py:604
 msgid ""
 "<b>Sorry!</b> \n"
 "\n"
