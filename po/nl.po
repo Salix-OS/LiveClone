@@ -188,18 +188,21 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveCD/DVD.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveCD/DVD."
 msgstr ""
+"Klik op dit tabblad als u een LiveCD/DVD ISO image op basis van uw bestaande omgeving wilt creëren.\n"
+"U moet er dus voor zorgen dat u alle programma's en/of gebruikers toegevoegd en/of verwijderd heeft, alsmede de eventueel andere systeem- of esthetische wijzigingen die u wilt behouden aangepaste LiveCD/DVD.\n"
+"Wat u *<i>ziet</i>* in uw huidige sessie is wat u krijgt in uw LiveCD/DVD."
 
 #: src/liveclone.py:138
 msgid "Click on this tab if you want to create a LiveUSB based on SalixLive or on your running environment."
-msgstr ""
+msgstr "Klik op dit tabblad als u een LiveUSB wilt maken op basis van  SalixLive of op uw huidige omgeving."
 
 #: src/liveclone.py:144
 msgid "Please enter the name of your LiveCD/DVD."
-msgstr ""
+msgstr "Vul de naam in van uw LiveCD/DVD."
 
 #: src/liveclone.py:149
 msgid "Please enter the name of your LiveUSB."
-msgstr ""
+msgstr "Vul de naam in van uw LiveUSB."
 
 #: src/liveclone.py:154
 msgid ""
@@ -207,30 +210,33 @@ msgid ""
 "The free space available should be more than twice the size of your future LiveCD/DVD.\n"
 "It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
 msgstr ""
+"Dit is de werkmap waar de LiveCD/DVD-ISO-image wordt gecreërd en waar u in staat zult zijn om deze te branden op een CD/DVD-ROM.\n"
+"De beschikbare ruimte moet meer zijn dan tweemaal de grootte van uw toekomstige LiveCD/DVD.\n"
+"De werkmap moet op een aparte partitie, een externe hardrive of een USB-stick, maar nooit in uw home directory!"
 
 #: src/liveclone.py:163
 msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
-msgstr ""
+msgstr "Dit is het pad naar uw USB-stick. Houdt er rekening mee dat alle gegevens zullen worden gewist voordat LiveClone is geïnstalleerd."
 
 #: src/liveclone.py:169
 msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key. (This option is only available if LiveClone is executed from a LiveCD.)"
-msgstr ""
+msgstr "Selecteer deze optie als u de <b>ongewijzigde</b> SalixLive CD naar een USB-stick wilt klonen. (Deze optie is alleen beschikbaar als LiveClone wordt gestart vanaf een LiveCD.)"
 
 #: src/liveclone.py:176
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
-msgstr ""
+msgstr "Kies deze optie als u <b>syslinux</b> wilt gebruiken als uw boot manager."
 
 #: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
-msgstr ""
+msgstr "Kies deze optie als u <b>GRUB</b> wilt gebruiken als uw boot manager."
 
 #: src/liveclone.py:188
 msgid "Choose this option if you want to use <b>Isolinux</b> as your boot manager."
-msgstr ""
+msgstr "Kies deze optie als u <b>Isolinux</b> wilt gebruiken als uw boot manager."
 
 #: src/liveclone.py:200
 msgid "Check this option if you want your LiveUSB to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
-msgstr ""
+msgstr "Selecteer deze optie als u wilt dat uw LiveUSB alle wijzigingen en gegevens van live sessies worden opgeslagen (dezelfde manier als een standaard geïnstalleerd systeem)."
 
 #: src/liveclone.py:206
 msgid ""
@@ -238,10 +244,13 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveUSB key.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
 msgstr ""
+"Controleer deze optie als u uw huidig gepersonaliseerde omgeving naar een LiveUSB wilt klonen.\n"
+"U moet er dus voor zorgen dat u alle programma's en/of gebruikers toegevoegd en/of verwijderd heeft, alsmede de eventueel andere systeem- of esthetische wijzigingen die u wilt behouden aangepaste LiveCD/DVD.\n"
+"Wat u *<i>ziet</i>* in uw huidige sessie is wat u krijgt in uw LiveCD/DVD."
 
 #: src/liveclone.py:216
 msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
-msgstr ""
+msgstr "Stel de grootte van uw persistente bestand in (Het moet klein genoeg om in uw USB-stick zal niet alleen groot genoeg om als zoveel mogelijk gegevens)"
 
 #: src/liveclone.py:222
 msgid ""
