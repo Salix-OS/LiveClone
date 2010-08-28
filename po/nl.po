@@ -110,6 +110,10 @@ msgid ""
 "\n"
 "Copyright © 2007-2010 Pierrick Le Brun"
 msgstr ""
+"Deze tool zal een LiveCD of uw draaiende \n"
+" omgeving naar een LiveCD of een USB-stick klonen.\n"
+"\n"
+"Copyright © 2007-2010 Pierrick Le Brun"
 
 #: src/liveclone.glade:660
 msgid ""
@@ -130,10 +134,27 @@ msgid ""
 "the Free Software Foundation, Inc., 51 Franklin Street, \n"
 "Fifth Floor, Boston, MA 02110-1301, USA."
 msgstr ""
+"Dit programma is vrije software; u kan het herdistribueren\n"
+"en/of aanpassen onder de voorwaarden van de GNU General\n"
+"Public License zoals gepubliceerd door de Free Software\n"
+"Foundation; zowel versie 2, als (naar uw keuze) enige latere\n"
+"versie.\n"
+"\n"
+"Dit programma is gedistribueerd in de hoop dat het nuttig\n"
+"\r\n"
+"kan zijn, maar ZONDER GARANTIE; zonder zelfs de impliciete\n"
+"garantie van verhandelbaarheid of geschiktheid voor een\n"
+"bepaald doel. Zie de GNU General Public License voor meer\n"
+"details.\n"
+"\n"
+"U behoort een copie vna de GNU General Public License\n"
+"te hebben ontvangen samen met dit programma; indien niet,\n"
+"schrijf naar de Free Software Foundation, Inc., 51 Franklin Street, \n"
+"Fifth Floor, Boston, MA 02110-1301, USA."
 
 #: src/liveclone.glade:677
 msgid "Salix OS Transifex Team"
-msgstr ""
+msgstr "Salix OS Transifex Team"
 
 #: src/liveclone.glade:719
 msgid ""
@@ -145,14 +166,21 @@ msgid ""
 "project or the power of your computer and it may even\n"
 "result in an apparent lack of activity for awhile.  \n"
 msgstr ""
+"\n"
+"<b>Het creëren van een LiveClone</b>\n"
+"\n"
+"Heb geduld terwijl uw LiveClone wordt gegenereerd... \n"
+"Dit kan vrij lang duren, afhankelijk van de grootte van uw \n"
+"project of de CPU kracht van uw computer en het kan zelfs \n"
+"lijken op een gebrek aan activiteit voor een tijdje. \n"
 
 #: src/liveclone.py:101
 msgid "LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on SalixLive or on your running environment, with or without persistent changes."
-msgstr ""
+msgstr "LiveClone genereert een LiveCD/DVD-ISO image of een LiveUSB stick, gebaseeerd op SalixLive of uw draaiende omgeving, met of zonder persistente wijizigingen."
 
 #: src/liveclone.py:123
 msgid "About LiveClone."
-msgstr ""
+msgstr "Over LiveClone."
 
 #: src/liveclone.py:128
 msgid ""
