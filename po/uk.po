@@ -110,6 +110,10 @@ msgid ""
 "\n"
 "Copyright © 2007-2010 Pierrick Le Brun"
 msgstr ""
+"Ця утиліта клонує LiveCD або Ваше середовище \n"
+"на LiveCD або на пам’ять USB флеш.\n"
+" \n"
+" Всі права застережено © 2007-2010 Pierrick Le Brun"
 
 #: src/liveclone.glade:660
 msgid ""
@@ -182,11 +186,11 @@ msgstr ""
 
 #: src/liveclone.py:163
 msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
-msgstr ""
+msgstr "Це є шлях до Вашої пам’яті USB флеш. Врахуйте, що всі дані, які містяться зараз на ній, будуть витерті перед тим як на ній буде інстальовано LiveClone."
 
 #: src/liveclone.py:169
 msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key. (This option is only available if LiveClone is executed from a LiveCD.)"
-msgstr ""
+msgstr "Відмітьте цю опцію, якщо Ви бажаєте клонувати <b>незмінений</b> SalixLive CD-ROM на пам’ять USB флеш. (Ця опція доступна тільки якщо LiveClone запущений з LiveCD.)"
 
 #: src/liveclone.py:176
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
@@ -315,6 +319,8 @@ msgid ""
 "Your LiveUSB key has been successfully created. \n"
 "You can now exit LiveClone program and unplug your LiveUSB, it is unmounted and ready for use "
 msgstr ""
+"Ваша LiveUSB успішно створений. \n"
+"Ви можете зараз вийти з програми LiveClone і від’єднати Ваш LiveUSB, він відмонтований і готовий до вжитку "
 
 #: src/liveclone.py:603
 msgid ""
