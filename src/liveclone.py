@@ -464,6 +464,9 @@ directory or this partition, please choose another location for your work direct
             # there's more work, return True
             yield True
             subprocess.call("cp /mnt/live/mnt/*/salixlive/base/* " + live_workdir + "/salixlive/base/", shell=True)
+            subprocess.call("cp /mnt/live/mnt/*/salixlive/modules/* " + live_workdir + "/salixlive/modules/", shell=True)
+            subprocess.call("cp /mnt/live/mnt/*/salixlive/optional/* " + live_workdir + "/salixlive/optional/", shell=True)
+            subprocess.call("cp /mnt/live/mnt/*/salixlive/rootcopy/* " + live_workdir + "/salixlive/rootcopy/", shell=True)
             os.makedirs(live_workdir + "/packages")
             subprocess.call("cp -r /mnt/live/mnt/*/packages/* " + live_workdir + "/packages/", shell=True)
         # Else we build LiveClone main module out of the running environment
