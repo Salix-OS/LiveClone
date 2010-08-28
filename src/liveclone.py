@@ -569,6 +569,7 @@ def info_dialog(message, parent = None):
     """
     dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_INFO, buttons = gtk.BUTTONS_OK, flags = gtk.DIALOG_MODAL)
     dialog.set_markup(message)
+    dialog.set_icon_from_file("/usr/share/icons/gnome-colors-common/scalable/status/gtk-info.svg")
     global result_info
     result_info = dialog.run()
     dialog.destroy()
@@ -584,6 +585,7 @@ def warning_dialog(message, parent = None):
     dialog.add_buttons(gtk.STOCK_NO, gtk.RESPONSE_NO)
     dialog.set_default_response(gtk.RESPONSE_NO)
     dialog.set_markup(message)
+    dialog.set_icon_from_file("/usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg")
     global result_warning
     result_warning = dialog.run()
     dialog.destroy()
@@ -595,7 +597,7 @@ def error_dialog(message, parent = None):
     """
     dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_ERROR, buttons = gtk.BUTTONS_CLOSE, flags = gtk.DIALOG_MODAL)
     dialog.set_markup(message)
-    dialog.set_icon_from_file("/usr/share/icons/gnome-colors-common/scalable/actions/gtk-stop.svg")
+    dialog.set_icon_from_file("/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg")
     global result_error
     result_error = dialog.run()
     dialog.destroy()
