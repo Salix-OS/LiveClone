@@ -257,6 +257,9 @@ msgid ""
 "You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.\n"
 "At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."
 msgstr ""
+"Натисніть на цю кнопку після встановлення всіх Ваших настройок.\n"
+"Вам потрібно запастися терпінням, оскільки створення LiveClone триватиме довго, в залежності від потужності Вашого комп’ютера.\n"
+"В кінці процесу інформаційний діалог повідомить Вас, чи процес створення Вашого LiveCD завершився успішно чи ні."
 
 #: src/liveclone.py:230
 msgid "Exit LiveClone."
