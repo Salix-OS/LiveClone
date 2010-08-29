@@ -258,6 +258,9 @@ msgid ""
 "You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.\n"
 "At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."
 msgstr ""
+"Klik op deze knop wanneer al uw instellingen zijn gedefinieerd.\n"
+"U moet wat geduld opbrengen als de LiveClone wordt gecreëerd, afhankelijk van de CPU-kracht van uw computer.\n"
+"Aan het einde van het proces, zal een informatie-dialoogvenster u laten weten of LiveClone is gelukt of niet."
 
 #: src/liveclone.py:230
 msgid "Exit LiveClone."
@@ -380,4 +383,4 @@ msgstr "Genereer een LiveCD of LiveUSB van SalixLive of van uw eigen draaiende o
 
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
-msgstr ""
+msgstr "LiveClone tool"
