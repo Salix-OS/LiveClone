@@ -243,6 +243,8 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveUSB key.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
 msgstr ""
+"Позначте цю опцію, якщо Ви бажаєте клонувати Ваше персональне робоче середовище на LiveUSB.\n"
+"Db gjdbyys dgtdybnbcz? "
 
 #: src/liveclone.py:216
 msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
