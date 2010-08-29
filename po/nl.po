@@ -261,7 +261,7 @@ msgstr ""
 
 #: src/liveclone.py:230
 msgid "Exit LiveClone."
-msgstr ""
+msgstr "LiveClone Afsluiten."
 
 #: src/liveclone.py:264
 msgid ""
@@ -274,7 +274,7 @@ msgstr ""
 
 #: src/liveclone.py:290
 msgid "Would you like to personnalize Isolinux boot menu?"
-msgstr ""
+msgstr "Wilt u een gepersonaliseerd Isolinux boot menu?"
 
 #: src/liveclone.py:332
 msgid ""
