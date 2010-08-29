@@ -274,6 +274,11 @@ msgid ""
 " \n"
 "The ideal is to choose or create a subdirectory either from another partition or from an external hard drive."
 msgstr ""
+"Sorry, u moet een andere werkmap kiezen!\n"
+"\n"
+"Omdat uw Home directory wordt opgenomen in uw LiveClone, moet de werkmap natuurlijk niet binnen het opgenomen geheel zijn.\n"
+"\n"
+"Het best is om een submap op een andere partitie of een externe harde schijf te kiezen of maken."
 
 #: src/liveclone.py:290
 msgid "Would you like to personnalize Isolinux boot menu?"
@@ -351,7 +356,7 @@ msgstr "ISO-bestand met succes aangemaakt ..."
 
 #: src/liveclone.py:502
 msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
-msgstr ""
+msgstr "Uw LiveCD image is met succes gecreëerd in de werkmap die u hebt opgegeven. U kunt nu LiveClone verlaten en Brasero of een soortgelijk programma gebruiken om het ISO bestand te branden op cd-rom."
 
 #: src/liveclone.py:508
 msgid "Setting the boot manager..."
@@ -366,6 +371,8 @@ msgid ""
 "Your LiveUSB key has been successfully created. \n"
 "You can now exit LiveClone program and unplug your LiveUSB, it is unmounted and ready for use "
 msgstr ""
+"Uw LiveUSB-stick is succesvol aangemaakt.\n"
+"U kunt nu het LiveClone afsluiten en de LiveUSB-stick uit de PC halen, deze is unmounted en klaar voor gebruik"
 
 #: src/liveclone.py:603
 msgid ""
