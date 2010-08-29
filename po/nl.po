@@ -282,10 +282,13 @@ msgid ""
 " \n"
 "Are you sure you want to continue?"
 msgstr ""
+"Alle gegevens op uw USB-stick zullen permanent worden gewist!\n"
+"\n"
+"Weet u zeker dat u verder wilt gaan?"
 
 #: src/liveclone.py:361
 msgid "Would you like to personnalize Syslinux boot menu?"
-msgstr ""
+msgstr "Wilt u een gepersonaliseerd syslinux boot menu?"
 
 #: src/liveclone.py:387
 msgid ""
@@ -295,6 +298,11 @@ msgid ""
 " \n"
 "Please, try again."
 msgstr ""
+"Sorry, u heeft waarschijnlijk een ongeldig pad voor uw USB-stick  gekozen!\n"
+"\n"
+"Een geldig pad naar een USB-stick begint normaliter met /media.\n"
+"\n"
+"Probeer het opnieuw."
 
 #: src/liveclone.py:399
 msgid ""
@@ -302,38 +310,41 @@ msgid ""
 "\n"
 "Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
+"Sorry! Op dit moment kan LiveClone alleen worden uitgevoerd op een SalixLive omgeving.\n"
+"\n"
+"Support om op een standaard omgeving zal in een toekomstige versie van LiveClone worden toegevoegd."
 
 #: src/liveclone.py:414 src/liveclone.py:442
 msgid "LiveClone in progress..."
-msgstr ""
+msgstr "LiveClone is bezig ..."
 
 #: src/liveclone.py:424
 msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
-msgstr ""
+msgstr "Sorry! Liveclone is niet in staat om deze map of partitie te beheren, kies een andere locatie voor uw werkmap."
 
 #: src/liveclone.py:452
 msgid "Creating persistent file..."
-msgstr ""
+msgstr "Creëren van een persistent bestand ..."
 
 #: src/liveclone.py:461
 msgid "Copying SalixLive Modules..."
-msgstr ""
+msgstr "Kopiëren van SalixLive Modules ..."
 
 #: src/liveclone.py:470
 msgid "Creating Custom Module..."
-msgstr ""
+msgstr "Creëren van een aangepaste module ..."
 
 #: src/liveclone.py:478
 msgid "Module created..."
-msgstr ""
+msgstr "Module gecreërd ..."
 
 #: src/liveclone.py:484
 msgid "Building the iso file..."
-msgstr ""
+msgstr "Bouwen van het iso-bestand ..."
 
 #: src/liveclone.py:495
 msgid "Iso file succesfully created..."
-msgstr ""
+msgstr "ISO-bestand met succes aangemaakt ..."
 
 #: src/liveclone.py:502
 msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
@@ -341,11 +352,11 @@ msgstr ""
 
 #: src/liveclone.py:508
 msgid "Setting the boot manager..."
-msgstr ""
+msgstr "Instellen van de boot-manager ..."
 
 #: src/liveclone.py:530
 msgid "LiveUSB device succesfully created..."
-msgstr ""
+msgstr "LiveUSB apparaat met succes aangemaakt ..."
 
 #: src/liveclone.py:538
 msgid ""
@@ -359,10 +370,13 @@ msgid ""
 "\n"
 "Root privileges are required to run this program. "
 msgstr ""
+"<b>Sorry!</b>\n"
+"\n"
+"Er zijn Root privileges nodig om dit programma uit te voeren."
 
 #: src/liveclone.desktop.in.h:1
 msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
-msgstr ""
+msgstr "Genereer een LiveCD of LiveUSB van SalixLive of van uw eigen draaiende omgeving."
 
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
