@@ -244,7 +244,8 @@ msgid ""
 "What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
 msgstr ""
 "Позначте цю опцію, якщо Ви бажаєте клонувати Ваше персональне робоче середовище на LiveUSB.\n"
-"Db gjdbyys dgtdybnbcz? "
+"Ви повинні впевнитися, що Ви вже додали і/або видалили будь-які програми або користувачів, і зробили відповідні інші зміни до системи, які б Ви бажали включити до LiveUSB пам’яті.\n"
+"Все, що Ви *<i>бачите</i>*  у Вашій запущеній сесії, буде перенесено на Ваш LiveCD/DVD."
 
 #: src/liveclone.py:216
 msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
