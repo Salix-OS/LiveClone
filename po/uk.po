@@ -267,6 +267,11 @@ msgid ""
 " \n"
 "The ideal is to choose or create a subdirectory either from another partition or from an external hard drive."
 msgstr ""
+"Вибачте, Ви повинні вказати іншу робочу теку!\n"
+"\n"
+"Оскільки Ваша домашня тека буде включена в Ваш LiveClone, Ваша робоча тека, очевидно, не може містится в ній.\n"
+" \n"
+"Ідеальним є вибрати або створити її на іншому розділі або на зовнішньому твердому диску."
 
 #: src/liveclone.py:290
 msgid "Would you like to personnalize Isolinux boot menu?"
@@ -301,6 +306,9 @@ msgid ""
 "\n"
 "Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
+"Вибачте! На теперішнй момент LiveClone може бути запущений тільки з середовища SalixLive. \n"
+"\n"
+" Можливість запуску зі звичайної інстальованої системи буде додано в майбутній версії LiveClone."
 
 #: src/liveclone.py:414 src/liveclone.py:442
 msgid "LiveClone in progress..."
@@ -308,7 +316,7 @@ msgstr "LiveClone працює..."
 
 #: src/liveclone.py:424
 msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
-msgstr ""
+msgstr "Вибачте! Liveclone не в стані працювати з цією текою або розділом, будь ласка виберіть іншу робочу теку."
 
 #: src/liveclone.py:452
 msgid "Creating persistent file..."
