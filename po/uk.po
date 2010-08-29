@@ -187,6 +187,9 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveCD/DVD.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveCD/DVD."
 msgstr ""
+"Клацніть на цю вкладку, якщо Ви бажаєте створити iso образ LiveCD/DVD, базуючись на Вашому робочому середовищі. \n"
+"Ви повинні впевнитися, що Ви вже додали і/або видалили будь-які програми або користувачів, і зробили відповідні інші зміни до системи, які б Ви бажали включити до LiveCD/DVD.\n"
+"Все, що Ви *<i>бачите</i>*  у Вашій запущеній сесії, буде перенесено на Ваш LiveCD/DVD."
 
 #: src/liveclone.py:138
 msgid "Click on this tab if you want to create a LiveUSB based on SalixLive or on your running environment."
@@ -206,6 +209,9 @@ msgid ""
 "The free space available should be more than twice the size of your future LiveCD/DVD.\n"
 "It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
 msgstr ""
+"Це є робоча тека, де буде створено образ iso Вашого LiveCD/DVD і звідки Ви можете взяти його для запису на CD/DVD-ROM.\n"
+"Доступний вільний простір повинен бути в два рази більшим за розмір майбутнього LiveCD/DVD.\n"
+"Він повинен міститися на окрумомй розділі, зовнішньому твердому диску або USB флеш пам’яті, але -ніколи- у Вашій домашній теці!"
 
 #: src/liveclone.py:163
 msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
@@ -229,7 +235,7 @@ msgstr "Виберіть цю опцію, якщо Ви бажаєте вико�
 
 #: src/liveclone.py:200
 msgid "Check this option if you want your LiveUSB to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
-msgstr ""
+msgstr "Відмітьте цю опцію, якщо Ви бажаєте, щоб Ваш LiveUSB міг записувати всі дані і зміни з Вашої \"live\" сесії (однакова поведінка як і на інстальованій стандартній системі)"
 
 #: src/liveclone.py:206
 msgid ""
@@ -240,7 +246,7 @@ msgstr ""
 
 #: src/liveclone.py:216
 msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
-msgstr ""
+msgstr "Встановіть розмір Вашого файлу збереження (він повинен бути достатньо малим щоб поміститися на Вашій USB флеш пам’яті, яка повинна бути достатньо місткою, щоб вмістити достатньо даних)"
 
 #: src/liveclone.py:222
 msgid ""
@@ -272,6 +278,9 @@ msgid ""
 " \n"
 "Are you sure you want to continue?"
 msgstr ""
+"Всі дані на Вашій USB флеш пам’яті будуть безповоротно витерті!\n"
+" \n"
+"Ви дійсно бажаєте продовжити?"
 
 #: src/liveclone.py:361
 msgid "Would you like to personnalize Syslinux boot menu?"
@@ -327,7 +336,7 @@ msgstr "Файл iso створений..."
 
 #: src/liveclone.py:502
 msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
-msgstr ""
+msgstr "Ваш образ LiveCD успішно створено в робочій теці, яку Ви вказали. Тепер Ви можете вийти з LiveClone і використати Brasero або подібну програму для запису файлу .iso на CD-ROM."
 
 #: src/liveclone.py:508
 msgid "Setting the boot manager..."
@@ -357,7 +366,7 @@ msgstr ""
 
 #: src/liveclone.desktop.in.h:1
 msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
-msgstr ""
+msgstr "Створює LiveCD або LiveUSB, клонований з SalixLive або Вашого власного робочого середовища."
 
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
