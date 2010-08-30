@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: liveclone\n"
@@ -17,9 +17,7 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: src/liveclone.glade:7
-#: src/liveclone.glade:702
-#: src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -35,13 +33,11 @@ msgstr "MyLiveCD"
 msgid "Work directory: "
 msgstr "Κατάλογος εργασίας:"
 
-#: src/liveclone.glade:154
-#: src/liveclone.glade:373
+#: src/liveclone.glade:154 src/liveclone.glade:373
 msgid "Select a directory"
 msgstr "Επιλέξτε ένα κατάλογο"
 
-#: src/liveclone.glade:176
-#: src/liveclone.glade:395
+#: src/liveclone.glade:176 src/liveclone.glade:395
 msgid "Boot manager: "
 msgstr "Διαχειριστής εκκίνησης:"
 
@@ -49,8 +45,7 @@ msgstr "Διαχειριστής εκκίνησης:"
 msgid "Isolinux"
 msgstr "Isolinux"
 
-#: src/liveclone.glade:201
-#: src/liveclone.glade:420
+#: src/liveclone.glade:201 src/liveclone.glade:420
 msgid "Grub"
 msgstr "Grub"
 
@@ -109,6 +104,10 @@ msgid ""
 "\n"
 "Copyright © 2007-2010 Pierrick Le Brun"
 msgstr ""
+"Το εργαλείο αυτό θα κλωνοποιήσει ένα LiveCD ή το τρέχον \n"
+"περιβάλλον σας σε ένα LiveCD ή σε δίσκο USB.\n"
+"\n"
+"Copyright © 2007-2010 Pierrick Le Brun"
 
 #: src/liveclone.glade:660
 msgid ""
@@ -160,10 +159,17 @@ msgid ""
 "project or the power of your computer and it may even\n"
 "result in an apparent lack of activity for awhile.  \n"
 msgstr ""
+"\n"
+"<b>Δημιουργία κλώνου Live</b>\n"
+"\n"
+"Παρακαλούμε περιμένετε όσο δημιουργείται ο κλώνος του σηστήματός σας.... \n"
+"Αυτό μπορεί να διαρκέσει αρκετά, εξαρτώμενο από το μέγεθος της \n"
+"εργασίας ή την υπολογιστική δύναμη του υπολογιστή σας. Το σύστημα ενδέχεται να \n"
+"δείχνει ότι δεν λειτουργεί για κάποια διαστήματα.\n"
 
 #: src/liveclone.py:101
 msgid "LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on SalixLive or on your running environment, with or without persistent changes."
-msgstr ""
+msgstr "Το LiveClone θα δημιουργήσει μία εικόνα iso του LiveCD/DVD ή ένα δίσκο USB, βασισμένο στο SalixLive ή στο τρέχον περιβάλλον σας, με ή χωρίς μόνιμες αλλαγές."
 
 #: src/liveclone.py:123
 msgid "About LiveClone."
@@ -175,10 +181,13 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveCD/DVD.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveCD/DVD."
 msgstr ""
+"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε μία εικόνα iso του LiveCD/DVD βασισμένο στη τρέχον περιβάλλον σας.\n"
+"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveCD/DVD.\n"
+"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι ακριβώς αυτό που θα πάρετε στο LiveCD/DVD."
 
 #: src/liveclone.py:138
 msgid "Click on this tab if you want to create a LiveUSB based on SalixLive or on your running environment."
-msgstr ""
+msgstr "Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε ένα δίσκο LiveUSB βασισμένο στο SalixLive ή στο τρέχον περιβάλλον σας."
 
 #: src/liveclone.py:144
 msgid "Please enter the name of your LiveCD/DVD."
@@ -207,8 +216,7 @@ msgstr ""
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
 msgstr ""
 
-#: src/liveclone.py:182
-#: src/liveclone.py:194
+#: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
 msgstr ""
 
@@ -226,6 +234,9 @@ msgid ""
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveUSB key.\n"
 "What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
 msgstr ""
+"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε ένα δίσκο LiveUSB βασισμένο στη τρέχον περιβάλλον σας.\n"
+"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveUSB.\n"
+"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι ακριβώς αυτό που θα πάρετε στο LiveUSB."
 
 #: src/liveclone.py:216
 msgid "Set the size of your persistence file (It should be small enough to fit in your USB key will being large enough to fit as much data as possible)"
@@ -282,8 +293,7 @@ msgid ""
 "Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
 
-#: src/liveclone.py:414
-#: src/liveclone.py:443
+#: src/liveclone.py:414 src/liveclone.py:443
 msgid "LiveClone in progress..."
 msgstr "Γίνεται εκτέλεση του LiveClone..."
 
@@ -352,4 +362,3 @@ msgstr "Δημιουργία ενός κλωνοποιημένου LiveCD ή Liv
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "Εργαλείο LiveClone"
-
