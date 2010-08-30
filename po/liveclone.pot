@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-27 17:02+0200\n"
+"POT-Creation-Date: 2010-08-30 14:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,14 +46,6 @@ msgstr ""
 
 #: src/liveclone.glade:201 src/liveclone.glade:420
 msgid "Grub"
-msgstr ""
-
-#: src/liveclone.glade:234 src/liveclone.glade:567
-msgid "gtk-execute"
-msgstr ""
-
-#: src/liveclone.glade:251 src/liveclone.glade:583
-msgid "gtk-quit"
 msgstr ""
 
 #: src/liveclone.glade:288
@@ -319,45 +311,45 @@ msgstr ""
 msgid "Copying SalixLive Modules..."
 msgstr ""
 
-#: src/liveclone.py:471
+#: src/liveclone.py:474
 msgid "Creating Custom Module..."
 msgstr ""
 
-#: src/liveclone.py:479
+#: src/liveclone.py:482
 msgid "Module created..."
 msgstr ""
 
-#: src/liveclone.py:485
+#: src/liveclone.py:488
 msgid "Building the iso file..."
 msgstr ""
 
-#: src/liveclone.py:496
+#: src/liveclone.py:499
 msgid "Iso file succesfully created..."
 msgstr ""
 
-#: src/liveclone.py:503
+#: src/liveclone.py:506
 msgid ""
 "Your LiveCD image has been successfully created in the work directory you "
 "specified. You can now exit LiveClone and use Brasero or a similar program "
 "to burn the .iso file unto a CD-ROM."
 msgstr ""
 
-#: src/liveclone.py:509
+#: src/liveclone.py:512
 msgid "Setting the boot manager..."
 msgstr ""
 
-#: src/liveclone.py:531
+#: src/liveclone.py:534
 msgid "LiveUSB device succesfully created..."
 msgstr ""
 
-#: src/liveclone.py:539
+#: src/liveclone.py:542
 msgid ""
 "Your LiveUSB key has been successfully created. \n"
 "You can now exit LiveClone program and unplug your LiveUSB, it is unmounted "
 "and ready for use "
 msgstr ""
 
-#: src/liveclone.py:604
+#: src/liveclone.py:609
 msgid ""
 "<b>Sorry!</b> \n"
 "\n"
