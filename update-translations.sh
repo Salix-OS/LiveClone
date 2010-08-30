@@ -4,6 +4,7 @@ intltool-extract --type="gettext/ini" src/liveclone.desktop.in
 
 xgettext --from-code=utf-8 \
 	-L Glade \
+	-x po/EXCLUDE \
 	-o po/liveclone.pot \
 	src/liveclone.glade
 
