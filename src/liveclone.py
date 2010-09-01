@@ -219,7 +219,7 @@ be small enough to fit in your USB key while being large enough to fit as much d
         global context_intro
         self.context_help_label.set_text(context_intro)
     def on_apply_button_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_text(_("Click on this button  once all your \
+        self.context_help_label.set_text(_("Click on this button once all your \
 settings have been defined.\nYou will then need some patience as LiveClone creation \
 can be quite long depending on the power of your computer.\nAt the end of the process, \
 an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."))
