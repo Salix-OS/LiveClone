@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-30 14:11+0300\n"
+"POT-Creation-Date: 2010-09-01 11:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgstr ""
 #: src/liveclone.py:216
 msgid ""
 "Set the size of your persistence file (It should be small enough to fit in "
-"your USB key will being large enough to fit as much data as possible)"
+"your USB key while being large enough to fit as much data as possible)"
 msgstr ""
 
 #: src/liveclone.py:222

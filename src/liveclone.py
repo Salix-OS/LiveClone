@@ -214,7 +214,7 @@ What you *<i>see</i>* in your running session is what you will get in your LiveU
         self.context_help_label.set_text(context_intro)
     def on_size_label_enter_notify_event(self, widget, data=None):
         self.context_help_label.set_text(_("Set the size of your persistence file (It should \
-be small enough to fit in your USB key will being large enough to fit as much data as possible)"))
+be small enough to fit in your USB key while being large enough to fit as much data as possible)"))
     def on_size_label_leave_notify_event(self, widget, data=None):
         global context_intro
         self.context_help_label.set_text(context_intro)
