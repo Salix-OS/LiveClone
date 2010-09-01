@@ -167,7 +167,7 @@ Please note that all data present on it will be erased before LiveClone is insta
         self.context_help_label.set_text(context_intro)
     def on_unmodified_radiobutton_enter_notify_event(self, widget, data=None):
         self.context_help_label.set_markup(_("Check this option if you want to clone \
-the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (This option is only available if \
+the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (this option is only available if \
 LiveClone is executed from a LiveCD)."))
     def on_unmodified_radiobutton_leave_notify_event(self, widget, data=None):
         global context_intro
