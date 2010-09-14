@@ -1,11 +1,15 @@
+Version 0.8.13.1.1
+ * Tagged for Salix Live 13.1.1 release
+ * Added translation in German, Greek, Dutch & Swedish
+
 Version 0.7.13.1.1
  * Version is now indexed to Salix to indicate which patched or stock files are used
  * Added support for Salix-Live-Installer
- * Translation in Hungarian, Japanese & Ukrainian
+ * Added translation in Hungarian, Japanese & Ukrainian
 
 version 0.6
  * Fixed Grub2
- * Translation in French
+ * Added translation in French
 
 version 0.5
  * First release of LiveClone for SalixLive 13.1
