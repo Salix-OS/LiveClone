@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 11:16+0300\n"
+"POT-Creation-Date: 2010-09-15 14:07+0200\n"
 "PO-Revision-Date: 2010-08-28 20:23+0100\n"
 "Last-Translator: tsuren <hydrangea_and_snail@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "ライブ·クローン"
 
@@ -141,11 +141,7 @@ msgstr ""
 "団まで請求してください(宛先は the Free Software Foundation, Inc., 59\n"
 "Temple Place, Suite 330, Boston, MA 02111-1307 USA)。"
 
-#: src/liveclone.glade:677
-msgid "Salix OS Transifex Team"
-msgstr "Salix OS Transifex Team"
-
-#: src/liveclone.glade:719
+#: src/liveclone.glade:734
 msgid ""
 "\n"
 "<b>Creating a LiveClone</b>\n"
@@ -233,7 +229,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
-"ROM to a LiveUSB key (This option is only available if LiveClone is executed "
+"ROM to a LiveUSB key (this option is only available if LiveClone is executed "
 "from a LiveCD)."
 msgstr ""
 "SalixLiveを<b>バニラ</b>でそのままライブUSBキーにしたい場合はこのオプションを"
@@ -456,6 +452,9 @@ msgstr "ライブCD、ライブUSBキーをSalixLive、もしくは、現行の�
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "ライブ·クローン·ユーティリティ"
+
+#~ msgid "Salix OS Transifex Team"
+#~ msgstr "Salix OS Transifex Team"
 
 #~ msgid "gtk-execute"
 #~ msgstr "実行"
