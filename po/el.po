@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: liveclone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 11:16+0300\n"
+"POT-Creation-Date: 2010-09-15 14:07+0200\n"
 "PO-Revision-Date: 2010-09-01 11:24+0200\n"
 "Last-Translator: George Vlahavas <vlahavas~at~gmail~dot~com>\n"
 "Language-Team: Greek\n"
@@ -17,9 +17,7 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: src/liveclone.glade:7
-#: src/liveclone.glade:702
-#: src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -35,13 +33,11 @@ msgstr "MyLiveCD"
 msgid "Work directory: "
 msgstr "Κατάλογος εργασίας:"
 
-#: src/liveclone.glade:154
-#: src/liveclone.glade:373
+#: src/liveclone.glade:154 src/liveclone.glade:373
 msgid "Select a directory"
 msgstr "Επιλέξτε ένα κατάλογο"
 
-#: src/liveclone.glade:176
-#: src/liveclone.glade:395
+#: src/liveclone.glade:176 src/liveclone.glade:395
 msgid "Boot manager: "
 msgstr "Διαχειριστής εκκίνησης:"
 
@@ -49,8 +45,7 @@ msgstr "Διαχειριστής εκκίνησης:"
 msgid "Isolinux"
 msgstr "Isolinux"
 
-#: src/liveclone.glade:201
-#: src/liveclone.glade:420
+#: src/liveclone.glade:201 src/liveclone.glade:420
 msgid "Grub"
 msgstr "Grub"
 
@@ -150,11 +145,7 @@ msgstr ""
 "the Free Software Foundation, Inc., 51 Franklin Street, \n"
 "Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: src/liveclone.glade:677
-msgid "Salix OS Transifex Team"
-msgstr "Ομάδα Transifex του Salix OS"
-
-#: src/liveclone.glade:719
+#: src/liveclone.glade:734
 msgid ""
 "\n"
 "<b>Creating a LiveClone</b>\n"
@@ -217,15 +208,14 @@ msgid "This is the path to your USB key. Please note that all data present on it
 msgstr "Η διαδρομή προς το δίσκο USB. Παρακαλούμε σημειώστε ότι όλα τα δεδομένα που υπάρχουν σε αυτόν θα διαγραφούν."
 
 #: src/liveclone.py:169
-msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (This option is only available if LiveClone is executed from a LiveCD)."
+msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (this option is only available if LiveClone is executed from a LiveCD)."
 msgstr "Επιλέξτε αυτό αν επιθυμείτε να κλωνοποιήσετε ένα <b>αμετάβλητο</b>CD-ROM του SalixLive σε ένα δίσκο USB (αυτή η επιλογή είναι διαθέσιμη μόνο αν το LiveClone εκτελείται μέσω ενός LiveCD)."
 
 #: src/liveclone.py:176
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
 msgstr "Επιλέξτε αυτό αν επιθυμείτε να χρησιμοποιήσετε το <b>Syslinux</b> ως το διαχειριστή εκκίνησης."
 
-#: src/liveclone.py:182
-#: src/liveclone.py:194
+#: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
 msgstr "Επιλέξτε αυτό αν επιθυμείτε να χρησιμοποιήσετε το <b>GRUB</b> ως το διαχειριστή εκκίνησης."
 
@@ -321,8 +311,7 @@ msgstr ""
 "\n"
 "Υποστήριξη για εκτέλεση από ένα ήδη εκγατεστημένο σύστημα θα προστεθεί σε μελλοντικές εκδόσεις του LiveClone."
 
-#: src/liveclone.py:414
-#: src/liveclone.py:443
+#: src/liveclone.py:414 src/liveclone.py:443
 msgid "LiveClone in progress..."
 msgstr "Γίνεται εκτέλεση του LiveClone..."
 
@@ -392,3 +381,5 @@ msgstr "Δημιουργία ενός κλωνοποιημένου LiveCD ή Liv
 msgid "LiveClone utility"
 msgstr "Εργαλείο LiveClone"
 
+#~ msgid "Salix OS Transifex Team"
+#~ msgstr "Ομάδα Transifex του Salix OS"

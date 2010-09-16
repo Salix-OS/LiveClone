@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LiveClone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 11:16+0300\n"
+"POT-Creation-Date: 2010-09-15 14:07+0200\n"
 "PO-Revision-Date: 2010-08-24 21:18+0100\n"
 "Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
 "Language-Team: Nedudu Team <nedudu@nedudu.hu>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -129,11 +129,7 @@ msgid ""
 "Fifth Floor, Boston, MA 02110-1301, USA."
 msgstr ""
 
-#: src/liveclone.glade:677
-msgid "Salix OS Transifex Team"
-msgstr "Salix OS Transifex Csapat"
-
-#: src/liveclone.glade:719
+#: src/liveclone.glade:734
 msgid ""
 "\n"
 "<b>Creating a LiveClone</b>\n"
@@ -204,7 +200,7 @@ msgstr ""
 #: src/liveclone.py:169
 msgid ""
 "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
-"ROM to a LiveUSB key (This option is only available if LiveClone is executed "
+"ROM to a LiveUSB key (this option is only available if LiveClone is executed "
 "from a LiveCD)."
 msgstr ""
 
@@ -246,7 +242,6 @@ msgid ""
 msgstr ""
 
 #: src/liveclone.py:216
-#, fuzzy
 msgid ""
 "Set the size of your persistence file (It should be small enough to fit in "
 "your USB key while being large enough to fit as much data as possible)"
@@ -410,6 +405,9 @@ msgstr ""
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "LiveClone segédprogram"
+
+#~ msgid "Salix OS Transifex Team"
+#~ msgstr "Salix OS Transifex Csapat"
 
 #~ msgid "gtk-execute"
 #~ msgstr "gtk-execute"

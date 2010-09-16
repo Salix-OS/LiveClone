@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 11:16+0300\n"
+"POT-Creation-Date: 2010-09-15 14:07+0200\n"
 "PO-Revision-Date: 2010-08-30 14:49+0100\n"
 "Last-Translator: Christian Dersch <chrisdersch@googlemail.com>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: German\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -147,11 +147,7 @@ msgstr ""
 "Foundation, Inc., 51 Franklin Street, Fifth Floor,\n"
 "MA 02110-1301, USA."
 
-#: src/liveclone.glade:677
-msgid "Salix OS Transifex Team"
-msgstr "Salix OS Transifex Team"
-
-#: src/liveclone.glade:719
+#: src/liveclone.glade:734
 msgid ""
 "\n"
 "<b>Creating a LiveClone</b>\n"
@@ -214,8 +210,8 @@ msgid "This is the path to your USB key. Please note that all data present on it
 msgstr "Dies ist der Pfad zu Ihrem USB Stick. Bitte beachten Sie dass jegliche darauf vorhandenen Daten gelöscht werden bevor LiveClone darauf installiert wird."
 
 #: src/liveclone.py:169
-msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (This option is only available if LiveClone is executed from a LiveCD)."
-msgstr "Wählen Sie diese Option, wenn Sie die <b>unmodifizierte</b> SalixLive CD-ROM auf einen Live USB Stick klonen möchten. (Diese Option ist nur verfügbar wenn LiveClone von einer Live CD ausgeführt wird.)"
+msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (this option is only available if LiveClone is executed from a LiveCD)."
+msgstr "Wählen Sie diese Option, wenn Sie die <b>unmodifizierte</b> SalixLive CD-ROM auf einen Live USB Stick klonen möchten. (Diese Option ist nur verfügbar wenn LiveClone von einer Live CD ausgeführt wird)."
 
 #: src/liveclone.py:176
 msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
@@ -386,6 +382,9 @@ msgstr "Eine Live CD oder einen Live USB Stick aus Salix Live oder Ihrer laufend
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "LiveClone Werkzeug"
+
+#~ msgid "Salix OS Transifex Team"
+#~ msgstr "Salix OS Transifex Team"
 
 #~ msgid "gtk-execute"
 #~ msgstr "gtk-execute"

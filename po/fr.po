@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Liveclone 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 11:16+0300\n"
+"POT-Creation-Date: 2010-09-15 14:07+0200\n"
 "PO-Revision-Date: 2010-08-23 21:02+0100\n"
 "Last-Translator: Pierrick Le Brun <akuna~at~free~dot~fr>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:702 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -143,11 +143,7 @@ msgstr ""
 "ce programme ; si ce n’est pas le cas, écrivez à la Free Software \n"
 "Foundation Inc., 675 Mass Ave, Cambridge, MA 02139, Etats-Unis."
 
-#: src/liveclone.glade:677
-msgid "Salix OS Transifex Team"
-msgstr "Équipe Transifex de Salix OS"
-
-#: src/liveclone.glade:719
+#: src/liveclone.glade:734
 msgid ""
 "\n"
 "<b>Creating a LiveClone</b>\n"
@@ -210,7 +206,7 @@ msgid "This is the path to your USB key. Please note that all data present on it
 msgstr "Chemin d'accès vers votre clé USB. Veuillez noter que toutes les données présentes sur cette clé seront irrémédiablement effacées avant que LiveClone ne soit installé dessus. "
 
 #: src/liveclone.py:169
-msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (This option is only available if LiveClone is executed from a LiveCD)."
+msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (this option is only available if LiveClone is executed from a LiveCD)."
 msgstr "Cocher cette option pour cloner le CD-ROM SalixLive <b>non-modifié</b> vers une clé USB Live (cette option n'est disponible que si LiveClone est exécuté à partir d'un CD Live)."
 
 #: src/liveclone.py:176
@@ -382,6 +378,9 @@ msgstr "Générer un CD Live ou une clé USB Live, clonés à partir de SalixLiv
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "Utilitaire LiveClone"
+
+#~ msgid "Salix OS Transifex Team"
+#~ msgstr "Équipe Transifex de Salix OS"
 
 #~ msgid "gtk-execute"
 #~ msgstr "gtk-execute"
