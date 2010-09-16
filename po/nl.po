@@ -234,7 +234,6 @@ msgstr ""
 "zullen worden gewist voordat LiveClone is geïnstalleerd."
 
 #: src/liveclone.py:169
-#, fuzzy
 msgid ""
 "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
 "ROM to a LiveUSB key (this option is only available if LiveClone is executed "

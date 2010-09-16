@@ -242,7 +242,6 @@ msgid ""
 msgstr ""
 
 #: src/liveclone.py:216
-#, fuzzy
 msgid ""
 "Set the size of your persistence file (It should be small enough to fit in "
 "your USB key while being large enough to fit as much data as possible)"
