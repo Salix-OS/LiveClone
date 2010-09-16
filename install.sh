@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd $(dirname $0)
+VER=$(grep 'version =' src/liveclone.py | head -n 1 | sed "s/.*'\(.*\)'/\1/")
 
 install -d -m 755 $DESTDIR/usr/doc/liveclone-$VER
 install -d -m 755 $DESTDIR/install
