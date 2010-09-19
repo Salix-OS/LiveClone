@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: liveclone\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-15 14:07+0200\n"
-"PO-Revision-Date: 2010-09-11 16:12+0100\n"
+"PO-Revision-Date: 2010-09-19 19:00+0100\n"
 "Last-Translator: Ingemar Karlsson <ingemar@ingk.se>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,9 @@ msgstr ""
 "X-Poedit-Country: SWEDEN\n"
 "X-Generator: Lokalize 1.1\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:717 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7
+#: src/liveclone.glade:717
+#: src/liveclone.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
 
@@ -34,11 +36,13 @@ msgstr "MinLiveCD"
 msgid "Work directory: "
 msgstr "Arbetskatalog:"
 
-#: src/liveclone.glade:154 src/liveclone.glade:373
+#: src/liveclone.glade:154
+#: src/liveclone.glade:373
 msgid "Select a directory"
 msgstr "Välj en katalog"
 
-#: src/liveclone.glade:176 src/liveclone.glade:395
+#: src/liveclone.glade:176
+#: src/liveclone.glade:395
 msgid "Boot manager: "
 msgstr "Startupp hanterare:"
 
@@ -46,7 +50,8 @@ msgstr "Startupp hanterare:"
 msgid "Isolinux"
 msgstr "Isolinux"
 
-#: src/liveclone.glade:201 src/liveclone.glade:420
+#: src/liveclone.glade:201
+#: src/liveclone.glade:420
 msgid "Grub"
 msgstr "Grub"
 
@@ -159,49 +164,32 @@ msgstr ""
 "\n"
 "<b>Skapa ett LiveClone</b>\n"
 "\n"
-"Vänligen tålamod medan din LiveClone genereras ... \n"
-"Det kan vara ganska lång beroende på storleken på ditt \n"
-"project eller kraften i din dator och man kan även \n"
+"Vänligen ha tålamod medan din LiveClone genereras... \n"
+"Det kan ta ganska lång tid beroende på storleken på ditt \n"
+"project eller kraften i din dator och det kan även \n"
 "resultera i en uppenbar brist på aktivitet för en stund. \n"
 
 #: src/liveclone.py:101
-msgid ""
-"LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on "
-"SalixLive or on your running environment, with or without persistent changes."
-msgstr ""
-"LiveClone kommer att generera en LiveCD / DVD ISO bild eller ett LiveUSB "
-"nyckel, baserad på SalixLive eller på löpande miljö, med eller utan "
-"bestående förändringar."
+msgid "LiveClone will generate a LiveCD/DVD iso image or a LiveUSB key, based on SalixLive or on your running environment, with or without persistent changes."
+msgstr "LiveClone kommer att generera en LiveCD/DVD ISO avbild eller ett LiveUSB minne, baserad på SalixLive eller på körande miljö, med eller utan bestående förändringar."
 
 #: src/liveclone.py:123
 msgid "About LiveClone."
-msgstr "Om LiceClone"
+msgstr "Om LiveClone"
 
 #: src/liveclone.py:128
 msgid ""
-"Click on this tab if you want to create a LiveCD/DVD iso image based on your "
-"running environment.\n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"LiveCD/DVD.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"LiveCD/DVD."
+"Click on this tab if you want to create a LiveCD/DVD iso image based on your running environment.\n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveCD/DVD.\n"
+"What you *<i>see</i>* in your running session is what you will get in your LiveCD/DVD."
 msgstr ""
-"Klicka på den här fliken om du vill skapa en LiveCD / DVD ISO bild baserat "
-"på dina kör miljön. \\ NDu bör därför se till att du redan har lagt till "
-"och / eller tas bort några program och / eller användare, samt utförs av "
-"något annat system eller estetiska ändringar som du vill ska ingå i din "
-"anpassade LiveCD / DVD. \\ nWhat du * <i>ser</i> * i din körande session är "
-"vad du får i din LiveCD / DVD."
+"Klicka på den här fliken om du vill skapa en LiveCD/DVD ISO avbild baserat på din körande miljön.\n"
+"Du bör därför se till att du redan har lagt till och/eller tagit bort några program och/eller användare, samt utfört något anndra system eller estetiska ändringar som du vill ska ingå i din anpassade LiveCD/DVD.\n"
+"Vad du * <i>ser</i> * i din körande session är vad du får i din LiveCD/DVD."
 
 #: src/liveclone.py:138
-msgid ""
-"Click on this tab if you want to create a LiveUSB based on SalixLive or on "
-"your running environment."
-msgstr ""
-"Klicka på den här fliken om du vill skapa en LiveUSB baserat på SalixLive "
-"eller på din kör miljö."
+msgid "Click on this tab if you want to create a LiveUSB based on SalixLive or on your running environment."
+msgstr "Klicka på den här fliken om du vill skapa en LiveUSB baserat på SalixLive eller på din kör miljö."
 
 #: src/liveclone.py:144
 msgid "Please enter the name of your LiveCD/DVD."
@@ -213,107 +201,62 @@ msgstr "Skriv in namnet på din LiveUSB."
 
 #: src/liveclone.py:154
 msgid ""
-"This is the work directory where your LiveCD/DVD iso image will be created & "
-"where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
-"The free space available should be more than twice the size of your future "
-"LiveCD/DVD.\n"
-"It should be located on a separate partition, an external hardrive or a USB "
-"key but never -ever- in your home directory!"
+"This is the work directory where your LiveCD/DVD iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
+"The free space available should be more than twice the size of your future LiveCD/DVD.\n"
+"It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
 msgstr ""
-"Detta är det arbete katalogen där din LiveCD / DVD ISO bild kommer att "
-"skapas och där du kan hämta det att bränna det åt en CD / DVD-ROM. \\ NDet "
-"ledigt utrymme bör vara mer än dubbelt så stor som din framtid LiveCD / DVD. "
-"\\ nDet ska placeras på en separat partition, en yttre hardrive eller en USB-"
-"nyckel, men aldrig allt i din hemkatalog!"
+"Detta är det arbetskatalog där din LiveCD/DVD ISO avbild kommer att skapas och där du kan hämta den att bränna det på en CD/DVD-ROM.\n"
+"Det lediga utrymmet bör vara mer än dubbelt så stor som din LiveCD/DVD.\n"
+"Det ska placeras på en separat partition, en yttre hårddisk eller ett USB-minne, men aldrig i din hemkatalog!"
 
 #: src/liveclone.py:163
-msgid ""
-"This is the path to your USB key. Please note that all data present on it "
-"will be erased before LiveClone is installed on it. "
-msgstr ""
-"Detta är sökvägen till din USB-nyckel. Observera att alla data som finns på "
-"den kommer att raderas innan LiveClone är installerat på den."
+msgid "This is the path to your USB key. Please note that all data present on it will be erased before LiveClone is installed on it. "
+msgstr "Detta är sökvägen till ditt USB-minne. Observera att alla data som finns på den kommer att raderas innan LiveClone är installerat på den."
 
 #: src/liveclone.py:169
-#, fuzzy
-msgid ""
-"Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
-"ROM to a LiveUSB key (this option is only available if LiveClone is executed "
-"from a LiveCD)."
-msgstr ""
-"Markera detta alternativ om du vill klona den <b>omodifierade</b> SalixLive "
-"cd-skivan till en LiveUSB nyckel. (Det här alternativet är bara tillgängligt "
-"om LiveClone körs från en LiveCD.)"
+msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a LiveUSB key (this option is only available if LiveClone is executed from a LiveCD)."
+msgstr "Markera detta alternativ om du vill klona den <b>omodifierade</b> SalixLive cd-skivan till ett LiveUSB minne. (Det här alternativet är bara tillgängligt om LiveClone körs från en LiveCD.)"
 
 #: src/liveclone.py:176
-msgid ""
-"Choose this option if you want to use <b>Syslinux</b> as your boot manager."
-msgstr ""
-"Välj detta alternativ om du vill använda <b>syslinux</b> som din "
-"starthanterare."
+msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
+msgstr "Välj detta alternativ om du vill använda <b>syslinux</b> som din starthanterare."
 
-#: src/liveclone.py:182 src/liveclone.py:194
+#: src/liveclone.py:182
+#: src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
-msgstr ""
-"Välj detta alternativ om du vill använda <b>GRUB</b> som din starthanterare."
+msgstr "Välj detta alternativ om du vill använda <b>GRUB</b> som din starthanterare."
 
 #: src/liveclone.py:188
-msgid ""
-"Choose this option if you want to use <b>Isolinux</b> as your boot manager."
-msgstr ""
-"Välj detta alternativ om du vill använda <b>Isolinux</b> som din "
-"starthanterare."
+msgid "Choose this option if you want to use <b>Isolinux</b> as your boot manager."
+msgstr "Välj detta alternativ om du vill använda <b>Isolinux</b> som din starthanterare."
 
 #: src/liveclone.py:200
-msgid ""
-"Check this option if you want your LiveUSB to be able to record all changes "
-"& data from live sessions (same behaviour as an installed standard system)."
-msgstr ""
-"Markera detta val om du vill att LiveUSB ska kunna registrera alla ändringar "
-"&amp; data från levande sessioner (samma beteende som ett installerat "
-"standardsystem)."
+msgid "Check this option if you want your LiveUSB to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
+msgstr "Markera detta val om du vill att LiveUSB ska kunna registrera alla ändringar & data från körande sessioner (samma beteende som ett installerat standardsystem)."
 
 #: src/liveclone.py:206
 msgid ""
-"Check this option if you want to clone your running personnalized "
-"environment to a LiveUSB. \n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"LiveUSB key.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"LiveUSB."
+"Check this option if you want to clone your running personnalized environment to a LiveUSB. \n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized LiveUSB key.\n"
+"What you *<i>see</i>* in your running session is what you will get in your LiveUSB."
 msgstr ""
-"Markera detta alternativ om du vill klona din kör personnalized miljön till "
-"en LiveUSB. \\ NDu bör därför se till att du redan har lagt till och / eller "
-"tas bort några program och / eller användare, samt utförs varje annat system "
-"eller estetiska ändringar som du vill ska ingå i din anpassade LiveUSB "
-"nyckel. \\ NWhat du * <i>se</i> * i ditt körande session är vad du får i din "
-"LiveUSB."
+"Markera detta alternativ om du vill klona ditt körande anpassade miljön till en LiveUSB.\n"
+"Du bör därför se till att du redan har lagt till och/eller tagit bort några program och/eller användare, samt utfört annat system eller estetiska ändringar som du vill ska ingå i din anpassade LiveUSB nyckel.\n"
+"Vad du * <i>ser</i> * i din körande session är vad du får i din LiveUSB."
 
 #: src/liveclone.py:216
-#, fuzzy
-msgid ""
-"Set the size of your persistence file (It should be small enough to fit in "
-"your USB key while being large enough to fit as much data as possible)"
-msgstr ""
-"Ställ in storleken på din beständiga fil (Den bör vara liten nog att passa i "
-"din USB-nyckel men stor nog för att passa så mycket data som möjligt)"
+msgid "Set the size of your persistence file (It should be small enough to fit in your USB key while being large enough to fit as much data as possible)"
+msgstr "Ställ in storleken på din beständiga fil (Den bör vara liten nog att passa i ditt USB-minne men stor nog för att passa så mycket data som möjligt)"
 
 #: src/liveclone.py:222
-#, fuzzy
 msgid ""
 "Click on this button once all your settings have been defined.\n"
-"You will then need some patience as LiveClone creation can be quite long "
-"depending on the power of your computer.\n"
-"At the end of the process, an information dialog will let you know if "
-"LiveClone succeeded or failed to create your LiveCD."
+"You will then need some patience as LiveClone creation can be quite long depending on the power of your computer.\n"
+"At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your LiveCD."
 msgstr ""
-"Klicka på knappen när alla inställningar har definierats. \\ NDu kommer att "
-"behöva några tålamod LiveClone skapandet kan vara ganska lång beroende på "
-"kraften i din dator. \\ Nat i slutet av processen, en information dialogruta "
-"kommer att låta dig veta om LiveClone lyckats eller misslyckats med att "
-"skapa din LiveCD."
+"Klicka på knappen när alla inställningar har definierats.\n"
+"Du kommer att behöva ha tålamod, LiveClone skapandet kan vara ganska lång beroende på kraften i din dator.\n"
+"I slutet av processen, kommer en informationsruta att låta dig veta om LiveClone lyckats eller misslyckats med att skapa din LiveCD."
 
 #: src/liveclone.py:230
 msgid "Exit LiveClone."
@@ -323,16 +266,15 @@ msgstr "Avsluta LiveClone."
 msgid ""
 "Sorry, you must choose another work directory!\n"
 "\n"
-"Since your Home directory will be included in your LiveClone, your work "
-"directory should obviously not be located inside of it.\n"
+"Since your Home directory will be included in your LiveClone, your work directory should obviously not be located inside of it.\n"
 " \n"
-"The ideal is to choose or create a subdirectory either from another "
-"partition or from an external hard drive."
+"The ideal is to choose or create a subdirectory either from another partition or from an external hard drive."
 msgstr ""
-"Tyvärr, du måste välja ett annat verk katalog! \\ N \\ nSince din hemkatalog "
-"kommer att finnas i listan LiveClone, ditt arbete katalog bör naturligtvis "
-"inte vara placerade i den. \\ N \\ nDet ideal är att välja eller skapa en "
-"underkatalog antingen från en annan delning eller från en extern hårddisk."
+"Tyvärr, du måste välja en annan arbetskatalog!\n"
+"\n"
+"Eftersom din hemkatalog kommer att finnas i listan LiveClone, din arbetskatalog bör naturligtvis inte vara placerade i den.\n"
+"\n"
+"Det ideala är att välja eller skapa en underkatalog antingen från en annan partition eller från en extern hårddisk."
 
 #: src/liveclone.py:290
 msgid "Would you like to personnalize Isolinux boot menu?"
@@ -344,7 +286,7 @@ msgid ""
 " \n"
 "Are you sure you want to continue?"
 msgstr ""
-"Alla data som finns på din USB-nyckel kommer att permanent raderas! \n"
+"Alla data som finns på ditt USB-minne kommer att permanent raderas!\n"
 "\n"
 "Är du säker på att du vill fortsätta?"
 
@@ -360,40 +302,34 @@ msgid ""
 " \n"
 "Please, try again."
 msgstr ""
-"Du kan tyvärr har valt en ogiltig USB-nyckel sökväg! \n"
+"Du kan tyvärr har valt en ogiltig sökväg till ditt USB-minne!\n"
 "\n"
-"Vanligtvis börjar en giltig sökväg till en USB-nyckel med /media. \n"
+"Vanligtvis börjar en giltig sökväg till ett USB-minne med /media.\n"
 "\n"
 "Vänligen, försök igen."
 
 #: src/liveclone.py:399
 msgid ""
-"Sorry! At the moment, LiveClone can only be executed from SalixLive "
-"environment. \n"
+"Sorry! At the moment, LiveClone can only be executed from SalixLive environment. \n"
 "\n"
-"Support to run from a regular installed environment will be added in a "
-"future version of LiveClone."
+"Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
-"Förlåt! För närvarande kan LiveClone endast utföras från SalixLive miljö. \n"
+"Förlåt! För närvarande kan LiveClone endast köras från SalixLive miljö.\n"
 "\n"
-"Support att köra från en vanlig installerade miljö kommer att läggas till i "
-"en framtida version av LiveClone."
+"Support att köra från en vanlig installerade miljö kommer att läggas till i en framtida version av LiveClone."
 
-#: src/liveclone.py:414 src/liveclone.py:443
+#: src/liveclone.py:414
+#: src/liveclone.py:443
 msgid "LiveClone in progress..."
 msgstr "LiveClone pågår ..."
 
 #: src/liveclone.py:425
-msgid ""
-"Sorry! Liveclone is not able to manage this directory or this partition, "
-"please choose another location for your work directory."
-msgstr ""
-"Förlåt! Liveclone inte kan hantera denna katalog eller denna partition, välj "
-"en annan plats för din arbets katalog."
+msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
+msgstr "Förlåt! Liveclone inte kan hantera denna katalog eller denna partition, välj en annan plats för din arbets katalog."
 
 #: src/liveclone.py:453
 msgid "Creating persistent file..."
-msgstr "Skapar beständig fil ..."
+msgstr "Skapar beständig fil..."
 
 #: src/liveclone.py:462
 msgid "Copying SalixLive Modules..."
@@ -401,7 +337,7 @@ msgstr "Kopierar SalixLive Moduler..."
 
 #: src/liveclone.py:474
 msgid "Creating Custom Module..."
-msgstr "Skapa egen modul ..."
+msgstr "Skapa egen modul..."
 
 #: src/liveclone.py:482
 msgid "Module created..."
@@ -416,18 +352,12 @@ msgid "Iso file succesfully created..."
 msgstr "Iso fil skapad..."
 
 #: src/liveclone.py:506
-msgid ""
-"Your LiveCD image has been successfully created in the work directory you "
-"specified. You can now exit LiveClone and use Brasero or a similar program "
-"to burn the .iso file unto a CD-ROM."
-msgstr ""
-"Din LiveCD bilden har skapats i arbetes katalogen du angav. Du kan nu stänga "
-"LiveClone och använda Brasero eller ett liknande program för att bränna. Iso-"
-"fil på en cd-rom."
+msgid "Your LiveCD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
+msgstr "Din LiveCD bilden har skapats i arbetes katalogen du angav. Du kan nu stänga LiveClone och använda Brasero eller ett liknande program för att bränna Iso-filen på en cd-rom."
 
 #: src/liveclone.py:512
 msgid "Setting the boot manager..."
-msgstr "Inställning av uppstartshanteraren ..."
+msgstr "Inställning av uppstartshanteraren..."
 
 #: src/liveclone.py:534
 msgid "LiveUSB device succesfully created..."
@@ -436,12 +366,10 @@ msgstr "LiveUSB enhet skapad..."
 #: src/liveclone.py:542
 msgid ""
 "Your LiveUSB key has been successfully created. \n"
-"You can now exit LiveClone program and unplug your LiveUSB, it is unmounted "
-"and ready for use "
+"You can now exit LiveClone program and unplug your LiveUSB, it is unmounted and ready for use "
 msgstr ""
-"Din LiveUSB nyckel har skapats. \n"
-"Du kan nu avsluta LiveClone programmet och koppla bort din LiveUSB, den är "
-"omonterade och klar för användning"
+"Ditt LiveUSB-minne har skapats.\n"
+"Du kan nu avsluta LiveClone programmet och koppla bort ditt LiveUSB-minne, den är omonterade och klar för användning"
 
 #: src/liveclone.py:609
 msgid ""
@@ -454,12 +382,8 @@ msgstr ""
 "Root rättighet krävs för att köra detta program."
 
 #: src/liveclone.desktop.in.h:1
-msgid ""
-"Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running "
-"environment."
-msgstr ""
-"Generera en LiveCD eller LiveUSB klonade från SalixLive eller från din egen "
-"körande miljö."
+msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
+msgstr "Generera en LiveCD eller LiveUSB klonade från SalixLive eller från din egen körande miljö."
 
 #: src/liveclone.desktop.in.h:3
 msgid "LiveClone utility"
