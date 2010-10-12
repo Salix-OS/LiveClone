@@ -438,6 +438,7 @@ directory or this partition, please choose another location for your work direct
         os.makedirs(live_workdir + "/docs")
         shutil.copy("/usr/share/liveclone/liveskel/salixlive/livecd.sgn", live_workdir + "/salixlive/")
         shutil.copy("/usr/share/liveclone/liveskel/salixlive/make_iso.sh", live_workdir + "/salixlive/")
+        subprocess.call("chmod +x " + live_workdir + "/salixlive/make_iso.sh", shell=True)
         subprocess.call("cp /mnt/live/mnt/*/docs/* " + live_workdir + "/docs/", shell=True)
 
         self.progress_bar.set_text(_("LiveClone in progress..."))

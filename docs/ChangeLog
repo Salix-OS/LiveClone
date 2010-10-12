@@ -1,3 +1,7 @@
+Version 0.9.13.1.1
+ * Fixed make_iso.sh that was not executable
+ * Fixed liveclone.desktop creation
+
 Version 0.8.13.1.1
  * Tagged for Salix Live 13.1.1 release
  * Added translation in German, Greek, Dutch & Swedish
