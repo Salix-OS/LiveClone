@@ -1,13 +1,13 @@
 [Desktop Entry]
 Categories=Application;System;
-Exec=gksu /usr/sbin/liveclone.py
+Exec=kdesu /usr/sbin/liveclone.py
 Icon=liveclone
 StartupNotify=true
 Terminal=false
 Type=Application
 Encoding=UTF-8
 NoDisplay=false
-NotShowIn=KDE
+OnlyShowIn=KDE
 _Name=LiveClone
 _GenericName=LiveClone utility
 _Comment=Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment.

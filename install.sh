@@ -22,6 +22,8 @@ install -m 644 src/liveclone.glade \
 $DESTDIR/usr/share/liveclone
 install -m 644 src/liveclone.desktop \
 $DESTDIR/usr/share/applications/
+install -m 644 src/liveclone-kde.desktop \
+$DESTDIR/usr/share/applications/
 install -m 644 src/liveclone.png \
 $DESTDIR/usr/share/liveclone/
 install -m 644 icons/liveclone-24.png \
