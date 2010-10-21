@@ -4,6 +4,7 @@ Version 0.10.13.1.1
  * Added mksquashfs exclusion of all PID files
  * About dialog now grabs focus
  * Removed ramdisk_size=8000 from both isolinux.cfg & syslinux.cfg
+ * Updated translations strings
 
 Version 0.9.13.1.1
  * Added liveclone-kde.desktop.in file
