@@ -1,6 +1,12 @@
+Version 0.10.13.1.1
+ * Added kwrite in configuration editors choice
+ * Added mksquashfs exclusion of wicd configuration files
+ * Added mksquashfs exclusion of all PID files
+ * About dialog now grabs focus
+ * Removed ramdisk_size=8000 from both isolinux.cfg & syslinux.cfg
+
 Version 0.9.13.1.1
  * Added liveclone-kde.desktop.in file
- * Added kwrite in configuration editors choice
  * Fixed liveclone.desktop.in
  * Fixed make_iso.sh file attributes
 

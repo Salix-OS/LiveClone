@@ -10,8 +10,8 @@ cd pkg
 cat <<EOF > install/slack-desc
 liveclone: LiveClone - A simple GUI to clone Live systems.
 liveclone: 
-liveclone: LiveClone simplifies the creation of LiveCDs or LiveUSBs
-liveclone: based on SalixLive or Salix standard running environment.
+liveclone: LiveClone simplifies the creation of a Live CD or a Live USB
+liveclone: key based on SalixLive or Salix standard running environment.
 liveclone: All this from the comfort of a graphical interface. 
 liveclone:
 liveclone:

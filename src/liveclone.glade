@@ -641,18 +641,22 @@
     </child>
   </object>
   <object class="GtkAboutDialog" id="about_dialog">
+    <property name="can_focus">True</property>
+    <property name="has_focus">True</property>
+    <property name="is_focus">True</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">About LiveClone</property>
     <property name="resizable">False</property>
+    <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
-    <property name="icon">liveclone.png</property>
-    <property name="icon_name">liveclone</property>
+    <property name="icon_name">help-about</property>
     <property name="type_hint">dialog</property>
     <property name="skip_taskbar_hint">True</property>
+    <property name="transient_for">liveclone_main</property>
     <property name="has_separator">False</property>
     <property name="program_name">LiveClone</property>
-    <property name="version">0.8.13.1.1</property>
+    <property name="version">0.10.13.1.1</property>
     <property name="copyright" translatable="yes">This utility will clone a LiveCD or your running 
 environment to a LiveCD or a USB key.
 
@@ -691,7 +695,6 @@ Swedish: Ingemar Karlsson &lt;ingemar~at~ingk~dot~se&gt;
 
 Ukrainian: Yarema aka Knedlyk &lt;yupadmin~at~gmail~dot~com&gt;</property>
     <property name="logo">liveclone.png</property>
-    <property name="wrap_license">True</property>
     <signal name="response" handler="on_about_dialog_close"/>
     <signal name="delete_event" handler="on_about_dialog_close"/>
     <child internal-child="vbox">
@@ -734,7 +737,7 @@ Ukrainian: Yarema aka Knedlyk &lt;yupadmin~at~gmail~dot~com&gt;</property>
             <property name="label" translatable="yes">
 &lt;b&gt;Creating a LiveClone&lt;/b&gt;
 
-Please be patient while your LiveClone is generated... 
+Please be patient while your customized live media is generated...
 This could be quite long depending on the size of your 
 project or the power of your computer and it may even
 result in an apparent lack of activity for awhile.  
