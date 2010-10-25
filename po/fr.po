@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Liveclone 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-25 13:55+0200\n"
+"POT-Creation-Date: 2010-10-25 14:35+0200\n"
 "PO-Revision-Date: 2010-08-23 21:02+0100\n"
 "Last-Translator: Pierrick Le Brun <akuna~at~salixos~dot~org>\n"
 "Language-Team: \n"
@@ -147,13 +147,15 @@ msgstr ""
 
 #: src/liveclone.glade:681
 msgid "translator-credits"
-msgstr "Pierrick Le Brun <akuna~at~salixos~dot~org>\n"
+msgstr ""
+"Pierrick Le Brun <akuna~at~salixos~dot~org>\n"
 "Cyrille Pontvieux <jrd~at~enialis~dot~net>"
 
 #: src/liveclone.glade:722
+#, fuzzy
 msgid ""
 "\n"
-"<b>Creating a LiveClone</b>\n"
+"<b>Creating the Clone</b>\n"
 "\n"
 "Please be patient while your customized live media is generated...\n"
 "This could be quite long depending on the size of your \n"

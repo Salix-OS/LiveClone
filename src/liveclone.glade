@@ -720,7 +720,7 @@ Fifth Floor, Boston, MA 02110-1301, USA.</property>
             <property name="visible">True</property>
             <property name="xpad">10</property>
             <property name="label" translatable="yes">
-&lt;b&gt;Creating a LiveClone&lt;/b&gt;
+&lt;b&gt;Creating the Clone&lt;/b&gt;
 
 Please be patient while your customized live media is generated...
 This could be quite long depending on the size of your 
