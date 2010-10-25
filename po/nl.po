@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-21 22:06+0200\n"
+"POT-Creation-Date: 2010-10-25 13:55+0200\n"
 "PO-Revision-Date: 2010-08-28 10:55+0100\n"
 "Last-Translator: Imar van Erven Dorens <gambit73@gmail.com>\n"
 "Language-Team: NL <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:720 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:705 src/liveclone.desktop.in.h:2
 #: src/liveclone-kde.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
@@ -145,7 +145,11 @@ msgstr ""
 "schrijf naar de Free Software Foundation, Inc., 51 Franklin Street, \n"
 "Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: src/liveclone.glade:737
+#: src/liveclone.glade:681
+msgid "translator-credits"
+msgstr "Imar van Erven Dorens <gambit73~at~gmail~dot~com>"
+
+#: src/liveclone.glade:722
 #, fuzzy
 msgid ""
 "\n"

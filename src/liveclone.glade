@@ -678,22 +678,7 @@ Public License along with this program; if not, write to
 the Free Software Foundation, Inc., 51 Franklin Street, 
 Fifth Floor, Boston, MA 02110-1301, USA.</property>
     <property name="authors">Pierrick Le Brun &lt;akuna~at~free~dot~fr&gt;</property>
-    <property name="translator_credits">Dutch: Imar van Erven Dorens &lt;gambit73~at~gmail~dot~com&gt;
-
-French: Pierrick Le Brun &lt;akuna~at~free~dot~fr&gt;
-              Cyrille Pontvieux &lt;jrd~at~enialis~dot~net&gt;
-
-German: Christian Dersh &lt;chrisdersch~at~googlemail~dot~com &gt;
-
-Greek: George Vlahavas &lt;vlahavas~at~gmail~dot~com&gt;
-
-Hungarian: Peter Polonkai &lt;polesz~at~nedudu~dot~hu&gt;
-
-Japanese: tsuren &lt;hydrangea_and_snail~at~hotmail~dot~com&gt;
-
-Swedish: Ingemar Karlsson &lt;ingemar~at~ingk~dot~se&gt;
-
-Ukrainian: Yarema aka Knedlyk &lt;yupadmin~at~gmail~dot~com&gt;</property>
+    <property name="translator_credits" translatable="yes">translator-credits</property>
     <property name="logo">liveclone.png</property>
     <signal name="response" handler="on_about_dialog_close"/>
     <signal name="delete_event" handler="on_about_dialog_close"/>

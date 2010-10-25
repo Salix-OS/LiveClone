@@ -25,4 +25,3 @@ for i in `ls *.po`; do
 	msgmerge -U $i liveclone.pot
 done
 rm -f ./*~
-

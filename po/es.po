@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: salix.liveclone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-21 22:06+0200\n"
+"POT-Creation-Date: 2010-10-25 13:55+0200\n"
 "PO-Revision-Date: 2010-09-17 11:08-0300\n"
 "Last-Translator: Fernando Velo <seacat.linux@gmail.com>\n"
 "Language-Team: es <seacat.linux@gmail.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:720 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:705 src/liveclone.desktop.in.h:2
 #: src/liveclone-kde.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
@@ -146,7 +146,11 @@ msgstr ""
 "Free Software Foundation, Inc., 51 Franklin Street, \n"
 "Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: src/liveclone.glade:737
+#: src/liveclone.glade:681
+msgid "translator-credits"
+msgstr "Fernando Velo <seacat~dot~linux~at~gmail~dot~com>"
+
+#: src/liveclone.glade:722
 #, fuzzy
 msgid ""
 "\n"
