@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-25 14:35+0200\n"
 "PO-Revision-Date: 2010-10-25 21:44-0300\n"
-"Last-Translator: seacat <seacat.lang@gmail.com>\n"
+"Last-Translator: seacat <seacat.linux@gmail.com>\n"
 "Language-Team: es_AR <seacat.linux@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -368,8 +368,8 @@ msgid ""
 "Your Live USB key has been successfully created. \n"
 "You can now exit LiveClone program and unplug your customized live USB key, it is unmounted and ready for use "
 msgstr ""
-"Se creó correctamente su llave LiveUSB. \n"
-"Ahora puede salir del programa LiveClone y desconectar su LiveUSB, la que está desmontada y lista para usar."
+"Se creó correctamente su llave Live USB. \n"
+"Ahora puede salir del programa LiveClone y desconectar su llave Live USB, la que está desmontada y lista para usar."
 
 #: src/liveclone.py:607
 msgid ""
@@ -389,7 +389,7 @@ msgstr "Generar un LiveCD o un LiveUSB clonado desde SalixLive o desde su entorn
 #: src/liveclone.desktop.in.h:3
 #: src/liveclone-kde.desktop.in.h:3
 msgid "LiveClone utility"
-msgstr "Herramineta LiveClone"
+msgstr "Herramienta LiveClone"
 
 #~ msgid ""
 #~ "Sorry, you must choose another work directory!\n"
