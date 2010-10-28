@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -147,7 +147,6 @@ msgid "translator-credits"
 msgstr "tsuren <hydrangea_and_snail~at~hotmail~dot~com>"
 
 #: src/liveclone.glade:722
-#, fuzzy
 msgid ""
 "\n"
 "<b>Creating the Clone</b>\n"
@@ -166,159 +165,80 @@ msgstr ""
 "ちゃんと作動しているので気長に待っていてください。  \n"
 
 #: src/liveclone.py:101
-#, fuzzy
-msgid ""
-"LiveClone will generate a Live CD/DVD iso image or a Live USB key, based on "
-"SalixLive or on your running environment, with or without persistent changes."
-msgstr ""
-"ライブ·クローンは、ライブCDもしくは現行の環境をクローンし新しいライブCDまたは"
-"ライブUSBキー（Persistence設定抜き・込み）を用意するツールです。"
+msgid "LiveClone will generate a Live CD/DVD iso image or a Live USB key, based on SalixLive or on your running environment, with or without persistent changes."
+msgstr "ライブ·クローンは、ライブCDもしくは現行の環境をクローンし新しいライブCDまたはライブUSBキー（Persistence設定抜き・込み）を用意するツールです。"
 
 #: src/liveclone.py:123
 msgid "About LiveClone."
 msgstr "ライブ·クローンについて"
 
 #: src/liveclone.py:128
-#, fuzzy
 msgid ""
-"Click on this tab if you want to create a Live CD/DVD iso image based on "
-"your running environment.\n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"Live CD/DVD.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"Live CD/DVD."
-msgstr ""
-"ライブCD・DVDの制作のためのタブです。/n加えたい、又は、取り除きたいアプリ、設"
-"定や環境の調整、変更などは、ライブCD・DVD制作前にすませておいてください。/n今"
-"あなたの*<i>使っている</i>*セッションがそのままライブCD・DVDとしてクローンさ"
-"れます。"
+"Click on this tab if you want to create a Live CD/DVD iso image based on your running environment.\n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live CD/DVD.\n"
+"What you *<i>see</i>* in your running session is what you will get in your Live CD/DVD."
+msgstr "ライブCD・DVDの制作のためのタブです。/n加えたい、又は、取り除きたいアプリ、設定や環境の調整、変更などは、ライブCD・DVD制作前にすませておいてください。/n今あなたの*<i>使っている</i>*セッションがそのままライブCD・DVDとしてクローンされます。"
 
 #: src/liveclone.py:138
-#, fuzzy
-msgid ""
-"Click on this tab if you want to create a Live USB based on SalixLive or on "
-"your running environment."
+msgid "Click on this tab if you want to create a Live USB based on SalixLive or on your running environment."
 msgstr "ライブUSBキーの制作のためのタブです。"
 
 #: src/liveclone.py:144
-#, fuzzy
 msgid "Please enter the name of your Live CD/DVD."
 msgstr "ライブCD・DVDに名前をつけてください。"
 
 #: src/liveclone.py:149
-#, fuzzy
 msgid "Please enter the name of your Live USB."
 msgstr "ライブUSBキーに名前をつけてください。"
 
 #: src/liveclone.py:154
-#, fuzzy
 msgid ""
-"This is the work directory where your Live CD/DVD iso image will be created "
-"& where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
-"The free space available should be more than twice the size of your future "
-"Live CD/DVD.\n"
-"It should be located on a separate partition, an external hardrive or a USB "
-"key but never -ever- in your home directory!"
-msgstr ""
-"作業ディレクトリは、ライブCD・DVDのISOファイルの制作のために使われ、そしてセ"
-"イブされるディレクトリでもあります。/nよって少なくとも完成されるライブCD・DVD"
-"のサイズの二倍以上のスペースが、必要となります。/n 別のパーティション、又は外"
-"部取り付け可能なハードドライブ、USBキーなどが適切なディレクトリとなります。絶"
-"対にHome（ホーム）ディレクトリなど、ライブCD・DVDにコピーされるディレクトリ内"
-"を作業ディレクトリとして設定しないでください。"
+"This is the work directory where your Live CD/DVD iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
+"The free space available should be more than twice the size of your future Live CD/DVD.\n"
+"It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
+msgstr "作業ディレクトリは、ライブCD・DVDのISOファイルの制作のために使われ、そしてセイブされるディレクトリでもあります。/nよって少なくとも完成されるライブCD・DVDのサイズの二倍以上のスペースが、必要となります。/n 別のパーティション、又は外部取り付け可能なハードドライブ、USBキーなどが適切なディレクトリとなります。絶対にHome（ホーム）ディレクトリなど、ライブCD・DVDにコピーされるディレクトリ内を作業ディレクトリとして設定しないでください。"
 
 #: src/liveclone.py:163
-#, fuzzy
-msgid ""
-"This is the path to your USB key. Please note that all present data it may "
-"contain will be permanently erased. "
-msgstr ""
-"ここで、USBキーのディレクトリー・パス設定を行ってください。注意：設定された"
-"ディレクトリーのデータは、ライブ·クローンする時点ですべて消されてしまいます。"
+msgid "This is the path to your USB key. Please note that all present data it may contain will be permanently erased. "
+msgstr "ここで、USBキーのディレクトリー・パス設定を行ってください。注意：設定されたディレクトリーのデータは、ライブ·クローンする時点ですべて消されてしまいます。"
 
 #: src/liveclone.py:169
-#, fuzzy
-msgid ""
-"Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
-"ROM to a Live USB key (this option is only available if LiveClone is "
-"executed from a LiveCD)."
-msgstr ""
-"SalixLiveを<b>バニラ</b>でそのままライブUSBキーにしたい場合はこのオプションを"
-"選んでください。（このオプションは、ライブ・クローンがライブCDから起動された"
-"場合のみ可能です。）"
+msgid "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-ROM to a Live USB key (this option is only available if LiveClone is executed from a LiveCD)."
+msgstr "SalixLiveを<b>バニラ</b>でそのままライブUSBキーにしたい場合はこのオプションを選んでください。（このオプションは、ライブ・クローンがライブCDから起動された場合のみ可能です。）"
 
 #: src/liveclone.py:176
-msgid ""
-"Choose this option if you want to use <b>Syslinux</b> as your boot manager."
-msgstr ""
-"<b>Syslinux</b>をブート・マネージャーとして使用したい場合は、このオプションを"
-"選んでください。"
+msgid "Choose this option if you want to use <b>Syslinux</b> as your boot manager."
+msgstr "<b>Syslinux</b>をブート・マネージャーとして使用したい場合は、このオプションを選んでください。"
 
 #: src/liveclone.py:182 src/liveclone.py:194
 msgid "Choose this option if you want to use <b>GRUB</b> as your boot manager."
-msgstr ""
-"<b>GRUB</b>をブート・マネージャーとして使用したい場合は、このオプションを選ん"
-"でください。"
+msgstr "<b>GRUB</b>をブート・マネージャーとして使用したい場合は、このオプションを選んでください。"
 
 #: src/liveclone.py:188
-msgid ""
-"Choose this option if you want to use <b>Isolinux</b> as your boot manager."
-msgstr ""
-"<b>Isolinux</b>をブート・マネージャーとして使用したい場合は、このオプションを"
-"選んでください。"
+msgid "Choose this option if you want to use <b>Isolinux</b> as your boot manager."
+msgstr "<b>Isolinux</b>をブート・マネージャーとして使用したい場合は、このオプションを選んでください。"
 
 #: src/liveclone.py:200
-#, fuzzy
-msgid ""
-"Check this option if you want your Live USB key to be able to record all "
-"changes & data from live sessions (same behaviour as an installed standard "
-"system)."
-msgstr ""
-"ライブUSBにライブ・セッションでのデータの変更などを記録させたい場合は、このオ"
-"プションをえらんでください。（基本的には、ハードドライブに、インストールした"
-"場合と同じ。）"
+msgid "Check this option if you want your Live USB key to be able to record all changes & data from live sessions (same behaviour as an installed standard system)."
+msgstr "ライブUSBにライブ・セッションでのデータの変更などを記録させたい場合は、このオプションをえらんでください。（基本的には、ハードドライブに、インストールした場合と同じ。）"
 
 #: src/liveclone.py:206
-#, fuzzy
 msgid ""
-"Check this option if you want to clone your running personnalized "
-"environment to a Live USB key. \n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"Live USB key.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"Live USB key."
-msgstr ""
-"現行の環境をUSBキー.にクローンしたい場合は、このオプションを選んでください。/"
-"n加えたい、又は、取り除きたいアプリ、設定や環境の調整、変更などは、ライブUSB"
-"キー制作前にすませておいてください。/n今あなたの*<i>使っている</i>*セッション"
-"がそのままライブUSBとしてクローンされます。"
+"Check this option if you want to clone your running personnalized environment to a Live USB key. \n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live USB key.\n"
+"What you *<i>see</i>* in your running session is what you will get in your Live USB key."
+msgstr "現行の環境をUSBキー.にクローンしたい場合は、このオプションを選んでください。/n加えたい、又は、取り除きたいアプリ、設定や環境の調整、変更などは、ライブUSBキー制作前にすませておいてください。/n今あなたの*<i>使っている</i>*セッションがそのままライブUSBとしてクローンされます。"
 
 #: src/liveclone.py:216
-#, fuzzy
-msgid ""
-"Set the size of your persistence file (It should be small enough to fit in "
-"your USB key while being large enough to fit as much data as possible)"
-msgstr ""
-"persistenceファイルのサイズを設定してください。ファイルのサイズは、当然USB"
-"キーに入る限量をこえてはいけません。"
+msgid "Set the size of your persistence file (It should be small enough to fit in your USB key while being large enough to fit as much data as possible)"
+msgstr "persistenceファイルのサイズを設定してください。ファイルのサイズは、当然USBキーに入る限量をこえてはいけません。"
 
 #: src/liveclone.py:222
-#, fuzzy
 msgid ""
 "Click on this button once all your settings have been defined.\n"
-"You will then need some patience as the creation of a customized live media "
-"can be quite long depending on the power of your computer.\n"
-"At the end of the process, an information dialog will let you know if "
-"LiveClone succeeded or failed to create your customized live media."
-msgstr ""
-"設定が終了後このボタンをクリックしてください。/nライブ・クローンが作業してい"
-"る間、待ちきれなくっても絶対にコンピュータの電源を切る、などしないでくださ"
-"い。/n作業終了後、ライブCD制作が成功したか否かをライブ・クローンが、知らせま"
-"す。"
+"You will then need some patience as the creation of a customized live media can be quite long depending on the power of your computer.\n"
+"At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your customized live media."
+msgstr "設定が終了後このボタンをクリックしてください。/nライブ・クローンが作業している間、待ちきれなくっても絶対にコンピュータの電源を切る、などしないでください。/n作業終了後、ライブCD制作が成功したか否かをライブ・クローンが、知らせます。"
 
 #: src/liveclone.py:230
 msgid "Exit LiveClone."
@@ -326,12 +246,13 @@ msgstr "ライブ·クローンを閉じます。"
 
 #: src/liveclone.py:264
 msgid ""
-"Sorry, you must not use a location that is a part of the live "
-"environment ! \n"
+"Sorry, you must not use a location that is a part of the live environment ! \n"
 "\n"
-"Please select or create a subdirectory located on a physical hard drive "
-"(hint: access path usually starts with /mnt or /media)."
+"Please select or create a subdirectory located on a physical hard drive (hint: access path usually starts with /mnt or /media)."
 msgstr ""
+"申し訳ありませんが、ライブ環境の一部を使用してはいけません！ \n"
+"\n"
+"ハードドライブ上にあるサブディレクトリを作成するか選択するかしてください。（ヒント：アクセスパスは、通常は/ mnt /または/mediaからはじまります）。"
 
 #: src/liveclone.py:289
 msgid "Would you like to personnalize Isolinux boot menu?"
@@ -367,27 +288,18 @@ msgstr ""
 
 #: src/liveclone.py:398
 msgid ""
-"Sorry! At the moment, LiveClone can only be executed from SalixLive "
-"environment. \n"
+"Sorry! At the moment, LiveClone can only be executed from SalixLive environment. \n"
 "\n"
-"Support to run from a regular installed environment will be added in a "
-"future version of LiveClone."
-msgstr ""
-"ライブ·クローンは、現在のところSalixLiveからでしか使うことができません。/nそ"
-"の他の環境からの使用は現在のところサポートされていませんが、将来サポートされ"
-"る予定です。"
+"Support to run from a regular installed environment will be added in a future version of LiveClone."
+msgstr "ライブ·クローンは、現在のところSalixLiveからでしか使うことができません。/nその他の環境からの使用は現在のところサポートされていませんが、将来サポートされる予定です。"
 
 #: src/liveclone.py:413 src/liveclone.py:443
 msgid "Customized live media creation in progress..."
-msgstr ""
+msgstr "カスタム化されたライブ·メディアの制作進行中です。"
 
 #: src/liveclone.py:424
-msgid ""
-"Sorry! Liveclone is not able to manage this directory or this partition, "
-"please choose another location for your work directory."
-msgstr ""
-"ライブ·クローンは、指定されたディレクトリー、もしくはパーティションを使うこと"
-"ができません。別のディレクトリーを作業ディレクトリーとして設定してください。"
+msgid "Sorry! Liveclone is not able to manage this directory or this partition, please choose another location for your work directory."
+msgstr "ライブ·クローンは、指定されたディレクトリー、もしくはパーティションを使うことができません。別のディレクトリーを作業ディレクトリーとして設定してください。"
 
 #: src/liveclone.py:453
 msgid "Creating persistent file..."
@@ -414,15 +326,8 @@ msgid "Iso file succesfully created..."
 msgstr "ISO ファイルの制作が終わりました"
 
 #: src/liveclone.py:506
-#, fuzzy
-msgid ""
-"Your Live CD image has been successfully created in the work directory you "
-"specified. You can now exit LiveClone and use Brasero or a similar program "
-"to burn the .iso file unto a CD-ROM."
-msgstr ""
-"LiveCDの制作が、終了しました。完成したISOファイルは、あなたの指定した作業ディ"
-"レクトリにセイブしてあります。ライブ·クローンを閉じ、Braseroなどのバーナーを"
-"使いISOファイルをCD・DVD-ROMに焼き付けてください。"
+msgid "Your Live CD image has been successfully created in the work directory you specified. You can now exit LiveClone and use Brasero or a similar program to burn the .iso file unto a CD-ROM."
+msgstr "LiveCDの制作が、終了しました。完成したISOファイルは、あなたの指定した作業ディレクトリにセイブしてあります。ライブ·クローンを閉じ、Braseroなどのバーナーを使いISOファイルをCD・DVD-ROMに焼き付けてください。"
 
 #: src/liveclone.py:512
 msgid "Setting the boot manager..."
@@ -433,15 +338,12 @@ msgid "LiveUSB device succesfully created..."
 msgstr "ライブ·USBキーの制作が終了しました。"
 
 #: src/liveclone.py:542
-#, fuzzy
 msgid ""
 "Your Live USB key has been successfully created. \n"
-"You can now exit LiveClone program and unplug your customized live USB key, "
-"it is unmounted and ready for use "
+"You can now exit LiveClone program and unplug your customized live USB key, it is unmounted and ready for use "
 msgstr ""
 "ライブ·USBキーの制作が終了しました。\n"
-"ライブ·クローンを閉じ、USBキーを外してください。既にライブ·USBキーとしての使"
-"用が可能です。"
+"ライブ·クローンを閉じ、USBキーを外してください。既にライブ·USBキーとしての使用が可能です。"
 
 #: src/liveclone.py:607
 msgid ""
@@ -454,9 +356,7 @@ msgstr ""
 "このアプリを使うには、アドミニストレータである必要があります。"
 
 #: src/liveclone.desktop.in.h:1 src/liveclone-kde.desktop.in.h:1
-msgid ""
-"Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running "
-"environment."
+msgid "Generate a LiveCD or LiveUSB cloned from SalixLive or from your own running environment."
 msgstr "ライブCD、ライブUSBキーをSalixLive、もしくは、現行の環境から制作する。"
 
 #: src/liveclone.desktop.in.h:3 src/liveclone-kde.desktop.in.h:3
@@ -466,18 +366,13 @@ msgstr "ライブ·クローン·ユーティリティ"
 #~ msgid ""
 #~ "Sorry, you must choose another work directory!\n"
 #~ "\n"
-#~ "Since your Home directory will be included in your LiveClone, your work "
-#~ "directory should obviously not be located inside of it.\n"
+#~ "Since your Home directory will be included in your LiveClone, your work directory should obviously not be located inside of it.\n"
 #~ " \n"
-#~ "The ideal is to choose or create a subdirectory either from another "
-#~ "partition or from an external hard drive."
+#~ "The ideal is to choose or create a subdirectory either from another partition or from an external hard drive."
 #~ msgstr ""
 #~ "別の作業ディレクトリを選んでください。\n"
 #~ "\n"
-#~ "Home（ホーム）ディレクトリもライブ・クローンによってコピーされるため、作業"
-#~ "ディレクトリをHomeディレクトリ内に設定することはできません。/n/n外部設置の"
-#~ "ハードドライブ、又は別のパーティションなどが、作業ディレクトリとして適切で"
-#~ "す。"
+#~ "Home（ホーム）ディレクトリもライブ・クローンによってコピーされるため、作業ディレクトリをHomeディレクトリ内に設定することはできません。/n/n外部設置のハードドライブ、又は別のパーティションなどが、作業ディレクトリとして適切です。"
 
 #~ msgid "LiveClone in progress..."
 #~ msgstr "ライブ·クローンが作業中です。"
