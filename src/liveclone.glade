@@ -677,7 +677,7 @@ You should have received a copy of the GNU General
 Public License along with this program; if not, write to 
 the Free Software Foundation, Inc., 51 Franklin Street, 
 Fifth Floor, Boston, MA 02110-1301, USA.</property>
-    <property name="authors">Pierrick Le Brun &lt;akuna~at~free~dot~fr&gt;</property>
+    <property name="authors">Pierrick Le Brun &lt;akuna~at~salixos~dot~org&gt;</property>
     <property name="translator_credits" translatable="yes">translator-credits</property>
     <property name="logo">liveclone.png</property>
     <signal name="response" handler="on_about_dialog_close"/>

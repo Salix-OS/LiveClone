@@ -5,7 +5,7 @@
 # LiveClone will create a LiveCD or a LiveUSB key out of a Live CD            #
 # or out of a running environment.                                            #
 #                                                                             #
-# Copyright Pierrick Le Brun <akuna at free.fr>.                              #
+# Copyright Pierrick Le Brun <akuna~at~salixos~dot~org>.                      #
 #                                                                             #
 # This program is free software; you can redistribute it and/or               #
 # modify it under the terms of the GNU General Public License                 #
@@ -288,21 +288,23 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                     shutil.copytree("/usr/share/liveclone/liveskel/boot", "/tmp/boot", symlinks=False)
                     warning_dialog(_("Would you like to personnalize Isolinux boot menu?"))
                     if result_warning == gtk.RESPONSE_YES:
-                        # Open the syslinux conf file
+                        # Open the isolinux conf file
                         if os.path.isfile("/usr/bin/geany") :
-                            subprocess.call('geany /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
+                            subprocess.call('/usr/bin/geany /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
                         elif os.path.isfile("/usr/bin/leafpad") :
-                            subprocess.call('leafpad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
+                            subprocess.call('/usr/bin/leafpad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
                         elif os.path.isfile("/usr/bin/gedit") :
-                            subprocess.call('gedit /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
+                            subprocess.call('/usr/bin/gedit /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
                         elif os.path.isfile("/usr/bin/kwrite") :
-                            subprocess.call('kwrite /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
+                            subprocess.call('/usr/bin/kwrite /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
                         elif os.path.isfile("/usr/bin/mousepad") :
-                            subprocess.call('mousepad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
+                            subprocess.call('/usr/bin/mousepad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
                         else :
                             subprocess.call('xdg-open /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                    # Convert it to ISO-8859-1 just to be sure -> need to offer more choice...
-                    subprocess.call('iconv -f UTF-8 -t ISO-8859-1 /tmp/boot/isolinux/isolinux.cfg ', shell=True)
+                    # Ensure changes are taken into account
+                    subprocess.call('sync', shell=True)
+                    subprocess.call('rm -f /tmp/boot/isolinux/isolinux.cfg~ 2>/dev/null', shell=True)
+                    # TODO convert isolinux.cfg file to appropriate ISO code...
                 task = self.common_base()
                 gobject.idle_add(task.next)
 
@@ -361,19 +363,21 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                         if result_warning == gtk.RESPONSE_YES:
                             # Open the syslinux conf file
                             if os.path.isfile("/usr/bin/geany") :
-                                subprocess.call('geany /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
+                                subprocess.call('/usr/bin/geany /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
                             elif os.path.isfile("/usr/bin/leafpad") :
-                                subprocess.call('leafpad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
+                                subprocess.call('/usr/bin/leafpad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
                             elif os.path.isfile("/usr/bin/gedit") :
-                                subprocess.call('gedit /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
+                                subprocess.call('/usr/bin/gedit /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
                             elif os.path.isfile("/usr/bin/kwrite") :
-                                subprocess.call('kwrite /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
+                                subprocess.call('/usr/bin/kwrite /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
                             elif os.path.isfile("/usr/bin/mousepad") :
-                                subprocess.call('mousepad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
+                                subprocess.call('/usr/bin/mousepad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
                             else :
                                 subprocess.call('xdg-open /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                        # Convert it to ISO-8859-1 just to be sure -> need to offer more choice...
-                        subprocess.call('iconv -f UTF-8 -t ISO-8859-1 /tmp/boot/syslinux/syslinux.cfg ', shell=True)
+                        # Ensure changes are taken into account
+                        subprocess.call('sync', shell=True)
+                        subprocess.call('rm -f /tmp/boot/syslinux/syslinux.cfg~ 2>/dev/null', shell=True)
+                        # TODO convert syslinux.cfg file to appropriate ISO code...
 
                     # Better deactivate all Execute buttons
                     self.usb_apply_button.set_sensitive(False)
@@ -490,7 +494,7 @@ directory or this partition, please choose another location for your work direct
             # there's more work, return True
             yield True
             if self.IsolinuxRadioButton.get_active() == True :
-                subprocess.call("cp -r /tmp/boot/* " + live_workdir + "/boot/", shell=True)
+                subprocess.call("cp -r /tmp/boot/isolinux " + live_workdir + "/boot/", shell=True)
                 shutil.rmtree("/tmp/boot", ignore_errors=True)
                 subprocess.call(live_workdir + "/salixlive/make_iso.sh " + iso_dir + "/" + liveclone_name + ".iso", shell=True)
             if self.CdGrubRadioButton.get_active() == True :
@@ -525,7 +529,7 @@ program to burn the .iso file unto a CD-ROM."))
                 subprocess.call("dd if=/boot/grub_mbr of=" + usb_dev_root + " count=440 bs=1 conv=notrunc", shell=True)
                 subprocess.call("dd if=/boot/grub_post_mbr_gap of=" + usb_dev_root + " count=62 bs=512 seek=1 conv=notrunc", shell=True)
             else :  # Install Syslinux
-                subprocess.call("cp -r /tmp/boot/* " + live_workdir + "/boot/", shell=True)
+                subprocess.call("cp -r /tmp/boot/syslinux " + live_workdir + "/boot/", shell=True)
                 shutil.rmtree("/tmp/boot", ignore_errors=True)
                 subprocess.call("syslinux -f " + usb_device, shell=True)
                 subprocess.call("eject " + live_workdir, shell=True)
