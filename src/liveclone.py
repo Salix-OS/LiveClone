@@ -495,6 +495,7 @@ directory or this partition, please choose another location for your work direct
             yield True
             if self.IsolinuxRadioButton.get_active() == True :
                 subprocess.call("cp -r /tmp/boot/isolinux " + live_workdir + "/boot/", shell=True)
+                subprocess.call("cp /tmp/boot/vesamenu.c32 " + live_workdir + "/boot/", shell=True)
                 shutil.rmtree("/tmp/boot", ignore_errors=True)
                 subprocess.call(live_workdir + "/salixlive/make_iso.sh " + iso_dir + "/" + liveclone_name + ".iso", shell=True)
             if self.CdGrubRadioButton.get_active() == True :
@@ -530,6 +531,7 @@ program to burn the .iso file unto a CD-ROM."))
                 subprocess.call("dd if=/boot/grub_post_mbr_gap of=" + usb_dev_root + " count=62 bs=512 seek=1 conv=notrunc", shell=True)
             else :  # Install Syslinux
                 subprocess.call("cp -r /tmp/boot/syslinux " + live_workdir + "/boot/", shell=True)
+                subprocess.call("cp /tmp/boot/vesamenu.c32 " + live_workdir + "/boot/", shell=True)
                 shutil.rmtree("/tmp/boot", ignore_errors=True)
                 subprocess.call("syslinux -f " + usb_device, shell=True)
                 subprocess.call("eject " + live_workdir, shell=True)
