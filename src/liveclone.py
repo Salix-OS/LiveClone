@@ -23,7 +23,7 @@
 #                                                                             #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-# version = '0.10.13.1.1'
+# version = '0.11.13.37'
 
 import os
 import shutil
@@ -33,6 +33,7 @@ import time
 import gtk
 import gtk.glade
 import gobject
+import datetime
 
 # Internationalization
 import locale
@@ -81,10 +82,6 @@ class LiveClone:
         self.persistence_size_label = builder.get_object("size_label")
         self.persistence_size = builder.get_object("persist_size")
         self.context_help_label = builder.get_object("context_help_label")
-        self.GrubRadioButton = builder.get_object("grub_radiobutton")
-        self.SyslinuxRadioButton = builder.get_object("syslinux_radiobutton")
-        self.CdGrubRadioButton = builder.get_object("cd_grub_radiobutton")
-        self.IsolinuxRadioButton = builder.get_object("isolinux_radiobutton")
 
         # Connect signals
         builder.connect_signals(self)
@@ -106,7 +103,7 @@ SalixLive or on your running environment, with or without persistent changes.")
             """
             Ungreys the USB unmodified checkbox if we are in a LiveCD environment
             """
-            if os.path.exists("/mnt/live/memory/changes") is True :
+            if os.path.exists("/mnt/salt/tmp/distro_infos") is True :
                 self.unmodified_radiobutton.set_sensitive(True)
             else :
                 pass
@@ -114,6 +111,7 @@ SalixLive or on your running environment, with or without persistent changes.")
         initialize_checkboxes()
         self.persistence_size.set_value(256)
         self.persistence_size.set_sensitive(False)
+
 ### Callback signals waiting in a constant loop: ###
 
 ### WINDOWS MAIN SIGNALS ###
@@ -135,8 +133,12 @@ What you *<i>see</i>* in your running session is what you will get in your Live 
         global context_intro
         self.context_help_label.set_text(context_intro)
     def on_usb_tab_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_text(_("Click on this tab if you want to create a Live USB \
-based on SalixLive or on your running environment."))
+        self.context_help_label.set_markup(_("Click on this tab if you want to create a Live USB \
+based on an unmodified SalixLive CD or on your running SalixLive environment.\n\
+In the later case, you should ensure that you have already added and/or removed any \
+programs and/or any users, as well as performed any other system or aesthetic \
+modifications which you want to be included in your customized Live USB key.\n\
+What you *<i>see</i>* in your running session is what you will get in your Live USB key."))
     def on_usb_tab_leave_notify_event(self, widget, data=None):
         global context_intro
         self.context_help_label.set_text(context_intro)
@@ -170,30 +172,6 @@ Please note that all present data it may contain will be permanently erased. "))
 the <b>unmodified</b> SalixLive CD-ROM to a Live USB key (this option is only available if \
 LiveClone is executed from a LiveCD)."))
     def on_unmodified_radiobutton_leave_notify_event(self, widget, data=None):
-        global context_intro
-        self.context_help_label.set_text(context_intro)
-    def on_syslinux_radiobutton_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_markup(_("Choose this option if you want to use \
-<b>Syslinux</b> as your boot manager."))
-    def on_syslinux_radiobutton_leave_notify_event(self, widget, data=None):
-        global context_intro
-        self.context_help_label.set_text(context_intro)
-    def on_grub_radiobutton_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_markup(_("Choose this option if you want to use \
-<b>GRUB</b> as your boot manager."))
-    def on_grub_radiobutton_leave_notify_event(self, widget, data=None):
-        global context_intro
-        self.context_help_label.set_text(context_intro)
-    def on_isolinux_radiobutton_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_markup(_("Choose this option if you want to use \
-<b>Isolinux</b> as your boot manager."))
-    def on_isolinux_radiobutton_leave_notify_event(self, widget, data=None):
-        global context_intro
-        self.context_help_label.set_text(context_intro)
-    def on_cd_grub_radiobutton_enter_notify_event(self, widget, data=None):
-        self.context_help_label.set_markup(_("Choose this option if you want to use \
-<b>GRUB</b> as your boot manager."))
-    def on_cd_grub_radiobutton_leave_notify_event(self, widget, data=None):
         global context_intro
         self.context_help_label.set_text(context_intro)
     def on_check_persistence_enter_notify_event(self, widget, data=None):
@@ -277,34 +255,10 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                 # LiveCD clone always use the running environment & never create persistent files
                 self.use_persistence.set_active(False)
                 self.running_environment_radiobutton.set_active(True)
-                # Better deactivate the following USB options as well
-                self.GrubRadioButton.set_active(False)
-                self.SyslinuxRadioButton.set_active(False)
                 # Better deactivate all Execute buttons
                 self.usb_apply_button.set_sensitive(False)
                 self.cdrom_apply_button.set_sensitive(False)
-                if self.IsolinuxRadioButton.get_active() == True :
-                    shutil.rmtree("/tmp/boot", ignore_errors=True)
-                    shutil.copytree("/usr/share/liveclone/liveskel/boot", "/tmp/boot", symlinks=False)
-                    warning_dialog(_("Would you like to personnalize Isolinux boot menu?"))
-                    if result_warning == gtk.RESPONSE_YES:
-                        # Open the isolinux conf file
-                        if os.path.isfile("/usr/bin/geany") :
-                            subprocess.call('/usr/bin/geany /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                        elif os.path.isfile("/usr/bin/leafpad") :
-                            subprocess.call('/usr/bin/leafpad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                        elif os.path.isfile("/usr/bin/gedit") :
-                            subprocess.call('/usr/bin/gedit /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                        elif os.path.isfile("/usr/bin/kwrite") :
-                            subprocess.call('/usr/bin/kwrite /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                        elif os.path.isfile("/usr/bin/mousepad") :
-                            subprocess.call('/usr/bin/mousepad /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                        else :
-                            subprocess.call('xdg-open /tmp/boot/isolinux/isolinux.cfg 2>/dev/null', shell=True)
-                    # Ensure changes are taken into account
-                    subprocess.call('sync', shell=True)
-                    subprocess.call('rm -f /tmp/boot/isolinux/isolinux.cfg~ 2>/dev/null', shell=True)
-                    # TODO convert isolinux.cfg file to appropriate ISO code...
+
                 task = self.common_base()
                 gobject.idle_add(task.next)
 
@@ -313,8 +267,6 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         Called by the USB Execute button, generates the USB LiveClone
         """
         # Better deactivate those CD-ROM options
-        self.CdGrubRadioButton.set_active(False)
-        self.IsolinuxRadioButton.set_active(False)
         global live_workdir
         live_workdir = self.usbworkdir_chooser.get_filename()
         global liveclone_name
@@ -327,12 +279,11 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         global live_environment
         if live_environment == True :
             # Let's make sure this is really an external usb disk
-            if "/media/" in live_workdir : # Quick & dirty, needs something better as some (rare) folks might use /media to mount non removable media
+            if "/media/" in live_workdir : # Quick & dirty, needs something better as some (less and less rare) folks (and DE) might use /media to mount non removable media
                 global usb_key
                 usb_key = True
                 warning_dialog(_("All the data present on your USB key will be permanently erased!\n \nAre you sure you want to continue?"))
                 if result_warning == gtk.RESPONSE_YES:
-
                     usb_device_cli = 'mount | grep ' + live_workdir + ' | cut -f1 -d " "'
                     global usb_device
                     usb_device = commands.getoutput(usb_device_cli)
@@ -354,30 +305,7 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                     live_workdir = "/media/" + liveclone_name
                     subprocess.call("mkdir -p " + live_workdir, shell=True)
                     subprocess.call("mount " + usb_device + " " + live_workdir, shell=True)
-                    os.chmod("/etc/rc.d/rc.live", 0744)
-
-                    if self.SyslinuxRadioButton.get_active() == True :
-                        shutil.rmtree("/tmp/boot", ignore_errors=True)
-                        shutil.copytree("/usr/share/liveclone/liveskel/boot", "/tmp/boot", symlinks=False)
-                        warning_dialog(_("Would you like to personnalize Syslinux boot menu?"))
-                        if result_warning == gtk.RESPONSE_YES:
-                            # Open the syslinux conf file
-                            if os.path.isfile("/usr/bin/geany") :
-                                subprocess.call('/usr/bin/geany /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                            elif os.path.isfile("/usr/bin/leafpad") :
-                                subprocess.call('/usr/bin/leafpad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                            elif os.path.isfile("/usr/bin/gedit") :
-                                subprocess.call('/usr/bin/gedit /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                            elif os.path.isfile("/usr/bin/kwrite") :
-                                subprocess.call('/usr/bin/kwrite /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                            elif os.path.isfile("/usr/bin/mousepad") :
-                                subprocess.call('/usr/bin/mousepad /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                            else :
-                                subprocess.call('xdg-open /tmp/boot/syslinux/syslinux.cfg 2>/dev/null', shell=True)
-                        # Ensure changes are taken into account
-                        subprocess.call('sync', shell=True)
-                        subprocess.call('rm -f /tmp/boot/syslinux/syslinux.cfg~ 2>/dev/null', shell=True)
-                        # TODO convert syslinux.cfg file to appropriate ISO code...
+                    os.chmod("/etc/rc.d/rc.salt", 0744)
 
                     # Better deactivate all Execute buttons
                     self.usb_apply_button.set_sensitive(False)
@@ -389,13 +317,12 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
             else :
                 error_dialog(_("Sorry, you may have selected an invalid USB key path!\n \nUsually a valid path to a USB key starts with /media.\n \nPlease, try again."))
 
-
     def check_environment(self, *args):
         """
         Check if we are in a Live environment or not
         """
         global live_environment
-        if os.path.exists("/mnt/live/memory/changes") is False :
+        if os.path.exists("/mnt/salt/tmp/distro_infos") is False :
             # We are not in a LiveCD environment, ATM this option is not supported
             live_environment = False
             self.progress_dialog.hide()
@@ -420,9 +347,14 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         # there's more work, return True
         yield True
 
+        # Get the LiveCD mountpoint
+        global LiveCdMountPoint
+        with  open('/mnt/salt/tmp/distro_infos') as LiveCdMountInfo :
+            LiveCdMountPoint = "/mnt/salt" + LiveCdMountInfo.read().splitlines()[0].split(':')[0]
+
         # First we prepare the working directory & we populate the LiveCD/USB skeleton
         try :
-            shutil.copytree("/boot", live_workdir + "/boot", symlinks=False)
+            shutil.copytree(LiveCdMountPoint + "/boot", live_workdir + "/boot", symlinks=False)
         except OSError :
             self.progress_dialog.hide()
             error_dialog(_("Sorry! Liveclone is not able to manage this \
@@ -434,15 +366,7 @@ directory or this partition, please choose another location for your work direct
             # no more work, return False
             yield False
 
-        os.makedirs(live_workdir + "/salixlive/base")
         os.makedirs(live_workdir + "/salixlive/modules")
-        os.makedirs(live_workdir + "/salixlive/optional")
-        os.makedirs(live_workdir + "/salixlive/rootcopy")
-        os.makedirs(live_workdir + "/docs")
-        shutil.copy("/usr/share/liveclone/liveskel/salixlive/livecd.sgn", live_workdir + "/salixlive/")
-        shutil.copy("/usr/share/liveclone/liveskel/salixlive/make_iso.sh", live_workdir + "/salixlive/")
-        subprocess.call("chmod +x " + live_workdir + "/salixlive/make_iso.sh", shell=True)
-        subprocess.call("cp /mnt/live/mnt/*/docs/* " + live_workdir + "/docs/", shell=True)
 
         self.progress_bar.set_text(_("Customized live media creation in progress..."))
         self.progress_bar.set_fraction(0.1)
@@ -458,8 +382,9 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.2)
             # there's more work, return True
             yield True
-            subprocess.call("dd if=/dev/zero of=" + live_workdir + "/slxsave.xfs bs=1M count=" + slxsave_size, shell=True)
-            subprocess.call("/sbin/mkfs.xfs -f " + live_workdir + "/slxsave.xfs", shell=True)
+            os.makedirs(live_workdir + "/salixlive/persistence")
+            subprocess.call("dd if=/dev/zero of=" + live_workdir + "/salixlive/persistence/salixlive.save bs=1M count=" + slxsave_size, shell=True)
+            subprocess.call('/sbin/mkfs.xfs -f -L "SaLTsave" ' + live_workdir + "/salixlive/persistence/salixlive.save", shell=True)
 
         # The user may want to use SalixLive unmodified:
         if self.unmodified_radiobutton.get_active() == True :
@@ -467,21 +392,36 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.5)
             # there's more work, return True
             yield True
-            subprocess.call("cp /mnt/live/mnt/*/salixlive/base/* " + live_workdir + "/salixlive/base/", shell=True)
-            subprocess.call("cp /mnt/live/mnt/*/salixlive/modules/* " + live_workdir + "/salixlive/modules/", shell=True)
-            subprocess.call("cp /mnt/live/mnt/*/salixlive/optional/* " + live_workdir + "/salixlive/optional/", shell=True)
-            subprocess.call("cp /mnt/live/mnt/*/salixlive/rootcopy/* " + live_workdir + "/salixlive/rootcopy/", shell=True)
+            subprocess.call("cp " + LiveCdMountPoint + "/*.live " + live_workdir, shell=True)
+            subprocess.call("cp " + LiveCdMountPoint + "/salixlive/modules/* " + live_workdir + "/salixlive/modules/", shell=True)
             os.makedirs(live_workdir + "/packages")
-            subprocess.call("cp -r /mnt/live/mnt/*/packages/* " + live_workdir + "/packages/", shell=True)
+            subprocess.call("cp -r " + LiveCdMountPoint + "/packages/* " + live_workdir + "/packages/", shell=True)
         # Else we build LiveClone main module out of the running environment
         else :
+            # Create the identity file
+            today = datetime.date.today()
+            os.putenv("identity_file", liveclone_name.lower() + '-' + str(today) + '.live') # Sets the variable 'identity_file' in bash environment
+            subprocess.call("""echo $identity_file | md5sum | cut -d' ' -f1 > """ + live_workdir + "/$identity_file", shell=True)
+            os.putenv("md5_identity", open(live_workdir + "/" + liveclone_name.lower() + '-' + str(today) + ".live","r").read().rstrip())
+            os.putenv("liveclone_name", liveclone_name)
+            # Modify the configuration file in the initrd
+            os.chdir(live_workdir + "/boot")
+            subprocess.call("unxz initrd.xz", shell=True)
+            os.mkdir("loop")
+            subprocess.call("mount -o loop initrd loop", shell=True)
+            sed_process = """sed -i "s/^IDENT_FILE=.*/IDENTFILE=$identity_file/; s/^IDENT_CONTENT=.*/IDENT_CONTENT=$md5_identity/; s/^LIVE_NAME=.*/LIVE_NAME=$liveclone_name/;" loop/etc/salt.cfg"""
+            subprocess.call(sed_process, shell=True)
+            subprocess.call("umount loop", shell=True)
+            os.rmdir("loop")
+            subprocess.call("xz --check=crc32 initrd", shell=True)
+            # Create the customized giant module
             self.progress_bar.set_text(_("Creating Custom Module..."))
             self.progress_bar.set_fraction(0.5)
             # there's more work, return True
             yield True
-            os.makedirs(live_workdir + "/salixlive/rootcopy/media")
-            subprocess.call("mksquashfs /bin /etc /home /lib /root /sbin /usr /var " + live_workdir + "/salixlive/base/01-clone.lzm -keep-as-directory -b 1M -comp lzma -wildcards -e '... *pid' '... wicd/*-settings.conf' ", shell=True)
-            os.chmod(live_workdir + "/salixlive/base/01-clone.lzm", 0444)
+            # TODO Switch to xz compression
+            subprocess.call("mksquashfs /bin /etc /home /lib /media /opt /root /sbin /srv /usr /var " + live_workdir + "/salixlive/modules/01-clone.salt -keep-as-directory -b 1M -comp lzma -wildcards -e 'media/*' '... *pid' '... wicd/*-settings.conf' ", shell=True)
+            os.chmod(live_workdir + "/salixlive/modules/01-clone.salt", 0444)
 
         self.progress_bar.set_text(_("Module created..."))
         self.progress_bar.set_fraction(0.8)
@@ -493,21 +433,16 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
             yield True
-            if self.IsolinuxRadioButton.get_active() == True :
-                subprocess.call("cp -r /tmp/boot/isolinux " + live_workdir + "/boot/", shell=True)
-                subprocess.call("cp /tmp/boot/vesamenu.c32 " + live_workdir + "/boot/", shell=True)
-                shutil.rmtree("/tmp/boot", ignore_errors=True)
-                subprocess.call(live_workdir + "/salixlive/make_iso.sh " + iso_dir + "/" + liveclone_name + ".iso", shell=True)
-            if self.CdGrubRadioButton.get_active() == True :
-                subprocess.call("cd " + live_workdir + "&& mkisofs -b boot/grub/i386-pc/eltorito.img -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso -r -J .", shell=True)
-
+            subprocess.call("cd " + live_workdir + " && mkisofs -r -J -V " + liveclone_name + "  -b boot/grub/i386-pc/eltorito.img -c boot/grub.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso .", shell=True)
             self.progress_bar.set_text(_("Iso file succesfully created..."))
             self.progress_bar.set_fraction(1.0)
             # there's more work, return True
             yield True
             subprocess.call("sync", shell=True)
             time.sleep(3)
+
 ### Add some basic check here
+
             info_dialog(_("Your Live CD image has been successfully created in the \
 work directory you specified. You can now exit LiveClone and use Brasero or a similar \
 program to burn the .iso file unto a CD-ROM."))
@@ -518,25 +453,22 @@ program to burn the .iso file unto a CD-ROM."))
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
             yield True
-            # Install Grub if applicable
-            if self.GrubRadioButton.get_active() == True :
-                # Ensure the post mbr gap is large enough for grub2
-                post_mbr_gap = commands.getoutput("parted " + usb_dev_root + " unit s print | grep '^ 1' | awk '{print $2}'")
-                # Enlarge it if necessary
-                if int(post_mbr_gap[:-1]) < 63 :
-                    end_sector = commands.getoutput("parted " + usb_dev_root + " unit s print | grep '^ 1' | awk '{print $3}'")
-                    subprocess.call("parted " + usb_dev_root + " resize 1 63s " + end_sector, shell=True)
-                # Install Grub2
-                subprocess.call("dd if=/boot/grub_mbr of=" + usb_dev_root + " count=440 bs=1 conv=notrunc", shell=True)
-                subprocess.call("dd if=/boot/grub_post_mbr_gap of=" + usb_dev_root + " count=62 bs=512 seek=1 conv=notrunc", shell=True)
-            else :  # Install Syslinux
-                subprocess.call("cp -r /tmp/boot/syslinux " + live_workdir + "/boot/", shell=True)
-                subprocess.call("cp /tmp/boot/vesamenu.c32 " + live_workdir + "/boot/", shell=True)
-                shutil.rmtree("/tmp/boot", ignore_errors=True)
-                subprocess.call("syslinux -f " + usb_device, shell=True)
-                subprocess.call("eject " + live_workdir, shell=True)
-                subprocess.call("rm -rf " + live_workdir, shell=True)
-                
+            # Install Syslinux/Grub2 
+            subprocess.call("syslinux " + usb_device, shell=True)
+            subprocess.call("sync", shell=True)
+            # Set chainloading to GRUB2 in syslinux.conf
+            syslinux_config = live_workdir + "/syslinux.cfg"
+            stub = open(syslinux_config, "w")
+            stub.write("DEFAULT grub2\n\
+PROMPT 0\n\
+NOESCAPE 1\n\
+TOTALTIMEOUT 1\n\
+ONTIMEOUT grub2\n\
+LABEL grub2\n\
+  SAY Chainloading to grub2...\n\
+  LINUX boot/grub2-linux.img\n")
+            stub.close()
+            # TODO Create Grub identity file
             self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
             self.progress_bar.set_fraction(1.0)
             # there's more work, return True

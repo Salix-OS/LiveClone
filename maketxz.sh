@@ -22,6 +22,6 @@ liveclone:
 EOF
 makepkg -l y -c n ../liveclone-$VER-noarch-1plb.txz
 cd ..
-echo -e "python,pygtk" > liveclone-$VER-noarch-1plb.dep
+echo -e "python,pygtk,syslinux" > liveclone-$VER-noarch-1plb.dep
 md5sum liveclone-$VER-noarch-1plb.txz > liveclone-$VER-noarch-1plb.md5
 rm -rf pkg
