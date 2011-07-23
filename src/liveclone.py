@@ -305,7 +305,6 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                     live_workdir = "/media/" + liveclone_name
                     subprocess.call("mkdir -p " + live_workdir, shell=True)
                     subprocess.call("mount " + usb_device + " " + live_workdir, shell=True)
-                    os.chmod("/etc/rc.d/rc.salt", 0744)
 
                     # Better deactivate all Execute buttons
                     self.usb_apply_button.set_sensitive(False)
@@ -349,8 +348,16 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
 
         # Get the LiveCD mountpoint
         global LiveCdMountPoint
-        with  open('/mnt/salt/tmp/distro_infos') as LiveCdMountInfo :
+        with open('/mnt/salt/tmp/distro_infos') as LiveCdMountInfo :
             LiveCdMountPoint = "/mnt/salt" + LiveCdMountInfo.read().splitlines()[0].split(':')[0]
+
+        # Get the LiveCD SaLT root dir
+        global SaLTRootDir
+        with open('/mnt/salt/etc/salt.cfg') as SaLTConfig :
+            for line in SaLTConfig:
+              if line.startswith("ROOT_DIR="):
+                SaLTRootDir = line.split("ROOT_DIR=")[1]
+                break
 
         # First we prepare the working directory & we populate the LiveCD/USB skeleton
         try :
@@ -366,7 +373,7 @@ directory or this partition, please choose another location for your work direct
             # no more work, return False
             yield False
 
-        os.makedirs(live_workdir + "/salixlive/modules")
+        os.makedirs(live_workdir + "/" + SaLTRootDir + "/modules")
 
         self.progress_bar.set_text(_("Customized live media creation in progress..."))
         self.progress_bar.set_fraction(0.1)
@@ -382,9 +389,9 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.2)
             # there's more work, return True
             yield True
-            os.makedirs(live_workdir + "/salixlive/persistence")
-            subprocess.call("dd if=/dev/zero of=" + live_workdir + "/salixlive/persistence/salixlive.save bs=1M count=" + slxsave_size, shell=True)
-            subprocess.call('/sbin/mkfs.xfs -f -L "SaLTsave" ' + live_workdir + "/salixlive/persistence/salixlive.save", shell=True)
+            os.makedirs(live_workdir + "/" + SaLTRootDir + "/persistence")
+            subprocess.call("dd if=/dev/zero of=" + live_workdir + "/" + SaLTRootDir + "/persistence/" + SaLTRootDir + ".save bs=1M count=" + slxsave_size, shell=True)
+            subprocess.call('/sbin/mkfs.xfs -f -L "SaLTsave" ' + live_workdir + "/" + SaLTRootDir + "/persistence/" + SaLTRootDir + ".save", shell=True)
 
         # The user may want to use SalixLive unmodified:
         if self.unmodified_radiobutton.get_active() == True :
@@ -393,16 +400,17 @@ directory or this partition, please choose another location for your work direct
             # there's more work, return True
             yield True
             subprocess.call("cp " + LiveCdMountPoint + "/*.live " + live_workdir, shell=True)
-            subprocess.call("cp " + LiveCdMountPoint + "/salixlive/modules/* " + live_workdir + "/salixlive/modules/", shell=True)
+            subprocess.call("cp " + LiveCdMountPoint + "/" + SaLTRootDir + "/modules/* " + live_workdir + "/" + SaLTRootDir + "/modules/", shell=True)
             os.makedirs(live_workdir + "/packages")
             subprocess.call("cp -r " + LiveCdMountPoint + "/packages/* " + live_workdir + "/packages/", shell=True)
         # Else we build LiveClone main module out of the running environment
         else :
             # Create the identity file
             today = datetime.date.today()
-            os.putenv("identity_file", liveclone_name.lower() + '-' + str(today) + '.live') # Sets the variable 'identity_file' in bash environment
+            identfile = liveclone_name.lower() + "-" + str(today) + ".live"
+            os.putenv("identity_file", identfile) # Sets the variable 'identity_file' in bash environment
             subprocess.call("""echo $identity_file | md5sum | cut -d' ' -f1 > """ + live_workdir + "/$identity_file", shell=True)
-            os.putenv("md5_identity", open(live_workdir + "/" + liveclone_name.lower() + '-' + str(today) + ".live","r").read().rstrip())
+            os.putenv("md5_identity", open(live_workdir + "/" + identfile,"r").read().rstrip())
             os.putenv("liveclone_name", liveclone_name)
             # Modify the configuration file in the initrd
             os.chdir(live_workdir + "/boot")
@@ -419,9 +427,8 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.5)
             # there's more work, return True
             yield True
-            # TODO Switch to xz compression
-            subprocess.call("mksquashfs /bin /etc /home /lib /media /opt /root /sbin /srv /usr /var " + live_workdir + "/salixlive/modules/01-clone.salt -keep-as-directory -b 1M -comp lzma -wildcards -e 'media/*' '... *pid' '... wicd/*-settings.conf' ", shell=True)
-            os.chmod(live_workdir + "/salixlive/modules/01-clone.salt", 0444)
+            subprocess.call("mksquashfs /bin /etc /home /lib /media /opt /root /sbin /srv /usr /var " + live_workdir + "/" + SaLTRootDir + "/modules/01-clone.salt -keep-as-directory -b 1M -comp xz -Xbcj x86 -Xdict-size '50%' -wildcards -e 'media/*' '... *pid' '... wicd/*-settings.conf' ", shell=True)
+            os.chmod(live_workdir + "/" + SaLTRootDir + "/modules/01-clone.salt", 0444)
 
         self.progress_bar.set_text(_("Module created..."))
         self.progress_bar.set_fraction(0.8)
@@ -468,7 +475,10 @@ LABEL grub2\n\
   SAY Chainloading to grub2...\n\
   LINUX boot/grub2-linux.img\n")
             stub.close()
-            # TODO Create Grub identity file
+            subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc -c " + live_workdir + "/boot/grub/embed.cfg biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt search echo", shell=True)
+            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp.core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
+            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/g2hdr.img /tmp.core.img > " + live_workdir + "/boot/g2ldr", shell=True)
+            subprocess.call("rm /tmp/core.img", shell=True)
             self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
             self.progress_bar.set_fraction(1.0)
             # there's more work, return True
