@@ -39,13 +39,13 @@
             </child>
             <child>
               <object class="GtkEventBox" id="context_eventbox">
-                <property name="width_request">400</property>
-                <property name="height_request">100</property>
+                <property name="width_request">460</property>
+                <property name="height_request">130</property>
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkLabel" id="context_help_label">
-                    <property name="width_request">380</property>
-                    <property name="height_request">90</property>
+                    <property name="width_request">450</property>
+                    <property name="height_request">120</property>
                     <property name="visible">True</property>
                     <property name="xalign">0</property>
                     <property name="xpad">1</property>
@@ -555,6 +555,8 @@
 environment to a LiveCD or a USB key.
 
 Copyright &#xA9; 2007-2010 Pierrick Le Brun</property>
+    <property name="website">http://www.simplynux.fr/</property>
+    <property name="website_label" translatable="yes">simplyNUX</property>
     <property name="license" translatable="yes">This program is free software; you can redistribute it 
 and/or modify it under the terms of the GNU General
 Public License as published by the Free Software 
@@ -574,6 +576,7 @@ Fifth Floor, Boston, MA 02110-1301, USA.</property>
     <property name="authors">Pierrick Le Brun &lt;akuna~at~salixos~dot~org&gt;</property>
     <property name="translator_credits" translatable="yes">translator-credits</property>
     <property name="logo">liveclone.png</property>
+    <signal name="activate_link" handler="on_about_dialog_activate_link"/>
     <signal name="delete_event" handler="on_about_dialog_close"/>
     <signal name="response" handler="on_about_dialog_close"/>
     <child internal-child="vbox">

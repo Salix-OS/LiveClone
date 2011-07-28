@@ -25,15 +25,17 @@
 
 # version = '0.11.13.37'
 
-import os
-import shutil
-import subprocess
 import commands
-import time
+import datetime
 import gtk
 import gtk.glade
 import gobject
-import datetime
+import os
+import shutil
+import subprocess
+import time
+import sys
+import webbrowser
 
 # Internationalization
 import locale
@@ -44,6 +46,52 @@ gettext.textdomain("liveclone")
 gettext.install("liveclone", "/usr/share/locale", unicode=1)
 gtk.glade.bindtextdomain("liveclone", "/usr/share/locale")
 gtk.glade.textdomain("liveclone")
+
+
+### Some global variables ###
+
+live_typical_path = "/mnt/salt/tmp/distro_infos"
+live_environment = False
+cdrom_chosen = False
+usb_key_chosen = False
+
+
+### Some global functions ###
+
+def check_live_environment():
+    """Return True if we are in a Live environment."""
+    if os.path.exists(live_typical_path):
+        return True
+    else:
+        return False
+
+def info_dialog(message, parent = None):
+    """Display an information message."""
+    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_INFO, buttons = gtk.BUTTONS_OK, flags = gtk.DIALOG_MODAL)
+    dialog.set_markup(message)
+    global result_info
+    result_info = dialog.run()
+    dialog.destroy()
+
+def warning_dialog(message, parent = None):
+    """Display a warning message."""
+    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_WARNING, flags = gtk.DIALOG_MODAL)
+    dialog.add_buttons(gtk.STOCK_YES, gtk.RESPONSE_YES)
+    dialog.add_buttons(gtk.STOCK_NO, gtk.RESPONSE_NO)
+    dialog.set_default_response(gtk.RESPONSE_NO)
+    dialog.set_markup(message)
+    global result_warning
+    result_warning = dialog.run()
+    dialog.destroy()
+
+# Error window skeleton:
+def error_dialog(message, parent = None):
+    """Display an error message."""
+    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_ERROR, buttons = gtk.BUTTONS_CLOSE, flags = gtk.DIALOG_MODAL)
+    dialog.set_markup(message)
+    global result_error
+    result_error = dialog.run()
+    dialog.destroy()
 
 class LiveClone:
     """
@@ -86,150 +134,193 @@ class LiveClone:
         # Connect signals
         builder.connect_signals(self)
 
-        # Initialize diverse variables
-        global live_environment
-        live_environment = False
-        global cdrom_tray
-        cdrom_tray = False
-        global usb_key
-        usb_key = False
+### GUI initialization ###
+
         # Initialize the contextual help box
         global context_intro
-        context_intro = _("LiveClone will generate a Live CD/DVD iso image or a Live USB key, based on \
-SalixLive or on your running environment, with or without persistent changes.")
+        context_intro = _("LiveClone will generate a Live CD/DVD iso image or a \
+Live USB key, based on SalixLive or on your running environment, with or without \
+persistent changes.")
         self.context_help_label.set_markup(context_intro)
 
-        def initialize_checkboxes():
-            """
-            Ungreys the USB unmodified checkbox if we are in a LiveCD environment
-            """
-            if os.path.exists("/mnt/salt/tmp/distro_infos") is True :
-                self.unmodified_radiobutton.set_sensitive(True)
-            else :
-                pass
+        if check_live_environment() is True :
+            self.unmodified_radiobutton.set_sensitive(True)
+        else :
+            pass
 
-        initialize_checkboxes()
         self.persistence_size.set_value(256)
         self.persistence_size.set_sensitive(False)
+        
+### Callback signals waiting in a constant loop ###
 
-### Callback signals waiting in a constant loop: ###
+# Contextual help functions
 
-### WINDOWS MAIN SIGNALS ###
-
-    # Contextual help:
-    def on_about_button_enter_notify_event(self, widget, data=None):
+    def on_about_button_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("About LiveClone."))
-    def on_about_button_leave_notify_event(self, widget, data=None):
+
+    def on_about_button_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_cd_tab_enter_notify_event(self, widget, data=None):
+
+    def on_about_dialog_activate_link(self, label, url):
+        """Open About dialog URL with favorite browser """
+        webbrowser.open(url)
+        return True
+
+    def on_cd_tab_enter_notify_event(self, widget, event):
         self.context_help_label.set_markup(_("Click on this tab if you want to \
 create a Live CD/DVD iso image based on your running environment.\n\
 You should therefore ensure that you have already added and/or removed any \
 programs and/or any users, as well as performed any other system or aesthetic \
 modifications which you want to be included in your customized Live CD/DVD.\n\
 What you *<i>see</i>* in your running session is what you will get in your Live CD/DVD."))
-    def on_cd_tab_leave_notify_event(self, widget, data=None):
+
+    def on_cd_tab_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_usb_tab_enter_notify_event(self, widget, data=None):
+
+    def on_usb_tab_enter_notify_event(self, widget, event):
         self.context_help_label.set_markup(_("Click on this tab if you want to create a Live USB \
 based on an unmodified SalixLive CD or on your running SalixLive environment.\n\
 In the later case, you should ensure that you have already added and/or removed any \
 programs and/or any users, as well as performed any other system or aesthetic \
 modifications which you want to be included in your customized Live USB key.\n\
 What you *<i>see</i>* in your running session is what you will get in your Live USB key."))
-    def on_usb_tab_leave_notify_event(self, widget, data=None):
+
+    def on_usb_tab_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_cdrom_label_enter_notify_event(self, widget, data=None):
+
+    def on_cdrom_label_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Please enter the name of your Live CD/DVD."))
-    def on_cdrom_label_leave_notify_event(self, widget, data=None):
+
+    def on_cdrom_label_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_usb_label_enter_notify_event(self, widget, data=None):
+
+    def on_usb_label_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Please enter the name of your Live USB."))
-    def on_usb_label_leave_notify_event(self, widget, data=None):
+
+    def on_usb_label_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_choose_cdworkdir_enter_notify_event(self, widget, data=None):
+
+    def on_choose_cdworkdir_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("This is the work directory where your Live CD/DVD \
 iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n\
 The free space available should be more than twice the size of your future Live CD/DVD.\n\
 It should be located on a separate partition, an external hardrive or a USB key \
 but never -ever- in your home directory!"))
-    def on_choose_cdworkdir_leave_notify_event(self, widget, data=None):
+
+    def on_choose_cdworkdir_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_choose_usbdir_enter_notify_event(self, widget, data=None):
+
+    def on_choose_usbdir_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("This is the path to your USB key. \
 Please note that all present data it may contain will be permanently erased. "))
-    def on_choose_usbdir_leave_notify_event(self, widget, data=None):
+
+    def on_choose_usbdir_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_unmodified_radiobutton_enter_notify_event(self, widget, data=None):
+
+    def on_unmodified_radiobutton_enter_notify_event(self, widget, event):
         self.context_help_label.set_markup(_("Check this option if you want to clone \
 the <b>unmodified</b> SalixLive CD-ROM to a Live USB key (this option is only available if \
 LiveClone is executed from a LiveCD)."))
-    def on_unmodified_radiobutton_leave_notify_event(self, widget, data=None):
+
+    def on_unmodified_radiobutton_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_check_persistence_enter_notify_event(self, widget, data=None):
+
+    def on_check_persistence_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Check this option if you want your Live USB key to be \
 able to record all changes & data from live sessions (same behaviour as an installed standard system)."))
-    def on_check_persistence_leave_notify_event(self, widget, data=None):
+
+    def on_check_persistence_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_running_environment_radiobutton_enter_notify_event(self, widget, data=None):
+
+    def on_running_environment_radiobutton_enter_notify_event(self, widget, event):
         self.context_help_label.set_markup(_("Check this option if you want to clone your \
 running personnalized environment to a Live USB key. \n\
 You should therefore ensure that you have already added and/or removed any programs and/or \
 any users, as well as performed any other system or aesthetic modifications \
 which you want to be included in your customized Live USB key.\n\
 What you *<i>see</i>* in your running session is what you will get in your Live USB key."))
-    def on_running_environment_radiobutton_leave_notify_event(self, widget, data=None):
+
+    def on_running_environment_radiobutton_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_size_label_enter_notify_event(self, widget, data=None):
+
+    def on_size_label_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Set the size of your persistence file (It should \
 be small enough to fit in your USB key while being large enough to fit as much data as possible)"))
-    def on_size_label_leave_notify_event(self, widget, data=None):
+
+    def on_size_label_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_apply_button_enter_notify_event(self, widget, data=None):
+
+    def on_apply_button_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Click on this button once all your \
 settings have been defined.\nYou will then need some patience as the creation of a customized live media \
 can be quite long depending on the power of your computer.\nAt the end of the process, \
 an information dialog will let you know if LiveClone succeeded or failed to create your customized live media."))
-    def on_apply_button_leave_notify_event(self, widget, data=None):
+
+    def on_apply_button_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
-    def on_quit_button_enter_notify_event(self, widget, data=None):
+
+    def on_quit_button_enter_notify_event(self, widget, event):
         self.context_help_label.set_text(_("Exit LiveClone."))
-    def on_quit_button_leave_notify_event(self, widget, data=None):
+
+    def on_quit_button_leave_notify_event(self, widget, event):
         global context_intro
         self.context_help_label.set_text(context_intro)
 
-    # What to do when the exit X on the main window upper right is clicked
-    def gtk_main_quit(self, widget, data=None):
+# Other GUI functions
+
+    def gtk_main_quit(self, widget):
+        """
+        Called when the exit X on the main window upper right is clicked.
+        """
         gtk.main_quit()
 
-    # What to do when the quit button is clicked
-    def on_main_window_destroy(self, widget, data=None):
+    def on_main_window_destroy(self, widget):
+        """
+        Called when the quit button is clicked.
+        """
         gtk.main_quit()
 
-    # What to do when the about button is clicked
-    def on_about_button_clicked(self, widget, data=None):
+    def on_about_button_clicked(self, widget):
+        """
+        Called when the About button is clicked.
+        """
         self.about_dialog.show()
 
-    # What to do when the about quit button is clicked
-    def on_about_dialog_close(self, widget, data=None):
+    def on_about_dialog_close(self, widget, event):
+        """
+        Called when the About quit button or the dialog exit X is clicked.
+        """
         self.about_dialog.hide()
         return True
 
-    def on_cdrom_apply_button_clicked(self, *args):
+    def on_check_persistence_toggled(self, widget):
         """
-        Called by the CD-ROM Execute button, generates the CD-ROM LiveClone
+        Called when USB key 'Use persistence' checkbox is toggled.
+        """
+        if self.use_persistence.get_active() == True :
+            self.persistence_size.set_sensitive(True)
+            self.persistence_size_label.set_sensitive(True)
+
+        if self.use_persistence.get_active() == False :
+            self.persistence_size.set_sensitive(False)
+            self.persistence_size_label.set_sensitive(False)
+
+
+    def on_cdrom_apply_button_clicked(self, widget):
+        """
+        Called by the Execute button under the CD-ROM tab to generate the Live CD-ROM.
         """
         global iso_dir
         iso_dir = self.cdworkdir_chooser.get_filename()
@@ -244,11 +335,11 @@ the live environment ! \n\nPlease select or create a subdirectory located on a \
 physical hard drive (hint: access path usually starts with /mnt or /media)."))
         else :
             # this step will be removed once support for non-live environment is added
-            self.check_environment()
+            self.warning_if_no_live_session()
             global live_environment
             if live_environment == True :
-                global cdrom_tray
-                cdrom_tray = True
+                global cdrom_chosen
+                cdrom_chosen = True
                 # Clean up eventual old work directories
                 shutil.rmtree(live_workdir, ignore_errors=True)
                 subprocess.call("mkdir -p " + live_workdir, shell=True)
@@ -262,9 +353,9 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                 task = self.common_base()
                 gobject.idle_add(task.next)
 
-    def on_usb_apply_button_clicked(self, *args):
+    def on_usb_apply_button_clicked(self, widget):
         """
-        Called by the USB Execute button, generates the USB LiveClone
+        Called by the Execute button under the USB tab to generate the USB Live Media.
         """
         # Better deactivate those CD-ROM options
         global live_workdir
@@ -275,7 +366,7 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         slxsave_size = self.persistence_size.get_text()
 
         # this step will be removed once support for non-live environment is added
-        self.check_environment()
+        self.warning_if_no_live_session()
         global live_environment
         if live_environment == True :
             # Let's make sure this is really an external usb disk
@@ -316,12 +407,12 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
             else :
                 error_dialog(_("Sorry, you may have selected an invalid USB key path!\n \nUsually a valid path to a USB key starts with /media.\n \nPlease, try again."))
 
-    def check_environment(self, *args):
-        """
-        Check if we are in a Live environment or not
-        """
+# Other functions
+
+    def warning_if_no_live_session(self):
+        """Give a warning if we are in a non-live environement."""
         global live_environment
-        if os.path.exists("/mnt/salt/tmp/distro_infos") is False :
+        if check_live_environment() is False :
             # We are not in a LiveCD environment, ATM this option is not supported
             live_environment = False
             self.progress_dialog.hide()
@@ -333,10 +424,8 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         else :
             live_environment = True
 
-    def common_base(self, *args):
-        """
-        Progress bar, common to either a LiveCD or LiveUSB
-        """
+    def common_base(self):
+        """Progress bar, common to both a Live CD or a Live USB creation"""
         global live_workdir
         self.window.hide()
         self.progress_dialog.show()
@@ -354,7 +443,7 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         # Get the LiveCD SaLT root dir
         global SaLTRootDir
         with open('/mnt/salt/etc/salt.cfg') as SaLTConfig :
-            for line in SaLTConfig:
+            for line in SaLTConfig.read().splitlines() :
               if line.startswith("ROOT_DIR="):
                 SaLTRootDir = line.split("ROOT_DIR=")[1]
                 break
@@ -417,7 +506,7 @@ directory or this partition, please choose another location for your work direct
             subprocess.call("unxz initrd.xz", shell=True)
             os.mkdir("loop")
             subprocess.call("mount -o loop initrd loop", shell=True)
-            sed_process = """sed -i "s/^IDENT_FILE=.*/IDENTFILE=$identity_file/; s/^IDENT_CONTENT=.*/IDENT_CONTENT=$md5_identity/; s/^LIVE_NAME=.*/LIVE_NAME=$liveclone_name/;" loop/etc/salt.cfg"""
+            sed_process = """sed -i "s/^IDENT_FILE=.*/IDENT_FILE=$identity_file/; s/^IDENT_CONTENT=.*/IDENT_CONTENT=$md5_identity/; s/^LIVE_NAME=.*/LIVE_NAME=$liveclone_name/;" loop/etc/salt.cfg"""
             subprocess.call(sed_process, shell=True)
             subprocess.call("umount loop", shell=True)
             os.rmdir("loop")
@@ -435,7 +524,7 @@ directory or this partition, please choose another location for your work direct
         # there's more work, return True
         yield True
 
-        if cdrom_tray is True :
+        if cdrom_chosen is True :
             self.progress_bar.set_text(_("Building the iso file..."))
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
@@ -460,6 +549,7 @@ program to burn the .iso file unto a CD-ROM."))
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
             yield True
+
             # Install Syslinux/Grub2 
             subprocess.call("syslinux " + usb_device, shell=True)
             subprocess.call("sync", shell=True)
@@ -475,12 +565,20 @@ LABEL grub2\n\
   SAY Chainloading to grub2...\n\
   LINUX boot/grub2-linux.img\n")
             stub.close()
-            subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc -c " + live_workdir + "/boot/grub/embed.cfg biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt search echo", shell=True)
-            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp.core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
-            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/g2hdr.img /tmp.core.img > " + live_workdir + "/boot/g2ldr", shell=True)
-            subprocess.call("rm /tmp/core.img", shell=True)
-            self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
-            self.progress_bar.set_fraction(1.0)
+
+            # This is only needed if the user is generating a customized clone:
+            if self.unmodified_radiobutton.get_active() == False :
+                # Prepare embed.cfg with identfile
+                update_embed_conf = """sed "s|\(search --no-floppy --file --set=root /\).*|\\1""" + identfile + """|" -i """ + live_workdir + "/boot/grub/embed.cfg"
+                subprocess.call(update_embed_conf, shell=True)
+                # Generate Grub image
+                subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc -c " + live_workdir + "/boot/grub/embed.cfg biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt search echo", shell=True)
+                subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
+                subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/g2hdr.img /tmp/core.img > " + live_workdir + "/boot/g2ldr", shell=True)
+                subprocess.call("rm /tmp/core.img", shell=True)
+                self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
+                self.progress_bar.set_fraction(1.0)
+                
             # there's more work, return True
             yield True        
             subprocess.call("sync", shell=True)
@@ -497,56 +595,6 @@ it is unmounted and ready for use "))
 
         # no more work, return False
         yield False
-
-    def on_check_persistence_toggled(self, *args):
-        """
-        Called when USB 'use persistence' checkbox is toggled
-        """
-        if self.use_persistence.get_active() == True :
-            self.persistence_size.set_sensitive(True)
-            self.persistence_size_label.set_sensitive(True)
-
-        if self.use_persistence.get_active() == False :
-            self.persistence_size.set_sensitive(False)
-            self.persistence_size_label.set_sensitive(False)
-
-# Info window skeleton:
-def info_dialog(message, parent = None):
-    """
-    Display an information message.
-
-    """
-    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_INFO, buttons = gtk.BUTTONS_OK, flags = gtk.DIALOG_MODAL)
-    dialog.set_markup(message)
-    global result_info
-    result_info = dialog.run()
-    dialog.destroy()
-
-# Warning window skeleton:
-def warning_dialog(message, parent = None):
-    """
-    Display a warning message.
-
-    """
-    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_WARNING, flags = gtk.DIALOG_MODAL)
-    dialog.add_buttons(gtk.STOCK_YES, gtk.RESPONSE_YES)
-    dialog.add_buttons(gtk.STOCK_NO, gtk.RESPONSE_NO)
-    dialog.set_default_response(gtk.RESPONSE_NO)
-    dialog.set_markup(message)
-    global result_warning
-    result_warning = dialog.run()
-    dialog.destroy()
-
-# Error window skeleton:
-def error_dialog(message, parent = None):
-    """
-    Displays an error message.
-    """
-    dialog = gtk.MessageDialog(parent = parent, type = gtk.MESSAGE_ERROR, buttons = gtk.BUTTONS_CLOSE, flags = gtk.DIALOG_MODAL)
-    dialog.set_markup(message)
-    global result_error
-    result_error = dialog.run()
-    dialog.destroy()
 
 # Launch the application
 if __name__ == '__main__':
