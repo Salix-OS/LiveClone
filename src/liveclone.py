@@ -516,7 +516,7 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.5)
             # there's more work, return True
             yield True
-            subprocess.call("mksquashfs / " + live_workdir + "/" + SaLTRootDir + "/modules/01-clone.salt -keep-as-directory -b 1M -comp xz -Xbcj x86 -Xdict-size '50%' -wildcards -e 'media/*' 'mnt/*' 'proc/*' 'sys/*' 'tmp/*' '... *pid' '... wicd/*-settings.conf' ", shell=True)
+            subprocess.call("mksquashfs / " + live_workdir + "/" + SaLTRootDir + "/modules/01-clone.salt -b 1M -comp xz -Xbcj x86 -Xdict-size '50%' -wildcards -e 'media/*' 'mnt/*' 'proc/*' 'sys/*' 'tmp/*' '... *pid' '... wicd/*-settings.conf' ", shell=True)
             os.chmod(live_workdir + "/" + SaLTRootDir + "/modules/01-clone.salt", 0444)
 
         self.progress_bar.set_text(_("Module created..."))
