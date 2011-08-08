@@ -31,6 +31,7 @@ import gtk
 import gtk.glade
 import gobject
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -370,29 +371,31 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
         global live_environment
         if live_environment == True :
             # Let's make sure this is really an external usb disk
-            if "/media/" in live_workdir : # Quick & dirty, needs something better as some (less and less rare) folks (and DE) might use /media to mount non removable media
+            is_usb = False
+            # first find if it's a mount point
+            is_mountpoint = commands.getoutput("mountpoint -q " + live_workdir + " && echo ok") == "ok"
+            if is_mountpoint :
+              global usb_device_part
+              global usb_device_root
+              # get the major:minor device number
+              usb_device_part = commands.getoutput("grep DEVNAME /sys/dev/block/$(mountpoint -d " + live_workdir + ")/uevent | cut -d= -f2")
+              usb_device_root = commands.getoutput("echo " + usb_device_part + " | tr -d [:digit:]")
+              is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usbdevice_root + "/ro) -eq 0 ] && echo ok") == "ok"
+            if is_usb :
                 global usb_key
                 usb_key = True
                 warning_dialog(_("All the data present on your USB key will be permanently erased!\n \nAre you sure you want to continue?"))
                 if result_warning == gtk.RESPONSE_YES:
-                    usb_device_cli = 'mount | grep ' + live_workdir + ' | cut -f1 -d " "'
-                    global usb_device
-                    usb_device = commands.getoutput(usb_device_cli)
+                    usb_device = "/dev/" + usb_device_part
                     subprocess.call("umount " + live_workdir, shell=True)
                     # Format the partition
-                    subprocess.call("mkdosfs -F 32 -n " + liveclone_name + " " + usb_device, shell=True)
-                    global usb_dev_root
-                    global usb_dev_part
-                    if usb_device[-2:].isdigit() is True : # Highly unprobable but we never know...
-                        usb_dev_root = usb_device[:-2]
-                        usb_dev_part = usb_device[-2:]
-                    elif usb_device[-1:].isdigit() is True :
-                        usb_dev_root = usb_device[:-1]
-                        usb_dev_part = usb_device[-1:]
-                    # Ensure it has a boot flag
-                    boot_flag_part = commands.getoutput("parted " + usb_dev_root + " unit s print | grep boot | awk '{print $1}'")
-                    if boot_flag_part.isdigit() is False :
-                        subprocess.call("parted " + usb_dev_root + " set " + usb_dev_part + " boot on", shell=True)
+                    subprocess.call("mkdosfs -F 32 -I -n " + liveclone_name + " " + usb_device, shell=True)
+                    if usb_device_part != usb_device_root:
+                      # Ensure it has a boot flag
+                      boot_flag_part = commands.getoutput("parted /dev/" + usb_device_root + " print | grep boot | awk '{print $1}'")
+                      num = int(''.join(re.findall(r'\d+', usb_dev_part)))
+                      if not boot_flag_part.isdigit() or int(boot_flag_part) != num :
+                        subprocess.call("parted /dev/" + usb_device_root + " set " + num + " boot on", shell=True)
                     live_workdir = "/media/" + liveclone_name
                     subprocess.call("mkdir -p " + live_workdir, shell=True)
                     subprocess.call("mount " + usb_device + " " + live_workdir, shell=True)
@@ -568,14 +571,7 @@ LABEL grub2\n\
 
             # This is only needed if the user is generating a customized clone:
             if self.unmodified_radiobutton.get_active() == False :
-                # Prepare embed.cfg with identfile
-                update_embed_conf = """sed "s|\(search --no-floppy --file --set=root /\).*|\\1""" + identfile + """|" -i """ + live_workdir + "/boot/grub/embed.cfg"
-                subprocess.call(update_embed_conf, shell=True)
-                # Generate Grub image
-                subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc -c " + live_workdir + "/boot/grub/embed.cfg biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt search echo", shell=True)
-                subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
-                subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/g2hdr.img /tmp/core.img > " + live_workdir + "/boot/g2ldr", shell=True)
-                subprocess.call("rm /tmp/core.img", shell=True)
+                subprocess.call(live_workdir + "/boot/update-grub2.sh", shell=True)
                 self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
                 self.progress_bar.set_fraction(1.0)
                 
