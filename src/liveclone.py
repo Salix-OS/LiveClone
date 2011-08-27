@@ -379,7 +379,7 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                 # get the major:minor device number
                 usb_device_part = commands.getoutput("grep DEVNAME /sys/dev/block/$(mountpoint -d " + live_workdir + ")/uevent | cut -d= -f2")
                 usb_device_root = commands.getoutput("echo " + usb_device_part + " | tr -d [:digit:]")
-                is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usbdevice_root + "/ro) -eq 0 ] && echo ok") == "ok"
+                is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usb_device_root + "/ro) -eq 0 ] && echo ok") == "ok"
             if is_usb :
                 global usb_key_chosen
                 usb_key_chosen = True
@@ -393,7 +393,7 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                     if usb_device_part != usb_device_root:
                         # Ensure it has a boot flag
                         boot_flag_part = commands.getoutput("parted /dev/" + usb_device_root + " print | grep boot | awk '{print $1}'")
-                        num = int(''.join(re.findall(r'\d+', usb_dev_part)))
+                        num = ''.join(re.findall(r'\d+', usb_device_part))
                         if not boot_flag_part.isdigit() or int(boot_flag_part) != num :
                             subprocess.call("parted /dev/" + usb_device_root + " set " + num + " boot on", shell=True)
                     live_workdir = "/media/" + liveclone_name
