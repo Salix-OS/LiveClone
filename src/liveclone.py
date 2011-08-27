@@ -375,27 +375,28 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
             # first find if it's a mount point
             is_mountpoint = commands.getoutput("mountpoint -q " + live_workdir + " && echo ok") == "ok"
             if is_mountpoint :
-              global usb_device_part
-              global usb_device_root
-              # get the major:minor device number
-              usb_device_part = commands.getoutput("grep DEVNAME /sys/dev/block/$(mountpoint -d " + live_workdir + ")/uevent | cut -d= -f2")
-              usb_device_root = commands.getoutput("echo " + usb_device_part + " | tr -d [:digit:]")
-              is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usbdevice_root + "/ro) -eq 0 ] && echo ok") == "ok"
+                global usb_device_part
+                global usb_device_root
+                # get the major:minor device number
+                usb_device_part = commands.getoutput("grep DEVNAME /sys/dev/block/$(mountpoint -d " + live_workdir + ")/uevent | cut -d= -f2")
+                usb_device_root = commands.getoutput("echo " + usb_device_part + " | tr -d [:digit:]")
+                is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usbdevice_root + "/ro) -eq 0 ] && echo ok") == "ok"
             if is_usb :
                 global usb_key
                 usb_key = True
                 warning_dialog(_("All the data present on your USB key will be permanently erased!\n \nAre you sure you want to continue?"))
                 if result_warning == gtk.RESPONSE_YES:
+                    global usb_device
                     usb_device = "/dev/" + usb_device_part
                     subprocess.call("umount " + live_workdir, shell=True)
                     # Format the partition
                     subprocess.call("mkdosfs -F 32 -I -n " + liveclone_name + " " + usb_device, shell=True)
                     if usb_device_part != usb_device_root:
-                      # Ensure it has a boot flag
-                      boot_flag_part = commands.getoutput("parted /dev/" + usb_device_root + " print | grep boot | awk '{print $1}'")
-                      num = int(''.join(re.findall(r'\d+', usb_dev_part)))
-                      if not boot_flag_part.isdigit() or int(boot_flag_part) != num :
-                        subprocess.call("parted /dev/" + usb_device_root + " set " + num + " boot on", shell=True)
+                        # Ensure it has a boot flag
+                        boot_flag_part = commands.getoutput("parted /dev/" + usb_device_root + " print | grep boot | awk '{print $1}'")
+                        num = int(''.join(re.findall(r'\d+', usb_dev_part)))
+                        if not boot_flag_part.isdigit() or int(boot_flag_part) != num :
+                            subprocess.call("parted /dev/" + usb_device_root + " set " + num + " boot on", shell=True)
                     live_workdir = "/media/" + liveclone_name
                     subprocess.call("mkdir -p " + live_workdir, shell=True)
                     subprocess.call("mount " + usb_device + " " + live_workdir, shell=True)
@@ -532,7 +533,7 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
             yield True
-            subprocess.call("cd " + live_workdir + " && mkisofs -r -J -V " + liveclone_name + "  -b boot/grub/i386-pc/eltorito.img -c boot/grub.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso .", shell=True)
+            subprocess.call("cd " + live_workdir + " && mkisofs -r -J -V " + liveclone_name + "  -b boot/eltorito.img -c boot/grub.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso .", shell=True)
             self.progress_bar.set_text(_("Iso file succesfully created..."))
             self.progress_bar.set_fraction(1.0)
             # there's more work, return True
