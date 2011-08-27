@@ -56,7 +56,6 @@ live_environment = False
 cdrom_chosen = False
 usb_key_chosen = False
 
-
 ### Some global functions ###
 
 def check_live_environment():
@@ -382,8 +381,8 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
                 usb_device_root = commands.getoutput("echo " + usb_device_part + " | tr -d [:digit:]")
                 is_usb = commands.getoutput("[ $(cat /sys/block/" + usb_device_root + "/removable) -eq 1 -a $(cat /sys/block/" + usbdevice_root + "/ro) -eq 0 ] && echo ok") == "ok"
             if is_usb :
-                global usb_key
-                usb_key = True
+                global usb_key_chosen
+                usb_key_chosen = True
                 warning_dialog(_("All the data present on your USB key will be permanently erased!\n \nAre you sure you want to continue?"))
                 if result_warning == gtk.RESPONSE_YES:
                     global usb_device
@@ -548,7 +547,7 @@ work directory you specified. You can now exit LiveClone and use Brasero or a si
 program to burn the .iso file unto a CD-ROM."))
 
         # Clean up USB desktop icon and /media/xxx temp directory
-        if usb_key is True :
+        if usb_key_chosen is True :
             self.progress_bar.set_text(_("Setting the boot manager..."))
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
