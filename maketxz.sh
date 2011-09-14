@@ -6,6 +6,7 @@ mkdir -p pkg
 export DESTDIR=$PWD/pkg
 ./install.sh
 VER=$(grep 'version =' src/liveclone.py | head -n 1 | sed "s/.*'\(.*\)'/\1/")
+RLZ=1plb
 cd pkg
 cat <<EOF > install/slack-desc
 liveclone: LiveClone - A simple GUI to clone Live systems.
@@ -20,8 +21,8 @@ liveclone:
 liveclone:
 liveclone:
 EOF
-makepkg -l y -c n ../liveclone-$VER-noarch-1plb.txz
+makepkg -l y -c n ../liveclone-$VER-noarch-$RLZ.txz
 cd ..
-echo -e "python,pygtk,syslinux" > liveclone-$VER-noarch-1plb.dep
-md5sum liveclone-$VER-noarch-1plb.txz > liveclone-$VER-noarch-1plb.md5
+echo -e "python,pygtk,syslinux" > liveclone-$VER-noarch-$RLZ.dep
+md5sum liveclone-$VER-noarch-$RLZ.txz > liveclone-$VER-noarch-$RLZ.md5
 rm -rf pkg
