@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# vim: et sw=4 sta ts=4 ai tw=0
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #                                                                             #
@@ -37,6 +38,7 @@ import subprocess
 import time
 import sys
 import webbrowser
+import hashlib
 
 # Internationalization
 import locale
@@ -444,16 +446,34 @@ physical hard drive (hint: access path usually starts with /mnt or /media)."))
             LiveCdMountPoint = "/mnt/salt" + LiveCdMountInfo.read().splitlines()[0].split(':')[0]
 
         # Get the LiveCD SaLT root dir
+        global SaLTBaseDir
         global SaLTRootDir
+        SaLTBaseDir = ''
+        SaLTRootDir = 'salixlive'
+        SaLTIdentFile = ''
         with open('/mnt/salt/etc/salt.cfg') as SaLTConfig :
             for line in SaLTConfig.read().splitlines() :
-              if line.startswith("ROOT_DIR="):
-                SaLTRootDir = line.split("ROOT_DIR=")[1]
-                break
+                if line.startswith("ROOT_DIR="):
+                    SaLTRootDir = line.split("ROOT_DIR=")[1]
+                if line.startswith("IDENT_FILE="):
+                    SaLTIdentFile = line.split("IDENT_FILE=")[1]
+        # Read /proc/cmdline for identfile kernel parameter to override SalTIdentFile
+        identFileRegexp = re.compile('.* identfile=([^ ]+).*', re.I)
+        kcmdline = open('/proc/cmdline', 'r').read()
+        if identFileRegexp.match(kcmdline) :
+            SaLTIdentFile = identFileRegexp.sub('\\1', kcmldline)
+        if len(SaLTIdentFile) > 0 :
+            with open(LiveCdMountPoint + "/" + SaLTIdentFile) as SaLTIdent :
+                for line in SaLTIdent.read().splitlines() :
+                    if line.startswith("BASEDIR="):
+                        SaLTBaseDir = line.split("BASEDIR=")[1]
+                        break
+        if len(SaLTBaseDir) > 0 and not SaLTBaseDir.endswith("/") :
+            SaLTBaseDir = SaLTBaseDir + "/"
 
         # First we prepare the working directory & we populate the LiveCD/USB skeleton
         try :
-            shutil.copytree(LiveCdMountPoint + "/boot", live_workdir + "/boot", symlinks=False)
+            shutil.copytree(LiveCdMountPoint + "/" + SaLTBaseDir + "boot", live_workdir + "/boot", symlinks=False)
         except OSError :
             self.progress_dialog.hide()
             error_dialog(_("Sorry! Liveclone is not able to manage this \
@@ -492,24 +512,27 @@ directory or this partition, please choose another location for your work direct
             # there's more work, return True
             yield True
             subprocess.call("cp " + LiveCdMountPoint + "/*.live " + live_workdir, shell=True)
-            subprocess.call("cp " + LiveCdMountPoint + "/" + SaLTRootDir + "/modules/* " + live_workdir + "/" + SaLTRootDir + "/modules/", shell=True)
+            subprocess.call("cp " + LiveCdMountPoint + "/" + SaLTBaseDir + SaLTRootDir + "/modules/* " + live_workdir + "/" + SaLTRootDir + "/modules/", shell=True)
             os.makedirs(live_workdir + "/packages")
-            subprocess.call("cp -r " + LiveCdMountPoint + "/packages/* " + live_workdir + "/packages/", shell=True)
+            subprocess.call("cp -r " + LiveCdMountPoint + "/" + SaLTBaseDir + "packages/* " + live_workdir + "/packages/", shell=True)
         # Else we build LiveClone main module out of the running environment
         else :
             # Create the identity file
             today = datetime.date.today()
             identfile = liveclone_name.lower() + "-" + str(today) + ".live"
-            os.putenv("identity_file", identfile) # Sets the variable 'identity_file' in bash environment
-            subprocess.call("""echo $identity_file | md5sum | cut -d' ' -f1 > """ + live_workdir + "/$identity_file", shell=True)
-            os.putenv("md5_identity", open(live_workdir + "/" + identfile,"r").read().rstrip())
-            os.putenv("liveclone_name", liveclone_name)
+            identcontent = hashlib.md5(identfile).hexdigest()
+            with open(live_workdir + "/" + identfile, "w") as fid :
+                fid.write("ident_content=" + identcontent + "\n")
+                fid.write("basedir=/\n")
+                fid.write("iso_name=" + liveclone_name + ".iso\n")
+                fid.close()
             # Modify the configuration file in the initrd
             os.chdir(live_workdir + "/boot")
             subprocess.call("unxz initrd.xz", shell=True)
             os.mkdir("loop")
             subprocess.call("mount -o loop initrd loop", shell=True)
-            sed_process = """sed -i "s/^IDENT_FILE=.*/IDENT_FILE=$identity_file/; s/^IDENT_CONTENT=.*/IDENT_CONTENT=$md5_identity/; s/^LIVE_NAME=.*/LIVE_NAME=$liveclone_name/;" loop/etc/salt.cfg"""
+            os.putenv("liveclone_name", liveclone_name)
+            sed_process = """sed -i "s/^IDENT_FILE=.*/IDENT_FILE=""" + identfile + """/; s/^IDENT_CONTENT=.*/IDENT_CONTENT=""" + identcontent + """/; s/^LIVE_NAME=.*/LIVE_NAME=$liveclone_name/;" loop/etc/salt.cfg"""
             subprocess.call(sed_process, shell=True)
             subprocess.call("umount loop", shell=True)
             os.rmdir("loop")
@@ -540,8 +563,6 @@ directory or this partition, please choose another location for your work direct
             subprocess.call("sync", shell=True)
             time.sleep(3)
 
-### Add some basic check here
-
             info_dialog(_("Your Live CD image has been successfully created in the \
 work directory you specified. You can now exit LiveClone and use Brasero or a similar \
 program to burn the .iso file unto a CD-ROM."))
@@ -553,13 +574,21 @@ program to burn the .iso file unto a CD-ROM."))
             # there's more work, return True
             yield True
 
-            # Install Syslinux/Grub2 
-            subprocess.call("syslinux " + usb_device, shell=True)
-            subprocess.call("sync", shell=True)
-            # Set chainloading to GRUB2 in syslinux.conf
-            syslinux_config = live_workdir + "/syslinux.cfg"
-            stub = open(syslinux_config, "w")
-            stub.write("DEFAULT grub2\n\
+            signature = subprocess.check_output("dd if=/dev/" + usb_device_root + " bs=1 count=2 skip=510 2>/dev/null | od -t x1 | tr '\n' ' ')", shell=True)
+            if signature != "0000000 55 aa 0000002 " :
+                error_dialog(_("Error: " + usb_device + " does not contain a valid MBR."))
+            else :
+                # Install Syslinux/Grub2
+                subprocess.call("syslinux " + usb_device, shell=True)
+                if usb_device_part != usb_device_root:
+                    subprocess.call("dd if=/dev/zero of=/dev/" + usb_device_root + " bs=1 count=1", shell=True)
+                    usb_device_part_num = re.sub('.*([0-9]+)$', '\\1', usb_device_part)
+                    subprocess.call("parted /dev/" + usb_device_root + " set " + usb_device_part_num + " boot on", shell=True)
+                subprocess.call("sync", shell=True)
+                # Set chainloading to GRUB2 in syslinux.conf
+                syslinux_config = live_workdir + "/syslinux.cfg"
+                stub = open(syslinux_config, "w")
+                stub.write("DEFAULT grub2\n\
 PROMPT 0\n\
 NOESCAPE 1\n\
 TOTALTIMEOUT 1\n\
@@ -567,23 +596,20 @@ ONTIMEOUT grub2\n\
 LABEL grub2\n\
   SAY Chainloading to grub2...\n\
   LINUX boot/grub2-linux.img\n")
-            stub.close()
+                stub.close()
 
-            # This is only needed if the user is generating a customized clone:
-            if self.unmodified_radiobutton.get_active() == False :
-                subprocess.call(live_workdir + "/boot/update-grub2.sh", shell=True)
                 self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
                 self.progress_bar.set_fraction(1.0)
-                
-            # there's more work, return True
-            yield True        
-            subprocess.call("sync", shell=True)
-            time.sleep(3)
+                    
+                # there's more work, return True
+                yield True        
+                subprocess.call("sync", shell=True)
+                time.sleep(3)
 
 ### Add some basic check here
-            info_dialog(_("Your Live USB key has been successfully created. \n\
-You can now exit LiveClone program and unplug your customized live USB key, \
-it is unmounted and ready for use "))
+                info_dialog(_("Your Live USB key has been successfully created. \n\
+    You can now exit LiveClone program and unplug your customized live USB key, \
+    it is unmounted and ready for use "))
 
         self.progress_dialog.hide()
 
