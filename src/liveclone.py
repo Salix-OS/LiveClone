@@ -60,6 +60,16 @@ usb_key_chosen = False
 
 ### Some global functions ###
 
+# Output of bash commands :
+def run_bash(cmd):
+    """
+    Take a bash command and return the output.
+
+    """
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    out = p.stdout.read().strip()
+    return out  #This is the stdout from the shell command
+
 def check_live_environment():
     """Return True if we are in a Live environment."""
     if os.path.exists(live_typical_path):
@@ -152,7 +162,7 @@ persistent changes.")
 
         self.persistence_size.set_value(256)
         self.persistence_size.set_sensitive(False)
-        
+
 ### Callback signals waiting in a constant loop ###
 
 # Contextual help functions
@@ -574,8 +584,8 @@ program to burn the .iso file unto a CD-ROM."))
             # there's more work, return True
             yield True
 
-            signature = subprocess.check_output("dd if=/dev/" + usb_device_root + " bs=1 count=2 skip=510 2>/dev/null | od -t x1 | tr '\n' ' ')", shell=True)
-            if signature != "0000000 55 aa 0000002 " :
+            signature = run_bash("dd if=/dev/" + usb_device_root + " bs=1 count=2 skip=510 2>/dev/null | od -t x1 | tr '\n' ' '")
+            if signature != "0000000 55 aa 0000002" :
                 error_dialog(_("Error: " + usb_device + " does not contain a valid MBR."))
             else :
                 # Install Syslinux/Grub2
@@ -600,9 +610,9 @@ LABEL grub2\n\
 
                 self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
                 self.progress_bar.set_fraction(1.0)
-                    
+
                 # there's more work, return True
-                yield True        
+                yield True
                 subprocess.call("sync", shell=True)
                 time.sleep(3)
 
