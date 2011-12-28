@@ -1,6 +1,6 @@
 Version 0.11.13.37
  * Integration with the new SaLT scripts
- * Added /media /opt and /srv directory to the cloned squashfs system
+ * Improved the mksquashfs execution line to clone any existing directories
  * Removed pure isolinux/syslinux menu options
  * Added customized Grub core.img generation (Tx JRD)
 

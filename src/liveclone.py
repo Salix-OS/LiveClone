@@ -551,23 +551,25 @@ directory or this partition, please choose another location for your work direct
             os.putenv("liveclone_iso", liveclone_name + '.iso')
             sed_process2 = """sed -i "s/^ident_file=.*/ident_file=""" + identfile + """/; s/^searched_ident_content=.*/searched_ident_content=""" + identcontent + """/; s/^default_iso_name=.*/default_iso_name=$liveclone_iso/;" grub/memdisk_grub.cfg"""
             subprocess.call(sed_process2, shell=True)
-            # Generate new Grub image
+            # Re-generate Grub images
             try :
                 os.remove("/tmp/memdisk.tar")
             except OSError:
                 pass
             shutil.rmtree("/tmp/memdisk", ignore_errors=True)
             os.makedirs("/tmp/memdisk/boot/grub")
+            shutil.copy(live_workdir + "/boot/grub/memdisk_grub.cfg", "/tmp/memdisk/boot/grub/grub.cfg")
+            os.chdir("/tmp/memdisk/")
+            subprocess.call("tar -cf /tmp/memdisk.tar boot", shell=True)
             os.chdir(live_workdir)
-            shutil.copy("boot/grub/memdisk_grub.cfg", "/tmp/memdisk/boot/grub/grub.cfg")
-            subprocess.call("tar -cf /tmp/memdisk.tar /tmp/memdisk/boot", shell=True)
-            subprocess.call("""grub-mkimage -p /boot/grub -o /tmp/core.img -O i386-pc -m /tmp/memdisk.tar \
-            biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt \
-            memdisk tar configfile loopback normal extcmd regexp test read echo""", shell=True)
-            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > boot/grub2-linux.img", shell=True)
+            subprocess.call("""grub-mkimage -p /boot/grub -o /tmp/core.img -O i386-pc -m /tmp/memdisk.tar biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt memdisk tar configfile loopback normal extcmd regexp test read echo""", shell=True)
+            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
             os.remove("/tmp/core.img")
             os.remove("/tmp/memdisk.tar")
             shutil.rmtree("/tmp/memdisk", ignore_errors=True)
+            subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc biosdisk iso9660", shell=True)
+            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/cdboot.img /tmp/core.img > " + live_workdir + "/boot/eltorito.img", shell=True)
+            os.remove("/tmp/core.img")
             # Create the customized giant module
             self.progress_bar.set_text(_("Creating Custom Module..."))
             self.progress_bar.set_fraction(0.5)
