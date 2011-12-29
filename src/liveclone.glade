@@ -556,7 +556,7 @@ environment to a LiveCD or a USB key.
 
 Copyright &#xA9; 2007-2011 Pierrick Le Brun</property>
     <property name="website">http://www.simplynux.fr/</property>
-    <property name="website_label" translatable="yes">simplyNUX</property>
+    <property name="website_label">simplyNUX</property>
     <property name="license" translatable="yes">This program is free software; you can redistribute it 
 and/or modify it under the terms of the GNU General
 Public License as published by the Free Software 

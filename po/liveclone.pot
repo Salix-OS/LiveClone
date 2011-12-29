@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-28 20:34+0100\n"
+"POT-Creation-Date: 2011-12-29 11:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,10 +88,6 @@ msgid ""
 "environment to a LiveCD or a USB key.\n"
 "\n"
 "Copyright © 2007-2011 Pierrick Le Brun"
-msgstr ""
-
-#: src/liveclone.glade:559
-msgid "simplyNUX"
 msgstr ""
 
 #: src/liveclone.glade:560

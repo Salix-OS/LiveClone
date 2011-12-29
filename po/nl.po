@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-28 20:34+0100\n"
+"POT-Creation-Date: 2011-12-29 11:01+0100\n"
 "PO-Revision-Date: 2011-08-16 12:50+0000\n"
 "Last-Translator: gambit73 <gambit73@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.net/projects/p/salix/team/nl/)\n"
@@ -95,10 +95,6 @@ msgstr ""
 " omgeving naar een LiveCD of een USB-stick klonen.\n"
 "\n"
 "Copyright © 2007-2010 Pierrick Le Brun"
-
-#: src/liveclone.glade:559
-msgid "simplyNUX"
-msgstr ""
 
 #: src/liveclone.glade:560
 msgid ""

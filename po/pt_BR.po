@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-28 20:34+0100\n"
+"POT-Creation-Date: 2011-12-29 11:01+0100\n"
 "PO-Revision-Date: 2011-07-22 00:18+0000\n"
 "Last-Translator: Melroch <felipe.094@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,10 +95,6 @@ msgid ""
 msgstr ""
 "Este utilitário irá clonar um LiveCD ou seu ambiente de execução para um "
 "LiveCD ou uma chave USB. Copyright © 2007-2010 Pierrick Le Brun"
-
-#: src/liveclone.glade:559
-msgid "simplyNUX"
-msgstr ""
 
 #: src/liveclone.glade:560
 msgid ""
