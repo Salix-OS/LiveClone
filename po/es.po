@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-21 17:35+0200\n"
-"PO-Revision-Date: 2011-10-17 02:40+0000\n"
+"POT-Creation-Date: 2011-12-29 11:01+0100\n"
+"PO-Revision-Date: 2011-12-30 08:46+0000\n"
 "Last-Translator: seacat <seacat.linux@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: src/liveclone.glade:7 src/liveclone.glade:599 src/liveclone.desktop.in.h:2
+#: src/liveclone.glade:7 src/liveclone.glade:602 src/liveclone.desktop.in.h:2
 #: src/liveclone-kde.desktop.in.h:2
 msgid "LiveClone"
 msgstr "LiveClone"
@@ -88,14 +88,14 @@ msgid ""
 "This utility will clone a LiveCD or your running \n"
 "environment to a LiveCD or a USB key.\n"
 "\n"
-"Copyright © 2007-2010 Pierrick Le Brun"
+"Copyright © 2007-2011 Pierrick Le Brun"
 msgstr ""
-"Esta herramienta clonará un LiveCD o su entorno \n"
-"en ejecución a un LiveCD o una llave USB.\n"
+"Este utilitario clonará un LiveCD o su entorno \n"
+"en ewjecución en un LiveCD o una llave USB.\n"
 "\n"
-"Copyright © 2007-2010 Pierrick Le Brun"
+"Copyright © 2007-2011 Pierrick Le Brun"
 
-#: src/liveclone.glade:558
+#: src/liveclone.glade:560
 msgid ""
 "This program is free software; you can redistribute it \n"
 "and/or modify it under the terms of the GNU General\n"
@@ -131,11 +131,11 @@ msgstr ""
 "Free Software Foundation, Inc., 51 Franklin Street, \n"
 "Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: src/liveclone.glade:575
+#: src/liveclone.glade:577
 msgid "translator-credits"
 msgstr "Fernando Velo <seacat~dot~linux~at~gmail~dot~com>"
 
-#: src/liveclone.glade:615
+#: src/liveclone.glade:618
 msgid ""
 "\n"
 "<b>Creating the Clone</b>\n"
@@ -153,7 +153,7 @@ msgstr ""
 "proyecto o la potencia de su computadora y puede \n"
 "parecer que la misma está inactiva de a ratos. \n"
 
-#: src/liveclone.py:98
+#: src/liveclone.py:153
 msgid ""
 "LiveClone will generate a Live CD/DVD iso image or a Live USB key, based on "
 "SalixLive or on your running environment, with or without persistent "
@@ -162,11 +162,11 @@ msgstr ""
 "LiveClone generará una imagen ISO Live CD/DVD o una llave Live USB basada en"
 " SalixLive o en su entorno en ejecución, con o sin cambios persistentes."
 
-#: src/liveclone.py:121
+#: src/liveclone.py:171
 msgid "About LiveClone."
 msgstr "Acerca de LiveClone."
 
-#: src/liveclone.py:126
+#: src/liveclone.py:183
 msgid ""
 "Click on this tab if you want to create a Live CD/DVD iso image based on your running environment.\n"
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live CD/DVD.\n"
@@ -176,7 +176,7 @@ msgstr ""
 "Por lo tanto debería asegurarse que ya agregó o quitó cualquier programa y/o usuario, así como cualquier modificación estética o del sistema que quiera que sea incluida en su Live CD/DVD personalizado.\n"
 "Lo que *<i>ve</i>* en su sesión en ejecución es lo que obtendrá en su Live CD/DVD."
 
-#: src/liveclone.py:136
+#: src/liveclone.py:195
 msgid ""
 "Click on this tab if you want to create a Live USB based on an unmodified SalixLive CD or on your running SalixLive environment.\n"
 "In the later case, you should ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live USB key.\n"
@@ -186,15 +186,15 @@ msgstr ""
 "En el último caso, debería asegurarse que ya agregó o quitó cualquier programa y/o usuario, así como ejecitarse cualquier modificación estética o del sistema que quiera incluir en su llave LiveUSB personalizada.⏎\n"
 "Lo que *<i>ve</i>* en su sesión en ejecución es lo que obtendrá en su llave LiveUSB."
 
-#: src/liveclone.py:146
+#: src/liveclone.py:207
 msgid "Please enter the name of your Live CD/DVD."
 msgstr "Por favor, ingrese el nombre de su Live CD/DVD."
 
-#: src/liveclone.py:151
+#: src/liveclone.py:214
 msgid "Please enter the name of your Live USB."
 msgstr "Por favor, ingrese el nombre de su Live USB."
 
-#: src/liveclone.py:156
+#: src/liveclone.py:221
 msgid ""
 "This is the work directory where your Live CD/DVD iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
 "The free space available should be more than twice the size of your future Live CD/DVD.\n"
@@ -204,7 +204,7 @@ msgstr ""
 "El espacio libre disponible debería ser más del doble que el tamaño que el de su futuro Live CD/DVD.\n"
 "Tendría que está ubicado en una partición separada, un disco duro externo o una llave USB, ¡pero nunca jamás en su directorio home!"
 
-#: src/liveclone.py:165
+#: src/liveclone.py:232
 msgid ""
 "This is the path to your USB key. Please note that all present data it may "
 "contain will be permanently erased. "
@@ -212,7 +212,7 @@ msgstr ""
 "Esta es la ruta a su llave USB. Por favor advierta que todos los datos en "
 "ella se borrarán permanentemente."
 
-#: src/liveclone.py:171
+#: src/liveclone.py:240
 msgid ""
 "Check this option if you want to clone the <b>unmodified</b> SalixLive CD-"
 "ROM to a Live USB key (this option is only available if LiveClone is "
@@ -222,7 +222,7 @@ msgstr ""
 "modificaciones</b> a una llave Live USB (esta opción solamente está "
 "disponible si LiveClone se ejecuta desde un LiveCD)."
 
-#: src/liveclone.py:178
+#: src/liveclone.py:249
 msgid ""
 "Check this option if you want your Live USB key to be able to record all "
 "changes & data from live sessions (same behaviour as an installed standard "
@@ -232,7 +232,7 @@ msgstr ""
 "todos los cambios y datos desde las sesiones live (el mismo comportamiento "
 "que en un sistema instalado en forma estándar)."
 
-#: src/liveclone.py:184
+#: src/liveclone.py:257
 msgid ""
 "Check this option if you want to clone your running personnalized environment to a Live USB key. \n"
 "You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live USB key.\n"
@@ -242,7 +242,7 @@ msgstr ""
 "Por lo tanto, debería asegurar que agregó o quitó los programas y/o usuarios, tanto como cualquier modificación estética o del sistema que quiera que sea incluida en su llave Live USB personalizada.\n"
 "Lo que *<i>ve</i>* en su sesión en ejecución es lo que obtendrá en su llave Live USB."
 
-#: src/liveclone.py:194
+#: src/liveclone.py:269
 msgid ""
 "Set the size of your persistence file (It should be small enough to fit in "
 "your USB key while being large enough to fit as much data as possible)"
@@ -252,7 +252,7 @@ msgstr ""
 "suficientemente grande como para contener la mayor cantidad de datos "
 "posibles)."
 
-#: src/liveclone.py:200
+#: src/liveclone.py:277
 msgid ""
 "Click on this button once all your settings have been defined.\n"
 "You will then need some patience as the creation of a customized live media can be quite long depending on the power of your computer.\n"
@@ -262,11 +262,11 @@ msgstr ""
 "Entonces necesitará algo de paciencia porque la creación de un medio Live personalizado puede ser un poco extensa, dependiendo de la potencia de su computadora.\n"
 "Al final del proceso, una caja de diálogo le informará si LiveClone pudo crear o no su medio Live personalizado."
 
-#: src/liveclone.py:208
+#: src/liveclone.py:287
 msgid "Exit LiveClone."
 msgstr "Salir de LiveClone."
 
-#: src/liveclone.py:242
+#: src/liveclone.py:345
 msgid ""
 "Sorry, you must not use a location that is a part of the live environment ! \n"
 "\n"
@@ -276,7 +276,7 @@ msgstr ""
 "\n"
 "Por favor, seleccionar o crear un subdirectorio ubicado en un disco duro físico (sugerencia: la ruta de acceso usualmente comienza con /mnt o /media)."
 
-#: src/liveclone.py:285
+#: src/liveclone.py:398
 msgid ""
 "All the data present on your USB key will be permanently erased!\n"
 " \n"
@@ -286,7 +286,7 @@ msgstr ""
 " \n"
 "¿Está seguro de querer continuar?"
 
-#: src/liveclone.py:318
+#: src/liveclone.py:423
 msgid ""
 "Sorry, you may have selected an invalid USB key path!\n"
 " \n"
@@ -300,7 +300,7 @@ msgstr ""
 " \n"
 "Por favor, inténtelo nuevamente."
 
-#: src/liveclone.py:329
+#: src/liveclone.py:434
 msgid ""
 "Sorry! At the moment, LiveClone can only be executed from SalixLive environment. \n"
 "\n"
@@ -310,11 +310,11 @@ msgstr ""
 "\n"
 "El soporte para correr desde un entorno instalado regularmente se agregará en una futura versión de LiveClone."
 
-#: src/liveclone.py:344 src/liveclone.py:371
+#: src/liveclone.py:447 src/liveclone.py:500
 msgid "Customized live media creation in progress..."
 msgstr "Creación del medio live personalizado en progreso..."
 
-#: src/liveclone.py:360
+#: src/liveclone.py:489
 msgid ""
 "Sorry! Liveclone is not able to manage this directory or this partition, "
 "please choose another location for your work directory."
@@ -322,31 +322,31 @@ msgstr ""
 "¡Lo siento! LiveClone no es capaz de administrar este directorio o esta "
 "partición, por favor elija otra ubicación para su directorio de trabajo."
 
-#: src/liveclone.py:381
+#: src/liveclone.py:510
 msgid "Creating persistent file..."
 msgstr "Creando archivo de persistencia..."
 
-#: src/liveclone.py:391
+#: src/liveclone.py:520
 msgid "Copying SalixLive Modules..."
 msgstr "Copiando módulos SalixLive..."
 
-#: src/liveclone.py:418
+#: src/liveclone.py:574
 msgid "Creating Custom Module..."
 msgstr "Creando módulo personalizado..."
 
-#: src/liveclone.py:426
+#: src/liveclone.py:581
 msgid "Module created..."
 msgstr "Módulo creado..."
 
-#: src/liveclone.py:432
+#: src/liveclone.py:587
 msgid "Building the iso file..."
 msgstr "Generando el archivo ISO..."
 
-#: src/liveclone.py:437
+#: src/liveclone.py:592
 msgid "Iso file succesfully created..."
 msgstr "Archivo ISO correctamente creado..."
 
-#: src/liveclone.py:446
+#: src/liveclone.py:599
 msgid ""
 "Your Live CD image has been successfully created in the work directory you "
 "specified. You can now exit LiveClone and use Brasero or a similar program "
@@ -356,23 +356,27 @@ msgstr ""
 "especificó. Ahora puede salir de LiveClone y usar Brasero o un programa "
 "similar para quemar el archivo .iso a un CD-ROM."
 
-#: src/liveclone.py:452
+#: src/liveclone.py:605
 msgid "Setting the boot manager..."
 msgstr "Configurando el administrador de arranque..."
 
-#: src/liveclone.py:472
+#: src/liveclone.py:612
+msgid "Error: "
+msgstr "Error:"
+
+#: src/liveclone.py:634
 msgid "LiveUSB device succesfully created..."
 msgstr "Dispositivo LiveUSB correctamente creado..."
 
-#: src/liveclone.py:480
+#: src/liveclone.py:643
 msgid ""
 "Your Live USB key has been successfully created. \n"
-"You can now exit LiveClone program and unplug your customized live USB key, it is unmounted and ready for use "
+"    You can now exit LiveClone program and unplug your customized live USB key,     it is unmounted and ready for use "
 msgstr ""
-"Se creó correctamente su llave Live USB. \n"
-"Ahora puede salir del programa LiveClone y desconectar su llave Live USB, la que está desmontada y lista para usar."
+"Se creó satisfactoriamente su llave Live USB. \n"
+"    Ahora puede salir del programa LiveClone y desconectar su llave Live USB personalizada,     está desmnatada y lista para usarse "
 
-#: src/liveclone.py:545
+#: src/liveclone.py:658
 msgid ""
 "<b>Sorry!</b> \n"
 "\n"
