@@ -25,4 +25,5 @@ makepkg -l y -c n ../liveclone-$VER-noarch-$RLZ.txz
 cd ..
 echo -e "python,pygtk,syslinux" > liveclone-$VER-noarch-$RLZ.dep
 md5sum liveclone-$VER-noarch-$RLZ.txz > liveclone-$VER-noarch-$RLZ.md5
+echo 'cdrtools,coreutils,dosfstools,grep,grub2,parted,python,pygtk,sed,squashfs-tools,syslinux,sysvinit,tar,xfsprogs,xz' > liveclone-$VER-noarch-$RLZ.dep
 rm -rf pkg

@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Dimitris Tzemos <djemos@slackel.gr>, 2011.
 #   <djemos@slackel.gr>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-29 11:01+0100\n"
-"PO-Revision-Date: 2011-10-16 07:29+0000\n"
-"Last-Translator: djemos <djemos@slackel.gr>\n"
+"PO-Revision-Date: 2011-12-30 08:46+0000\n"
+"Last-Translator: Dimitris Tzemos <djemos@slackel.gr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: src/liveclone.glade:7 src/liveclone.glade:602 src/liveclone.desktop.in.h:2
@@ -84,17 +85,15 @@ msgid "About LiveClone"
 msgstr "Σχετικά με το LiveClone"
 
 #: src/liveclone.glade:554
-#, fuzzy
 msgid ""
 "This utility will clone a LiveCD or your running \n"
 "environment to a LiveCD or a USB key.\n"
 "\n"
 "Copyright © 2007-2011 Pierrick Le Brun"
 msgstr ""
-"Το εργαλείο αυτό θα κλωνοποιήσει ένα LiveCD ή το τρέχον \n"
-"περιβάλλον σας σε ένα LiveCD ή σε δίσκο USB.\n"
+"Αυτό το βοηθητικό πρόγραμμα θα κλωνοποιήσει ένα LiveCD ή το τρέχον περιβάλλον σας σε ένα LiveCD ή USB key.\n"
 "\n"
-"Copyright © 2007-2010 Pierrick Le Brun"
+"Copyright © 2007-2011 Pierrick Le Brun"
 
 #: src/liveclone.glade:560
 msgid ""
@@ -134,7 +133,9 @@ msgstr ""
 
 #: src/liveclone.glade:577
 msgid "translator-credits"
-msgstr "George Vlahavas <vlahavas~at~gmail~dot~com>"
+msgstr ""
+"George Vlahavas <vlahavas~at~gmail~dot~com>\n"
+"Dimitris Tzemos <djemos~at~slackel~dot~gr>"
 
 #: src/liveclone.glade:618
 msgid ""
@@ -151,14 +152,14 @@ msgstr ""
 "\n"
 "Παρακαλούμε περιμένετε όσο δημιουργείται ο κλώνος του συστήματός σας.... \n"
 "Αυτό μπορεί να διαρκέσει αρκετά, εξαρτώμενο από το μέγεθος της \n"
-"εργασίας ή την υπολογιστική δύναμη του υπολογιστή σας. Το σύστημα ενδέχεται "
-"να \n"
+"εργασίας ή την υπολογιστική δύναμη του υπολογιστή σας. Το σύστημα ενδέχεται να \n"
 "δείχνει ότι δεν λειτουργεί για κάποια διαστήματα.\n"
 
 #: src/liveclone.py:153
 msgid ""
 "LiveClone will generate a Live CD/DVD iso image or a Live USB key, based on "
-"SalixLive or on your running environment, with or without persistent changes."
+"SalixLive or on your running environment, with or without persistent "
+"changes."
 msgstr ""
 "Το LiveClone θα δημιουργήσει μία εικόνα iso του LiveCD/DVD ή ένα δίσκο USB, "
 "βασισμένο στο SalixLive ή στο τρέχον περιβάλλον σας, με ή χωρίς μόνιμες "
@@ -170,43 +171,23 @@ msgstr "Σχετικά με το LiveClone."
 
 #: src/liveclone.py:183
 msgid ""
-"Click on this tab if you want to create a Live CD/DVD iso image based on "
-"your running environment.\n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"Live CD/DVD.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"Live CD/DVD."
+"Click on this tab if you want to create a Live CD/DVD iso image based on your running environment.\n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live CD/DVD.\n"
+"What you *<i>see</i>* in your running session is what you will get in your Live CD/DVD."
 msgstr ""
-"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε μία εικόνα iso του "
-"LiveCD/DVD βασισμένο στη τρέχον περιβάλλον σας.\n"
-"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/"
-"και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα "
-"ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveCD/DVD.\n"
-"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι "
-"ακριβώς αυτό που θα πάρετε στο LiveCD/DVD."
+"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε μία εικόνα iso του LiveCD/DVD βασισμένο στη τρέχον περιβάλλον σας.\n"
+"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveCD/DVD.\n"
+"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι ακριβώς αυτό που θα πάρετε στο LiveCD/DVD."
 
 #: src/liveclone.py:195
 msgid ""
-"Click on this tab if you want to create a Live USB based on an unmodified "
-"SalixLive CD or on your running SalixLive environment.\n"
-"In the later case, you should ensure that you have already added and/or "
-"removed any programs and/or any users, as well as performed any other system "
-"or aesthetic modifications which you want to be included in your customized "
-"Live USB key.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"Live USB key."
+"Click on this tab if you want to create a Live USB based on an unmodified SalixLive CD or on your running SalixLive environment.\n"
+"In the later case, you should ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live USB key.\n"
+"What you *<i>see</i>* in your running session is what you will get in your Live USB key."
 msgstr ""
-"Κάντε κλικ σε αυτήν την καρτέλα εάν θέλετε να δημιουργήσετε ένα Live USB που "
-"βασίζεται σε ένα μη τροποποιημένο SalixLive CD ή στο τρέχον SalixLive "
-"περιβάλλον σας.\n"
-"Στην τελευταία περίπτωση, θα πρέπει να βεβαιωθείτε ότι έχετε ήδη προσθέσει "
-"και/ή αφαιρέσει όλα τα προγράμματα και/ή οποιουσδήποτε χρήστες, και να έχουν "
-"γίνει κάθε άλλες τροποποιήσεις του συστήματος ή αισθητικές που θέλετε να "
-"συμπεριληφθούν στην προσαρμοσμένο Live USB σας.\n"
-"Αυτό που *<i>βλέπετε</i>* στη τρέχουσα συνεδρία σας είναι αυτό που θα έχετε "
-"στο Live USB κλειδί σας."
+"Κάντε κλικ σε αυτήν την καρτέλα εάν θέλετε να δημιουργήσετε ένα Live USB που βασίζεται σε ένα μη τροποποιημένο SalixLive CD ή στο τρέχον SalixLive περιβάλλον σας.\n"
+"Στην τελευταία περίπτωση, θα πρέπει να βεβαιωθείτε ότι έχετε ήδη προσθέσει και/ή αφαιρέσει όλα τα προγράμματα και/ή οποιουσδήποτε χρήστες, και να έχουν γίνει κάθε άλλες τροποποιήσεις του συστήματος ή αισθητικές που θέλετε να συμπεριληφθούν στην προσαρμοσμένο Live USB σας.\n"
+"Αυτό που *<i>βλέπετε</i>* στη τρέχουσα συνεδρία σας είναι αυτό που θα έχετε στο Live USB κλειδί σας."
 
 #: src/liveclone.py:207
 msgid "Please enter the name of your Live CD/DVD."
@@ -218,19 +199,13 @@ msgstr "Παρακαλούμε εισάγετε το όνομα του LiveUSB."
 
 #: src/liveclone.py:221
 msgid ""
-"This is the work directory where your Live CD/DVD iso image will be created "
-"& where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
-"The free space available should be more than twice the size of your future "
-"Live CD/DVD.\n"
-"It should be located on a separate partition, an external hardrive or a USB "
-"key but never -ever- in your home directory!"
+"This is the work directory where your Live CD/DVD iso image will be created & where you will be able to retrieve it to burn it unto a CD/DVD-ROM.\n"
+"The free space available should be more than twice the size of your future Live CD/DVD.\n"
+"It should be located on a separate partition, an external hardrive or a USB key but never -ever- in your home directory!"
 msgstr ""
-"Αυτός είναι ο κατάλογος εργασίας όπου θα αποθηκευτεί η εικόνα iso του LiveCD/"
-"DVD.\n"
-"Ο ελεύθερος χώρος θα πρέπει να είναι τουλάχιστον διπλάσιος του χώρου που "
-"απαιτεί το νέο LiveCD/DVD.\n"
-"Θα πρέπει να βρίσκεται σε μία διαφορετική κατάτμηση, ένα εξωτερικό σκληρό "
-"δίσκο ή ένα δίσκο USB αλλά ΠΟΤΕ στον αρχικό κατάλογο του χρήστη!"
+"Αυτός είναι ο κατάλογος εργασίας όπου θα αποθηκευτεί η εικόνα iso του LiveCD/DVD.\n"
+"Ο ελεύθερος χώρος θα πρέπει να είναι τουλάχιστον διπλάσιος του χώρου που απαιτεί το νέο LiveCD/DVD.\n"
+"Θα πρέπει να βρίσκεται σε μία διαφορετική κατάτμηση, ένα εξωτερικό σκληρό δίσκο ή ένα δίσκο USB αλλά ΠΟΤΕ στον αρχικό κατάλογο του χρήστη!"
 
 #: src/liveclone.py:232
 msgid ""
@@ -246,8 +221,8 @@ msgid ""
 "ROM to a Live USB key (this option is only available if LiveClone is "
 "executed from a LiveCD)."
 msgstr ""
-"Επιλέξτε αυτό αν επιθυμείτε να κλωνοποιήσετε ένα <b>αμετάβλητο</b>CD-ROM του "
-"SalixLive σε ένα δίσκο USB (αυτή η επιλογή είναι διαθέσιμη μόνο αν το "
+"Επιλέξτε αυτό αν επιθυμείτε να κλωνοποιήσετε ένα <b>αμετάβλητο</b>CD-ROM του"
+" SalixLive σε ένα δίσκο USB (αυτή η επιλογή είναι διαθέσιμη μόνο αν το "
 "LiveClone εκτελείται μέσω ενός LiveCD)."
 
 #: src/liveclone.py:249
@@ -262,22 +237,13 @@ msgstr ""
 
 #: src/liveclone.py:257
 msgid ""
-"Check this option if you want to clone your running personnalized "
-"environment to a Live USB key. \n"
-"You should therefore ensure that you have already added and/or removed any "
-"programs and/or any users, as well as performed any other system or "
-"aesthetic modifications which you want to be included in your customized "
-"Live USB key.\n"
-"What you *<i>see</i>* in your running session is what you will get in your "
-"Live USB key."
+"Check this option if you want to clone your running personnalized environment to a Live USB key. \n"
+"You should therefore ensure that you have already added and/or removed any programs and/or any users, as well as performed any other system or aesthetic modifications which you want to be included in your customized Live USB key.\n"
+"What you *<i>see</i>* in your running session is what you will get in your Live USB key."
 msgstr ""
-"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε ένα δίσκο LiveUSB "
-"βασισμένο στη τρέχον περιβάλλον σας.\n"
-"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/"
-"και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα "
-"ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveUSB.\n"
-"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι "
-"ακριβώς αυτό που θα πάρετε στο LiveUSB."
+"Επιλέξτε αυτή την καρτέλα αν επιθυμείτε να δημιουργήσετε ένα δίσκο LiveUSB βασισμένο στη τρέχον περιβάλλον σας.\n"
+"Θα πρέπει να βεβαιωθείτε ότι έχετε προσθέσει ή αφαιρέσει όποια προγράμματα ή/και χρήστες, όπως επίσης να έχετε εφαρμόει όποιες άλλες αλλαγές στο σύστημα ή στην εμφάνιση που θα θέλατε να ενσωματωθούν στο νέο LiveUSB.\n"
+"Αυτό που *<i>βλέπετε</i>* στο τρέχον περιβάλλον του υπολογιστή σας, είναι ακριβώς αυτό που θα πάρετε στο LiveUSB."
 
 #: src/liveclone.py:269
 msgid ""
@@ -291,17 +257,12 @@ msgstr ""
 #: src/liveclone.py:277
 msgid ""
 "Click on this button once all your settings have been defined.\n"
-"You will then need some patience as the creation of a customized live media "
-"can be quite long depending on the power of your computer.\n"
-"At the end of the process, an information dialog will let you know if "
-"LiveClone succeeded or failed to create your customized live media."
+"You will then need some patience as the creation of a customized live media can be quite long depending on the power of your computer.\n"
+"At the end of the process, an information dialog will let you know if LiveClone succeeded or failed to create your customized live media."
 msgstr ""
 "Χρησιμοποιήστε αυτό το πλήκτρο όταν έχετε ολοκληρώσει όλες τις ρυθμίσεις.\n"
-"Στη συνέχεια θα πρέπει να περιμένετε όσο δημουργείται το κλωνοποιημένο "
-"σύστημα. Αυτό μπορεί να πάρει αρκετή ώρα, εξαρτώμενο από την υπολογιστική "
-"ισχύ του υπολογιστή σας.\n"
-"Όταν τελειώσει η εργασίας, ένα παράθυρο ενημέρωσης θα εμφανιστεί για να σας "
-"πληροφορήσει αν το LiveClone πέτυχε ή όχι στο να δημιουργήσει το LiveCD."
+"Στη συνέχεια θα πρέπει να περιμένετε όσο δημουργείται το κλωνοποιημένο σύστημα. Αυτό μπορεί να πάρει αρκετή ώρα, εξαρτώμενο από την υπολογιστική ισχύ του υπολογιστή σας.\n"
+"Όταν τελειώσει η εργασίας, ένα παράθυρο ενημέρωσης θα εμφανιστεί για να σας πληροφορήσει αν το LiveClone πέτυχε ή όχι στο να δημιουργήσει το LiveCD."
 
 #: src/liveclone.py:287
 msgid "Exit LiveClone."
@@ -309,18 +270,13 @@ msgstr "Έξοδος από το LiveClone."
 
 #: src/liveclone.py:345
 msgid ""
-"Sorry, you must not use a location that is a part of the live "
-"environment ! \n"
+"Sorry, you must not use a location that is a part of the live environment ! \n"
 "\n"
-"Please select or create a subdirectory located on a physical hard drive "
-"(hint: access path usually starts with /mnt or /media)."
+"Please select or create a subdirectory located on a physical hard drive (hint: access path usually starts with /mnt or /media)."
 msgstr ""
-"Δεν μπορείτε να χρησιμοποιήσετε μια τοποθεσία που αποτελεί μέρος του "
-"περιβάλλοντος live!\n"
+"Δεν μπορείτε να χρησιμοποιήσετε μια τοποθεσία που αποτελεί μέρος του περιβάλλοντος live!\n"
 "\n"
-"Παρακαλούμε επιλέξτε ή δημιουργήστε ένα κατάλογο σε ένα από τους σκληρούς "
-"δίσκους του υπολογιστή σας (συμβουλή: συνήθως η διαδρομή ξεκινά με /mnt ή /"
-"media)."
+"Παρακαλούμε επιλέξτε ή δημιουργήστε ένα κατάλογο σε ένα από τους σκληρούς δίσκους του υπολογιστή σας (συμβουλή: συνήθως η διαδρομή ξεκινά με /mnt ή /media)."
 
 #: src/liveclone.py:398
 msgid ""
@@ -348,17 +304,13 @@ msgstr ""
 
 #: src/liveclone.py:434
 msgid ""
-"Sorry! At the moment, LiveClone can only be executed from SalixLive "
-"environment. \n"
+"Sorry! At the moment, LiveClone can only be executed from SalixLive environment. \n"
 "\n"
-"Support to run from a regular installed environment will be added in a "
-"future version of LiveClone."
+"Support to run from a regular installed environment will be added in a future version of LiveClone."
 msgstr ""
-"Συγγνώμη! Προς το παρόν, το LiveClone μπορεί να εκτελεστεί μόνο από το "
-"περιβάλλον του SalixLive.\n"
+"Συγγνώμη! Προς το παρόν, το LiveClone μπορεί να εκτελεστεί μόνο από το περιβάλλον του SalixLive.\n"
 "\n"
-"Υποστήριξη για εκτέλεση από ένα ήδη εκγατεστημένο σύστημα θα προστεθεί σε "
-"μελλοντικές εκδόσεις του LiveClone."
+"Υποστήριξη για εκτέλεση από ένα ήδη εκγατεστημένο σύστημα θα προστεθεί σε μελλοντικές εκδόσεις του LiveClone."
 
 #: src/liveclone.py:447 src/liveclone.py:500
 msgid "Customized live media creation in progress..."
@@ -404,8 +356,8 @@ msgid ""
 "to burn the .iso file unto a CD-ROM."
 msgstr ""
 "Η εικόνα του LiveCD δημιουργήθηκε με επιτυχία στον κατάλογο εργασίας που "
-"προσδιορίσατε. Μπορείτε τώρα να κλείσετε το LiveClone και να χρησιμοποιήσετε "
-"το Brasero ή κάποιο παρόμοιο πρόγραμμα για να εγγράψετε το αρχείο .iso σε "
+"προσδιορίσατε. Μπορείτε τώρα να κλείσετε το LiveClone και να χρησιμοποιήσετε"
+" το Brasero ή κάποιο παρόμοιο πρόγραμμα για να εγγράψετε το αρχείο .iso σε "
 "ένα CD-ROM."
 
 #: src/liveclone.py:605
@@ -414,22 +366,19 @@ msgstr "Ορισμός του διαχειριστή εκκίνησης..."
 
 #: src/liveclone.py:612
 msgid "Error: "
-msgstr ""
+msgstr "Λάθος: "
 
 #: src/liveclone.py:634
 msgid "LiveUSB device succesfully created..."
 msgstr "Η συσκευή LiveUSB δημιουργήθηκε με επιτυχία..."
 
 #: src/liveclone.py:643
-#, fuzzy
 msgid ""
 "Your Live USB key has been successfully created. \n"
-"    You can now exit LiveClone program and unplug your customized live USB "
-"key,     it is unmounted and ready for use "
+"    You can now exit LiveClone program and unplug your customized live USB key,     it is unmounted and ready for use "
 msgstr ""
-"Ο δίσκος LiveUSB δημιουργήθηκε με επιτυχία.\n"
-"Μπορείτε τώρα να κλείσετε το LiveClone και να αποσυνδέσετε το δίσκο USB, "
-"έχει αποπροσαρτηθεί και είναι έτοιμος για χρήση"
+"Το Live USB κλειδί σας έχει δημιουργηθεί με επιτυχία. \n"
+"    Μπορείτε τώρα να τερματίσετε το πρόγραμμα LiveClone και να αφαιρέσετε το τροποποιημένο live USB κλειδί σας,     έχει αποπροσαρτηθεί και είναι έτοιμο για χρήση "
 
 #: src/liveclone.py:658
 msgid ""
@@ -452,3 +401,5 @@ msgstr ""
 #: src/liveclone.desktop.in.h:3 src/liveclone-kde.desktop.in.h:3
 msgid "LiveClone utility"
 msgstr "Εργαλείο LiveClone"
+
+
