@@ -5,13 +5,13 @@
 # Translators:
 # Kerd <kerd89@gmail.com>, 2011.
 # laplume <laplume@libero.it>, 2011.
-#   <laplume@libero.it>, 2011.
+#   <laplume@libero.it>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-29 11:01+0100\n"
-"PO-Revision-Date: 2011-12-30 08:46+0000\n"
+"PO-Revision-Date: 2012-01-04 20:48+0000\n"
 "Last-Translator: laplume <laplume@libero.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,9 @@ msgid ""
 "\n"
 "Copyright © 2007-2011 Pierrick Le Brun"
 msgstr ""
+"Questa utility realizzerà una copia del  LiveCD o del sistema in uso  su supporto LiveCD o su chiavetta USB.\n"
+"\n"
+"Copyright © 2007-2011 Pierrick Le Brun"
 
 #: src/liveclone.glade:560
 msgid ""
@@ -344,7 +347,7 @@ msgstr "Impostazione del gestore di boot..."
 
 #: src/liveclone.py:612
 msgid "Error: "
-msgstr ""
+msgstr "Errore: "
 
 #: src/liveclone.py:634
 msgid "LiveUSB device succesfully created..."
@@ -355,6 +358,8 @@ msgid ""
 "Your Live USB key has been successfully created. \n"
 "    You can now exit LiveClone program and unplug your customized live USB key,     it is unmounted and ready for use "
 msgstr ""
+"La vostra chiavetta USB Live è stata creata con successo. \n"
+"    Potete uscire da  LiveClone e disconnettere la chiavetta  live USB personalizzata,     è già smontata e pronta all'uso "
 
 #: src/liveclone.py:658
 msgid ""
