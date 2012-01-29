@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <gambit73@gmail.com>, 2011.
+#   <gambit73@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Salix\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-29 11:01+0100\n"
-"PO-Revision-Date: 2011-12-30 08:46+0000\n"
+"PO-Revision-Date: 2012-01-02 13:02+0000\n"
 "Last-Translator: gambit73 <gambit73@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.net/projects/p/salix/team/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -90,6 +90,9 @@ msgid ""
 "\n"
 "Copyright © 2007-2011 Pierrick Le Brun"
 msgstr ""
+"Deze tool zal een LiveCD of uw huidige omgeving klonen naar een LiveCD of een USB-key.\n"
+"\n"
+"Copyright © 2007-2011 Pierrick Le Brun"
 
 #: src/liveclone.glade:560
 msgid ""
@@ -363,7 +366,7 @@ msgstr "Instellen van de boot-manager ..."
 
 #: src/liveclone.py:612
 msgid "Error: "
-msgstr ""
+msgstr "Fout: "
 
 #: src/liveclone.py:634
 msgid "LiveUSB device succesfully created..."
@@ -374,6 +377,8 @@ msgid ""
 "Your Live USB key has been successfully created. \n"
 "    You can now exit LiveClone program and unplug your customized live USB key,     it is unmounted and ready for use "
 msgstr ""
+"Uw Live USB-key is succesvol aangemaakt. \n"
+"    U kunt het LiveClone programma afsluiten en uw eigengemaakte Live USB key eruit halen,     hij is ge-unmount en klaar voor gebruik "
 
 #: src/liveclone.py:658
 msgid ""
