@@ -24,7 +24,7 @@
 #                                                                             #
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-# version = '0.11.13.37'
+# version = '0.12'
 
 import commands
 import datetime
@@ -563,13 +563,10 @@ directory or this partition, please choose another location for your work direct
             subprocess.call("tar -cf /tmp/memdisk.tar boot", shell=True)
             os.chdir(live_workdir)
             subprocess.call("""grub-mkimage -p /boot/grub -o /tmp/core.img -O i386-pc -m /tmp/memdisk.tar biosdisk ext2 fat iso9660 ntfs reiserfs xfs part_msdos part_gpt memdisk tar configfile loopback normal extcmd regexp test read echo""", shell=True)
-            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > " + live_workdir + "/boot/grub2-linux.img", shell=True)
+            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/lnxboot.img /tmp/core.img > " + live_workdir + "/boot/g2l.img", shell=True)
             os.remove("/tmp/core.img")
             os.remove("/tmp/memdisk.tar")
             shutil.rmtree("/tmp/memdisk", ignore_errors=True)
-            subprocess.call("grub-mkimage -p /boot/grub/i386-pc -o /tmp/core.img -O i386-pc biosdisk iso9660", shell=True)
-            subprocess.call("cat " + live_workdir + "/boot/grub/i386-pc/cdboot.img /tmp/core.img > " + live_workdir + "/boot/eltorito.img", shell=True)
-            os.remove("/tmp/core.img")
             # Create the customized giant module
             self.progress_bar.set_text(_("Creating Custom Module..."))
             self.progress_bar.set_fraction(0.5)
@@ -588,7 +585,7 @@ directory or this partition, please choose another location for your work direct
             self.progress_bar.set_fraction(0.9)
             # there's more work, return True
             yield True
-            subprocess.call("cd " + live_workdir + " && mkisofs -r -J -V " + liveclone_name + "  -b boot/eltorito.img -c boot/grub.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso .", shell=True)
+            subprocess.call("cd " + live_workdir + " && xorriso -as mkisofs -r -J -V " + liveclone_name + "  -b boot/isolinux/isolinux.bin -c boot/eltorito.cat  -isohybrid-mbr isohdpfx.bin -partition_offset 16 -no-emul-boot -boot-load-size 4 -boot-info-table -o " + iso_dir + "/" + liveclone_name + ".iso .", shell=True)
             self.progress_bar.set_text(_("Iso file succesfully created..."))
             self.progress_bar.set_fraction(1.0)
             # there's more work, return True
@@ -626,9 +623,10 @@ PROMPT 0\n\
 NOESCAPE 1\n\
 TOTALTIMEOUT 1\n\
 ONTIMEOUT grub2\n\
+SAY Chainloading to grub2...\n\
 LABEL grub2\n\
-  SAY Chainloading to grub2...\n\
-  LINUX boot/grub2-linux.img\n")
+  COM32 /boot/isolinux/chain.c32\n\
+  APPEND file=/boot/g2l.img\n")
                 stub.close()
 
                 self.progress_bar.set_text(_("LiveUSB device succesfully created..."))
