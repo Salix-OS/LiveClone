@@ -1,0 +1,5 @@
+*.dep
+*.md5
+*.txz
+po/*.mo
+src/*.desktop
